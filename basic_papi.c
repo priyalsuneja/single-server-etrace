@@ -33,11 +33,10 @@ int main (int main, char **argv) {
 
     PAPI_reset(eventset);
     retval = PAPI_start(eventset);
-//     if(retval != PAPI_OK) { 
-//         fprintf(stderr, "error starting CUDA: %s\n", PAPI_strerror(retval));
-//     } 
+    if(retval != PAPI_OK) { 
+        fprintf(stderr, "error starting CUDA: %s\n", PAPI_strerror(retval));
+    } 
     printf("hello world\n");
-//     int x = 55;
     printf("bye bye\n");
     
     retval=PAPI_stop(eventset, count);
