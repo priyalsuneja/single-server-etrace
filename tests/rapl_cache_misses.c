@@ -1,8 +1,6 @@
 /* TODO
  * look at rapl_basic and see how they normalize to W and J of energy 
  * also add actual tests instead of just function call!
- * also figure out how to install papi as library and still use rapl stuff
- * instead of having to run from its test folder
  */
 #include <stdio.h>
 #include <string.h>
@@ -10,8 +8,10 @@
 #include <unistd.h>
 
 #include <papi.h>
+// #include "papi_test.h"
 
 #define NUM_EVENTS 6
+#define L1_SIZE 1280*1024
 
 char events[NUM_EVENTS][BUFSIZ]={
     "PACKAGE_ENERGY:PACKAGE0",
@@ -24,6 +24,8 @@ char events[NUM_EVENTS][BUFSIZ]={
 
 int main () {
 
+    int *arr = malloc(2*L1_SIZE*sizeof(int));
+
     const PAPI_component_info_t *cmpinfo = NULL;
     int retval, eventcode = 0;
     retval = PAPI_library_init(PAPI_VER_CURRENT);
@@ -32,6 +34,7 @@ int main () {
         return 0;
     }
     int eventset = PAPI_NULL;
+    int eventset2 = PAPI_NULL;
 
     int numcmp = PAPI_num_components();
     int rapl_cid, cid;
@@ -62,6 +65,11 @@ int main () {
         fprintf(stderr, "couldn't create eventset %s\n", PAPI_strerror(retval) );
         return -1;
     }
+    retval = PAPI_create_eventset(&eventset2);
+    if(retval != PAPI_OK) {
+        fprintf(stderr, "couldn't create eventset %s\n", PAPI_strerror(retval) );
+        return -1;
+    }
 
     eventcode = PAPI_NATIVE_MASK; 
 
@@ -72,13 +80,6 @@ int main () {
         if( i >= NUM_EVENTS) {
             break;
         }
-//         retval = PAPI_event_name_to_code(events[i],&eventcode);
-//         if(retval != PAPI_OK) {
-//             fprintf(stderr, "error adding event %s, error %s\n", events[i],
-//             PAPI_strerror(retval));
-//         } else {
-//             printf("eventcode for %d is %d\n", i, eventcode);
-//         }
         retval = PAPI_add_named_event(eventset, events[i]);
         if(retval != PAPI_OK) {
             fprintf(stderr, "error adding event %s, error %s\n", events[i],
@@ -87,76 +88,108 @@ int main () {
         i++;
         r = PAPI_enum_cmp_event(&eventcode, PAPI_ENUM_FIRST, rapl_cid);
     }
+    retval = PAPI_add_named_event(eventset2, "PAPI_L1_DCM");
+    if(retval != PAPI_OK) {
+        fprintf(stderr, "error adding cache miss count, error %s\n",
+        PAPI_strerror(retval));
+    }
     long long count[NUM_EVENTS]; 
+    long long count2; 
 
     PAPI_reset(eventset);
+    PAPI_reset(eventset2);
     retval = PAPI_start(eventset);
     if(retval != PAPI_OK) { 
         fprintf(stderr, "error starting CUDA: %s\n", PAPI_strerror(retval));
     } 
+    retval = PAPI_start(eventset2);
+    if(retval != PAPI_OK) { 
+        fprintf(stderr, "error starting CUDA: %s\n", PAPI_strerror(retval));
+    } 
 
-    printf("hello world\n");
-    printf("bye bye\n");
+//     printf("hello world\n");
+//     printf("bye bye\n");
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
+    arr[0] = 1;
+    arr[L1_SIZE] = 2; 
     
     retval=PAPI_stop(eventset, count);
+    retval=PAPI_stop(eventset2, &count2);
     if(retval!=PAPI_OK) {
         fprintf(stderr, "papi error stopping %s\n", PAPI_strerror(retval));
         return 0;
         
     }
     else {
-//         printf("Measured %lld ins, %lld cycles\n", count[0], count[1]);
-        printf("package energy p0 %lld, package energy p1 %lld\n", count[0],
-        count[1]);
+        printf("package energy p0 %lld, package energy p1 %lld cache misses %lld \n", 
+        count[0], count[1], count2);
+//         printf("package energy p0 %lld, package energy p1 %lld\n", 
+//         count[0], count[1]);
     }
     PAPI_cleanup_eventset(eventset);
     PAPI_destroy_eventset(&eventset);
-    
-
-    // setting events to measure
-/*    int eventset=PAPI_NULL;
-
-    retval = PAPI_create_eventset(&eventset);
-
-    if(retval != PAPI_OK) {
-        fprintf(stderr, "papi create eventset %s\n", PAPI_strerror(retval));
-        return 0;
-    }
-
-    for(int i=0; i < NUM_EVENTS; i++) {
-        retval = PAPI_add_named_event(eventset, events[i]);
-        if(retval != PAPI_OK) {
-            fprintf(stderr, "error adding event %s, error %s\n", events[i],
-            PAPI_strerror(retval));
-        }
-    }
-    
-    long long count[NUM_EVENTS]; 
-
-    PAPI_reset(eventset);
-    retval = PAPI_start(eventset);
-    if(retval != PAPI_OK) { 
-        fprintf(stderr, "error starting CUDA: %s\n", PAPI_strerror(retval));
-    } 
-
-    printf("hello world\n");
-    printf("bye bye\n");
-    
-    retval=PAPI_stop(eventset, count);
-    if(retval!=PAPI_OK) {
-        fprintf(stderr, "papi error stopping %s\n", PAPI_strerror(retval));
-        return 0;
-        
-    }
-    else {
-//         printf("Measured %lld ins, %lld cycles\n", count[0], count[1]);
-        printf("package energy p0 %lld, package energy p1 %lld\n", count[0],
-        count[1]);
-    }
-
-    PAPI_cleanup_eventset(eventset);
-    PAPI_destroy_eventset(&eventset);*/
-
+    PAPI_cleanup_eventset(eventset2);
+    PAPI_destroy_eventset(&eventset2);
+    free(arr);
 
     return 0;
 
