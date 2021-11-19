@@ -25,7 +25,16 @@ char events[NUM_EVENTS][BUFSIZ]={
     "PP0_ENERGY:PACKAGE1"
 };
 
-int main () {
+int main (int argc, char* argv[]) {
+
+    
+    int debug = 0;
+
+    if(argc > 1) {
+        if(strcmp(argv[1],"-d") == 0) {
+            debug = 1;
+        }
+    }
 
     int *arr = malloc(10*L1_SIZE*sizeof(int));
 
@@ -40,6 +49,9 @@ int main () {
     int eventset2 = PAPI_NULL;
 
     int numcmp = PAPI_num_components();
+    if(debug) {
+        printf("num components: %d\n", numcmp);
+    }
     int rapl_cid, cid;
     rapl_cid = -1;
     for(cid = 0; cid < numcmp; cid++) {
@@ -53,12 +65,21 @@ int main () {
                 fprintf(stderr, "rapl disabled\n");
                 return -1;
             }
-            fprintf(stdout, "found rapl at %d\n", rapl_cid);
-            break;
+            if(debug) {
+                fprintf(stdout, "found rapl at %d\n", rapl_cid);
+            }
+//             break;
+        } else {
+            if(debug) {
+                fprintf(stdout, "did not find rapl at %d, found %s\n", cid,
+                cmpinfo->name);
+            }
+
         }
     }
 
-    if(cid == numcmp) {
+//     if(cid == numcmp) {
+    if(rapl_cid ==-1) {
         fprintf(stderr, "did not find rapl" );
         return -1;
     }
@@ -512,8 +533,14 @@ int main () {
         
     }
     else {
-        printf("package energy p0 %lld, package energy p1 %lld cache misses %lld \n", 
-        count[0], count[1], count2);
+//         printf("package energy p0 %lld, package energy p1 %lld cache misses %lld \n", 
+//         count[0], count[1], count2);
+        for(int j = 0; j < NUM_EVENTS; j++) {
+            printf("%s: %lld\n", events[j], count[j]);
+        }
+
+        printf("Num cache misses: %lld\n", count2);
+
     }
     PAPI_cleanup_eventset(eventset);
     PAPI_destroy_eventset(&eventset);

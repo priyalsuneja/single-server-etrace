@@ -493,6 +493,7 @@ static int rapl_msr(int core, int cpu_model) {
 		/* Always returns zero on Haswell-EP? */
 		if (pp0_avail) {
 			result=read_msr(fd,MSR_PP0_ENERGY_STATUS);
+            printf("\t\treading pp0_before: %lldJ\n", result);
 			pp0_before[j]=(double)result*cpu_energy_units[j];
 		}
 
@@ -540,9 +541,11 @@ static int rapl_msr(int core, int cpu_model) {
 			package_after[j]-package_before[j]);
 
 		result=read_msr(fd,MSR_PP0_ENERGY_STATUS);
+        printf("\t\treading pp0_after: %lldJ\n", result);
 		pp0_after[j]=(double)result*cpu_energy_units[j];
 		printf("\t\tPowerPlane0 (cores): %.6fJ\n",
 			pp0_after[j]-pp0_before[j]);
+//         printf("\t\tbefore: %.6fJ after: %.6fJ\n", pp0_before[j], pp0_after[j]);
 
 		/* not available on SandyBridge-EP */
 		if (pp1_avail) {
