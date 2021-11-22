@@ -1,8 +1,8 @@
  /*
  * author: Priyal Suneja ; suneja@cs.washington.edu
  * 
- * to compile: gcc -O0 -Wall -o rapl_cache_misses rapl_cache_misses.c -lpapi
- * to run: sudo ./rapl_cache_misses
+ * to compile: gcc -O0 -Wall -o rapl_cm_0 rapl_cm_0.c -lpapi
+ * to run: sudo ./rapl_cm_0
  */
 #include <stdio.h>
 #include <string.h>
@@ -12,17 +12,14 @@
 #include <papi.h>
 // #include "papi_test.h"
 
-#define NUM_EVENTS 6
-#define RUNS 100000
-#define L1_SIZE 32*1024
+#define NUM_EVENTS 3
+#define RUNS 1000000
+#define L1_SIZE 128*1024
 
 char events[NUM_EVENTS][BUFSIZ]={
     "PACKAGE_ENERGY:PACKAGE0",
-    "PACKAGE_ENERGY:PACKAGE1",
     "DRAM_ENERGY:PACKAGE0",
-    "DRAM_ENERGY:PACKAGE1",
     "PP0_ENERGY:PACKAGE0",
-    "PP0_ENERGY:PACKAGE1"
 };
 
 int main (int argc, char* argv[]) {
@@ -533,15 +530,19 @@ int main (int argc, char* argv[]) {
         
     }
     else {
-//         printf("package energy p0 %lld, package energy p1 %lld cache misses %lld \n", 
-//         count[0], count[1], count2);
         for(int j = 0; j < NUM_EVENTS; j++) {
-            printf("%s: %lld\n", events[j], count[j]);
+            printf("%s:\t%lld\n", events[j], count[j]);
         }
 
-        printf("Num cache misses: %lld\n", count2);
+        printf("Num cache misses:\t%lld\n", count2);
 
     }
+
+    float avg_energy = ((float) count[0]/count2);
+
+    printf("Avg energy consumed per cache miss: %f\n", avg_energy);
+
+
     PAPI_cleanup_eventset(eventset);
     PAPI_destroy_eventset(&eventset);
     PAPI_cleanup_eventset(eventset2);
