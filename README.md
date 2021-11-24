@@ -14,7 +14,7 @@ nice to validate that the files in papi-code work.
       in your system (very often, this is in /usr/local/lib)
     - if this happens in sudo mode despite updating LD_LIBRARY_PATH, use the
       following command instead:
-        sudo LD_LIBRARY_PATH=`location of lib` <executable>
+        sudo LD_LIBRARY_PATH=`location of lib` ./`executable`
 
 2. Component containing event is disabled/ Component index isn't set 
     - you need to provide permissions to your code to read certain counters. use
