@@ -7,7 +7,7 @@ The papi-code folder contains sample code that papi folks provided to show how
 to use the framework. If you get weird errors with the tests folder, it would be
 nice to validate that the files in papi-code work. 
 
-#Common Errors
+# Common Errors
 1. Can't find shared library
     - if you get that error in non-sudo mode, you should update you
       LD_LIBRARY_PATH variable to reflect wherever the lib files are compiled to
