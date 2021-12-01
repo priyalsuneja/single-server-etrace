@@ -36,6 +36,7 @@
 #include <unistd.h>
 #include <math.h>
 #include <string.h>
+#include <time.h>
 
 #include <sys/syscall.h>
 #include <linux/perf_event.h>
@@ -307,6 +308,7 @@ static int rapl_msr(int core, int cpu_model) {
 	double power_units,time_units;
 	double cpu_energy_units[MAX_PACKAGES],dram_energy_units[MAX_PACKAGES];
 	double package_before[MAX_PACKAGES],package_after[MAX_PACKAGES];
+	double raw_package_before[MAX_PACKAGES],raw_package_after[MAX_PACKAGES];
 	double pp0_before[MAX_PACKAGES],pp0_after[MAX_PACKAGES];
 	double pp1_before[MAX_PACKAGES],pp1_after[MAX_PACKAGES];
 	double dram_before[MAX_PACKAGES],dram_after[MAX_PACKAGES];
@@ -486,6 +488,8 @@ static int rapl_msr(int core, int cpu_model) {
 
 		/* Package Energy */
 		result=read_msr(fd,MSR_PKG_ENERGY_STATUS);
+//         printf("\t\treading package_before: %lld\n", result);
+		raw_package_before[j]=(double)result;
 		package_before[j]=(double)result*cpu_energy_units[j];
 
 		/* PP0 energy */
@@ -493,7 +497,7 @@ static int rapl_msr(int core, int cpu_model) {
 		/* Always returns zero on Haswell-EP? */
 		if (pp0_avail) {
 			result=read_msr(fd,MSR_PP0_ENERGY_STATUS);
-            printf("\t\treading pp0_before: %lldJ\n", result);
+//             printf("\t\treading pp0_before: %lldJ\n", result);
 			pp0_before[j]=(double)result*cpu_energy_units[j];
 		}
 
@@ -526,8 +530,17 @@ static int rapl_msr(int core, int cpu_model) {
 		close(fd);
 	}
 
+    
   	printf("\n\tSleeping 1 second\n\n");
+    struct timespec start, end; 
+
+    clock_gettime(CLOCK_MONOTONIC, &start);
 	sleep(1);
+    clock_gettime(CLOCK_MONOTONIC, &end);
+    long long diff = ((end.tv_sec * 1.0e9) + end.tv_nsec ) - ((start.tv_sec *
+                                                       1.0e9) + start.tv_nsec);
+    
+//     diff = diff/1.0e9;
 
 	for(j=0;j<total_packages;j++) {
 
@@ -536,12 +549,17 @@ static int rapl_msr(int core, int cpu_model) {
 		printf("\tPackage %d:\n",j);
 
 		result=read_msr(fd,MSR_PKG_ENERGY_STATUS);
+		raw_package_after[j]=(double)result;
+//         printf("\t\treading package_after: %lld\n", result);
 		package_after[j]=(double)result*cpu_energy_units[j];
+		printf("\t\tRaw Package energy: %.6f\n",
+			raw_package_after[j]-raw_package_before[j]);
 		printf("\t\tPackage energy: %.6fJ\n",
 			package_after[j]-package_before[j]);
+		printf("\t\tPackage power: %.6fJ\n",
+			((package_after[j]-package_before[j]) * 1.0e9 )/diff);
 
 		result=read_msr(fd,MSR_PP0_ENERGY_STATUS);
-        printf("\t\treading pp0_after: %lldJ\n", result);
 		pp0_after[j]=(double)result*cpu_energy_units[j];
 		printf("\t\tPowerPlane0 (cores): %.6fJ\n",
 			pp0_after[j]-pp0_before[j]);
