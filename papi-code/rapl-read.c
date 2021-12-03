@@ -283,6 +283,7 @@ static int detect_packages(void) {
 		if (package_map[package]==-1) {
 			total_packages++;
 			package_map[package]=i;
+            printf("package: %d, i: %d\n", package, i);
 		}
 
 	}
@@ -338,6 +339,7 @@ static int rapl_msr(int core, int cpu_model) {
 			break;
 
 		case CPU_HASWELL_EP:
+            printf("priyal found haswell ep!!!\n");
 		case CPU_BROADWELL_EP:
 		case CPU_SKYLAKE_X:
 			pp0_avail=1;
@@ -917,6 +919,7 @@ int main(int argc, char **argv) {
 	}
 
 	if (result<0) {
+        core = 0;
 		result=rapl_msr(core,cpu_model);
 	}
 

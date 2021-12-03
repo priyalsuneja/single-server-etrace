@@ -1,21 +1,18 @@
-all:	rapl_cache_misses rapl_cm_0 rapl_cache_misses_old rapl_sleep rapl_temp
+BUILDDIR = build
 
-rapl_cache_misses: rapl_cache_misses.c
-	gcc -O0 -Wall -o rapl_cache_misses rapl_cache_misses.c -lpapi
+all:	rapl_l1 rapl_lst rapl_ins rapl_l2
 
-rapl_cache_misses_old: rapl_cache_misses_old.c
-	gcc -O0 -Wall -o rapl_cache_misses_old rapl_cache_misses_old.c -lpapi
+rapl_l1: rapl_l1.c
+	gcc -O0 -Wall -o $(BUILDDIR)/rapl_l1 rapl_l1.c -lpapi
 
-rapl_cm_0: rapl_cm_0.c
-	gcc -O0 -Wall -o rapl_cm_0 rapl_cm_0.c -lpapi
+rapl_l2: rapl_l2.c
+	gcc -O0 -Wall -o $(BUILDDIR)/rapl_l2 rapl_l2.c -lpapi
 
+rapl_lst: rapl_lst.c
+	gcc -O0 -Wall -o $(BUILDDIR)/rapl_lst rapl_lst.c -lpapi
 
-rapl_temp: rapl_temp.c
-	gcc -O0 -Wall -o rapl_temp rapl_temp.c -lpapi
-
-rapl_sleep: rapl_sleep.c
-	gcc -O0 -Wall -o rapl_sleep rapl_sleep.c -lpapi
+rapl_ins: rapl_ins.c
+	gcc -O0 -Wall -o $(BUILDDIR)/rapl_ins rapl_ins.c -lpapi
 
 clean:
-	rm -rf rapl_cache_misses rapl_cm_0 rapl_cache_misses_old
-
+	rm -rf $(BUILDDIR)/*

@@ -1,8 +1,8 @@
  /*
  * author: Priyal Suneja ; suneja@cs.washington.edu
  * 
- * to compile: gcc -O0 -Wall -o rapl_cm_0 rapl_cm_0.c -lpapi
- * to run: sudo ./rapl_cm_0
+ * to compile: gcc -O0 -Wall -o rapl_l1 rapl_l1.c -lpapi
+ * to run: sudo ./rapl_l1
  */
 #include <stdio.h>
 #include <string.h>
@@ -17,11 +17,12 @@
 #define ITERATIONS_PER_RUN 1000000
 #define L1_SIZE 128*1024
 
-char events[NUM_EVENTS][BUFSIZ]={
+char rapl_events[NUM_EVENTS][BUFSIZ]={
     "PACKAGE_ENERGY:PACKAGE0",
     "DRAM_ENERGY:PACKAGE0",
     "PP0_ENERGY:PACKAGE0",
 };
+char perf_event[BUFSIZ]="PAPI_L1_DCM";
 
 void print_avg(float measurements[]) {
 
@@ -47,16 +48,16 @@ int add_events(int eventset, int eventset2, int rapl_cid) {
         if( i >= NUM_EVENTS) {
             break;
         }
-        retval = PAPI_add_named_event(eventset, events[i]);
+        retval = PAPI_add_named_event(eventset, rapl_events[i]);
         if(retval != PAPI_OK) {
-            fprintf(stderr, "error adding event %s, error %s\n", events[i],
+            fprintf(stderr, "error adding event %s, error %s\n", rapl_events[i],
             PAPI_strerror(retval));
             return -1;
         }
         i++;
         r = PAPI_enum_cmp_event(&eventcode, PAPI_ENUM_FIRST, rapl_cid);
     }
-    retval = PAPI_add_named_event(eventset2, "PAPI_L1_DCM");
+    retval = PAPI_add_named_event(eventset2, perf_event);
     if(retval != PAPI_OK) {
         fprintf(stderr, "error adding cache miss count, error %s\n",
         PAPI_strerror(retval));
@@ -549,7 +550,7 @@ int do_measure(int eventset, int eventset2, float* r1) {
     else {
 
         for(int j = 0; j < NUM_EVENTS; j++) {
-            printf("%s: %lld\n", events[j], count[j]);
+            printf("%s: %lld\n", rapl_events[j], count[j]);
         }
 
         printf("Num cache misses: %lld\n", count2);

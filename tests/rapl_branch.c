@@ -1,8 +1,9 @@
  /*
  * author: Priyal Suneja ; suneja@cs.washington.edu
  * 
- * to compile: gcc -O0 -Wall -o rapl_sleep rapl_sleep.c -lpapi
- * to run: sudo ./rapl_sleep
+ * to compile: gcc -O0 -Wall -o rapl_branch rapl_branch.c -lpapi
+ * to run: sudo ./rapl_branch
+ * Calculates energy spent on branch mispredictions 
  */
 #include <stdio.h>
 #include <string.h>
@@ -10,17 +11,19 @@
 #include <unistd.h>
 
 #include <papi.h>
-#include <sys/syscall.h>
+// #include "papi_test.h"
 
 #define NUM_EVENTS 3
-#define RUNS 1
-#define ITERATIONS_PER_RUN 1
+#define RUNS 10
+#define ITERATIONS_PER_RUN 100000
+#define L1_SIZE 128*1024
 
-char events[NUM_EVENTS][BUFSIZ]={
+char rapl_events[NUM_EVENTS][BUFSIZ]={
     "PACKAGE_ENERGY:PACKAGE0",
     "DRAM_ENERGY:PACKAGE0",
     "PP0_ENERGY:PACKAGE0",
 };
+char perf_event[BUFSIZ]="PAPI_BR_MSP";
 
 void print_avg(float measurements[]) {
 
@@ -35,7 +38,7 @@ void print_avg(float measurements[]) {
     printf("---------------------------------------\n");
 
 }
-int add_events(int eventset, int rapl_cid) {
+int add_events(int eventset, int eventset2, int rapl_cid) {
     int eventcode = PAPI_NATIVE_MASK; 
     int retval;
 
@@ -46,19 +49,30 @@ int add_events(int eventset, int rapl_cid) {
         if( i >= NUM_EVENTS) {
             break;
         }
-        retval = PAPI_add_named_event(eventset, events[i]);
+        retval = PAPI_add_named_event(eventset, rapl_events[i]);
         if(retval != PAPI_OK) {
-            fprintf(stderr, "error adding event %s, error %s\n", events[i],
+            fprintf(stderr, "error adding event %s, error %s\n", rapl_events[i],
             PAPI_strerror(retval));
             return -1;
         }
         i++;
         r = PAPI_enum_cmp_event(&eventcode, PAPI_ENUM_FIRST, rapl_cid);
     }
+    retval = PAPI_add_named_event(eventset2, perf_event);
+    if(retval != PAPI_OK) {
+        fprintf(stderr, "error adding branch misprediction, error %s\n",
+        PAPI_strerror(retval));
+        return -1;
+    }
     return 0;
 }
-int create_eventsets(int *eventset) {
+int create_eventsets(int *eventset, int *eventset2) {
     int retval = PAPI_create_eventset(eventset);
+    if(retval != PAPI_OK) {
+        fprintf(stderr, "couldn't create eventset %s\n", PAPI_strerror(retval) );
+        return -1;
+    }
+    retval = PAPI_create_eventset(eventset2);
     if(retval != PAPI_OK) {
         fprintf(stderr, "couldn't create eventset %s\n", PAPI_strerror(retval) );
         return -1;
@@ -111,21 +125,44 @@ int find_rapl(int debug) {
     return rapl_cid;
 }
 
-int do_measure(int eventset, float* r1) {
+int do_measure(int eventset, int eventset2, float* r1) {
     int retval;
     long long count[NUM_EVENTS]; 
+    long long count2; 
+    int *arr = malloc(1*L1_SIZE*sizeof(int));
 
     PAPI_reset(eventset);
+    PAPI_reset(eventset2);
     retval = PAPI_start(eventset);
     if(retval != PAPI_OK) { 
         fprintf(stderr, "error starting CUDA: %s\n", PAPI_strerror(retval));
         return -1;
     } 
+    int n; 
+    srand(17);
+    retval = PAPI_start(eventset2);
+    if(retval != PAPI_OK) { 
+        fprintf(stderr, "error starting CUDA: %s\n", PAPI_strerror(retval));
+        return -1;
+    } 
 
-    sleep(1);
-
+    //TODO: do random number generation and make it two way 
+    // if numbers still low, it migth be that its turning itself off 
+    for( int i = 0; i < ITERATIONS_PER_RUN; i++ ) {
+        n = rand();
+        if(n % 2 == 0 ) {
+            arr[0] = 4;
+        } else {
+            arr[2] = 1;
+        }
+    }
     
     retval=PAPI_stop(eventset, count);
+    if(retval!=PAPI_OK) {
+        fprintf(stderr, "papi error stopping %s\n", PAPI_strerror(retval));
+        return -1;
+    }
+    retval=PAPI_stop(eventset2, &count2);
     if(retval!=PAPI_OK) {
         fprintf(stderr, "papi error stopping %s\n", PAPI_strerror(retval));
         return -1;
@@ -133,14 +170,19 @@ int do_measure(int eventset, float* r1) {
     else {
 
         for(int j = 0; j < NUM_EVENTS; j++) {
-            printf("%s: %lld\n", events[j], count[j]);
+            printf("%s: %lld\n", rapl_events[j], count[j]);
         }
 
+        printf("Num branch misprediction: %lld\n", count2);
 
     }
 
+    float avg_energy = ((float) count[0]/count2);
+
+    printf("Avg energy consumed per branch misprediction: %f\n", avg_energy);
     printf("---------------------------------------\n");
-    *r1 = count[0];
+    *r1 = avg_energy;
+    free(arr);
     return 0;
 
 }
@@ -150,6 +192,7 @@ int main (int argc, char* argv[]) {
     int debug = 0;
     int retval;
     int eventset = PAPI_NULL;
+    int eventset2 = PAPI_NULL;
     float measurements[RUNS];
 
     if(argc > 1) {
@@ -164,15 +207,15 @@ int main (int argc, char* argv[]) {
         return -1;
     }
 
-    retval = PAPI_create_eventset(&eventset);
-    if(retval != PAPI_OK) {
-        fprintf(stderr, "couldn't create eventset %s\n", PAPI_strerror(retval) );
+    retval = create_eventsets(&eventset, &eventset2);
+    if(retval != 0) {
+        fprintf(stderr, "eventset didn't init\n");
         return -1;
     }
 
     int rapl_cid = find_rapl(debug);
 
-    retval = add_events(eventset, rapl_cid);
+    retval = add_events(eventset, eventset2, rapl_cid);
     if(retval != 0) {
         fprintf(stderr, "events weren't added\n");
         return -1;
@@ -180,13 +223,14 @@ int main (int argc, char* argv[]) {
 
     printf("---------------------------------------\n");
     for(int i = 0; i < RUNS; i++) {
-        do_measure(eventset, (measurements + i));
+        do_measure(eventset, eventset2, (measurements + i));
     }
 
     print_avg(measurements);
 
 
     do_cleanup(&eventset);
+    do_cleanup(&eventset2);
 
     return 0;
 
