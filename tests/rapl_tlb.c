@@ -1,30 +1,35 @@
  /*
  * author: Priyal Suneja ; suneja@cs.washington.edu
  * 
- * to compile: gcc -O0 -Wall -o rapl_cm_0 rapl_cm_0.c -lpapi
- * to run: sudo ./rapl_cm_0
- * measures energy use based on number of ld/str instructions TODO
+ * to compile: gcc -O0 -Wall -o rapl_l2 rapl_l2.c -lpapi
+ * to run: sudo ./rapl_l2
+ * TODO: might have to remove energy spent on l1 cache miss
  */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <time.h>
+#include "utils.h"
+
 
 #include <papi.h>
 // #include "papi_test.h"
 
 #define NUM_EVENTS 3
 #define RUNS 10
-#define ITERATIONS_PER_RUN 100000
-#define L1_SIZE 128*1024
+#define ITERATIONS_PER_RUN 10000
+#define PAGE_SIZE 4*1024    // 4kB
+#define TLB_ENTRIES 64
+#define TLB_ASSOC 4
+
 
 char rapl_events[NUM_EVENTS][BUFSIZ]={
     "PACKAGE_ENERGY:PACKAGE0",
     "DRAM_ENERGY:PACKAGE0",
     "PP0_ENERGY:PACKAGE0",
 };
-
-char perf_event[BUFSIZ]="PAPI_TOT_IIS";
+// char perf_event[BUFSIZ]="PAPI_TLB_DM";
 
 void print_avg(float measurements[]) {
 
@@ -59,21 +64,10 @@ int add_events(int eventset, int eventset2, int rapl_cid) {
         i++;
         r = PAPI_enum_cmp_event(&eventcode, PAPI_ENUM_FIRST, rapl_cid);
     }
-    retval = PAPI_add_named_event(eventset2, perf_event);
-    if(retval != PAPI_OK) {
-        fprintf(stderr, "error adding branch misprediction, error %s\n",
-        PAPI_strerror(retval));
-        return -1;
-    }
     return 0;
 }
 int create_eventsets(int *eventset, int *eventset2) {
     int retval = PAPI_create_eventset(eventset);
-    if(retval != PAPI_OK) {
-        fprintf(stderr, "couldn't create eventset %s\n", PAPI_strerror(retval) );
-        return -1;
-    }
-    retval = PAPI_create_eventset(eventset2);
     if(retval != PAPI_OK) {
         fprintf(stderr, "couldn't create eventset %s\n", PAPI_strerror(retval) );
         return -1;
@@ -129,33 +123,30 @@ int find_rapl(int debug) {
 int do_measure(int eventset, int eventset2, float* r1) {
     int retval;
     long long count[NUM_EVENTS]; 
-    long long count2; 
-    int *arr = malloc(1*L1_SIZE*sizeof(int));
+
+    struct page_size_ll *head = malloc(sizeof(struct page_size_ll));
+    struct page_size_ll *curr = head;
+    long long ll_size = TLB_ASSOC*TLB_ENTRIES*8;
+
+    retval = populate_ps_list(head, ll_size);
 
     PAPI_reset(eventset);
-    PAPI_reset(eventset2);
     retval = PAPI_start(eventset);
     if(retval != PAPI_OK) { 
-        fprintf(stderr, "error starting CUDA: %s\n", PAPI_strerror(retval));
-        return -1;
-    } 
-    int n;
-    retval = PAPI_start(eventset2);
-    if(retval != PAPI_OK) { 
-        fprintf(stderr, "error starting CUDA: %s\n", PAPI_strerror(retval));
+        fprintf(stderr, "error starting cuda: %s\n", PAPI_strerror(retval));
         return -1;
     } 
 
     for( int i = 0; i < ITERATIONS_PER_RUN; i++ ) {
-        n+=i;      // all this should do is issue instructions
+
+        while(curr != NULL) {
+            curr = curr->next;
+        }
+
+        curr = head;
     }
     
     retval=PAPI_stop(eventset, count);
-    if(retval!=PAPI_OK) {
-        fprintf(stderr, "papi error stopping %s\n", PAPI_strerror(retval));
-        return -1;
-    }
-    retval=PAPI_stop(eventset2, &count2);
     if(retval!=PAPI_OK) {
         fprintf(stderr, "papi error stopping %s\n", PAPI_strerror(retval));
         return -1;
@@ -166,18 +157,14 @@ int do_measure(int eventset, int eventset2, float* r1) {
             printf("%s: %lld\n", rapl_events[j], count[j]);
         }
 
-        printf("Num instructions issued: %lld\n", count2);
 
     }
 
-    float avg_energy = ((float) count[0]/count2);
-
-    printf("Avg energy consumed per instruction issued: %f\n", avg_energy);
+    printf("total energy consumed for tlb misses: %lld\n", count[0]);
     printf("---------------------------------------\n");
-    *r1 = avg_energy;
-    free(arr);
-    return n;   // returning n so it doesn't optimize it away
-
+    *r1 = count[0];
+    free_ps_list(head);
+    return 0;
 }
 
 int main (int argc, char* argv[]) {
@@ -223,7 +210,7 @@ int main (int argc, char* argv[]) {
 
 
     do_cleanup(&eventset);
-    do_cleanup(&eventset2);
+//     do_cleanup(&eventset2);
 
     return 0;
 

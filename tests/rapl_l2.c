@@ -3,6 +3,7 @@
  * 
  * to compile: gcc -O0 -Wall -o rapl_l2 rapl_l2.c -lpapi
  * to run: sudo ./rapl_l2
+ * TODO: might have to remove energy spent on l1 cache miss
  */
 #include <stdio.h>
 #include <string.h>
@@ -10,12 +11,13 @@
 #include <unistd.h>
 
 #include <papi.h>
+#include "utils.h"
 // #include "papi_test.h"
 
 #define NUM_EVENTS 3
 #define RUNS 10
-#define ITERATIONS_PER_RUN 1000000
-#define L2_SIZE 256*1024
+#define ITERATIONS_PER_RUN 1
+#define L2_SIZE 5*256*1024
 
 char rapl_events[NUM_EVENTS][BUFSIZ]={
     "PACKAGE_ENERGY:PACKAGE0",
@@ -59,7 +61,7 @@ int add_events(int eventset, int eventset2, int rapl_cid) {
     }
     retval = PAPI_add_named_event(eventset2, perf_event);
     if(retval != PAPI_OK) {
-        fprintf(stderr, "error adding cache miss count, error %s\n",
+        fprintf(stderr, "error adding l2 cache miss count, error %s\n",
         PAPI_strerror(retval));
         return -1;
     }
@@ -127,8 +129,13 @@ int find_rapl(int debug) {
 int do_measure(int eventset, int eventset2, float* r1) {
     int retval;
     long long count[NUM_EVENTS]; 
-    long long count2; 
-    int *arr = malloc(10*L2_SIZE*sizeof(int));
+    long long count2;
+    struct ll *head = malloc(sizeof(struct ll));
+    struct ll *curr = head;
+    long long  ll_size = 10*L2_SIZE;
+
+    retval = populate_list(head, ll_size);
+    printf("done populating with size %lld\n", ll_size);
 
     PAPI_reset(eventset);
     PAPI_reset(eventset2);
@@ -143,399 +150,14 @@ int do_measure(int eventset, int eventset2, float* r1) {
         return -1;
     } 
 
-    for( int i = 0; i < ITERATIONS_PER_RUN; i++ ) {
 
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
-        arr[0] = 1;
-        arr[L2_SIZE] = 2; 
-        arr[9*L2_SIZE] = 4;
-        arr[2*L2_SIZE] = 3;
-        arr[7*L2_SIZE] = 2; 
-        arr[3*L2_SIZE] = 4;
-        arr[6*L2_SIZE] = 4;
-        arr[4*L2_SIZE] = 2; 
-        arr[5*L2_SIZE] = 3;
-        arr[8*L2_SIZE] = 3;
+    for(int i = 0; i < ITERATIONS_PER_RUN; i++) {
+        while(curr != NULL) {
+            curr = curr->next;
+        }
+        curr = head;
     }
+
     
     retval=PAPI_stop(eventset, count);
     if(retval!=PAPI_OK) {
@@ -553,18 +175,19 @@ int do_measure(int eventset, int eventset2, float* r1) {
             printf("%s: %lld\n", rapl_events[j], count[j]);
         }
 
-        printf("Num cache misses: %lld\n", count2);
+        printf("Num l2 cache misses: %lld\n", count2);
 
     }
 
+//     float avg_energy = (((float) count[0] - (AVG_L1_CM*count2[0]))/count2[0]);
     float avg_energy = ((float) count[0]/count2);
 
     printf("Avg energy consumed per cache miss: %f\n", avg_energy);
     printf("---------------------------------------\n");
     *r1 = avg_energy;
-    free(arr);
-    return 0;
-
+    int temp = curr->val;
+    free_list(head);
+    return temp;
 }
 
 int main (int argc, char* argv[]) {

@@ -1,8 +1,9 @@
  /*
  * author: Priyal Suneja ; suneja@cs.washington.edu
  * 
- * to compile: gcc -O0 -Wall -o rapl_l1 rapl_l1.c -lpapi
- * to run: sudo ./rapl_l1
+ * to compile: gcc -O0 -Wall -o rapl_branch rapl_branch.c -lpapi
+ * to run: sudo ./rapl_branch
+ * Calculates energy spent on floating point instructions
  */
 #include <stdio.h>
 #include <string.h>
@@ -10,20 +11,18 @@
 #include <unistd.h>
 
 #include <papi.h>
-#include "utils.h"
 // #include "papi_test.h"
 
 #define NUM_EVENTS 3
 #define RUNS 10
-#define ITERATIONS_PER_RUN 1
-#define L1_SIZE 5*32*1024
+#define ITERATIONS_PER_RUN 1000
 
 char rapl_events[NUM_EVENTS][BUFSIZ]={
     "PACKAGE_ENERGY:PACKAGE0",
     "DRAM_ENERGY:PACKAGE0",
     "PP0_ENERGY:PACKAGE0",
 };
-char perf_event[BUFSIZ]="PAPI_L1_DCM";
+char perf_event[BUFSIZ]="PAPI_FP_INS";
 
 void print_avg(float measurements[]) {
 
@@ -60,7 +59,7 @@ int add_events(int eventset, int eventset2, int rapl_cid) {
     }
     retval = PAPI_add_named_event(eventset2, perf_event);
     if(retval != PAPI_OK) {
-        fprintf(stderr, "error adding cache miss count, error %s\n",
+        fprintf(stderr, "error adding fp instruction count, error %s\n",
         PAPI_strerror(retval));
         return -1;
     }
@@ -128,14 +127,12 @@ int find_rapl(int debug) {
 int do_measure(int eventset, int eventset2, float* r1) {
     int retval;
     long long count[NUM_EVENTS]; 
-    long long count2;
-//     int *arr = malloc(10*L1_SIZE*sizeof(int));
-   struct ll *head = malloc(sizeof(struct ll)); 
-   struct ll *curr = head;
-   long long ll_size = 10*L1_SIZE;
-
-   retval = populate_list(head, ll_size);
-   printf("done populating with size %lld\n", ll_size);
+    long long count2; 
+    double f1, f2, f3;
+    f1 = 0;
+    f2 = 0;
+    f3 = 0;
+    
 
     PAPI_reset(eventset);
     PAPI_reset(eventset2);
@@ -151,10 +148,9 @@ int do_measure(int eventset, int eventset2, float* r1) {
     } 
 
     for( int i = 0; i < ITERATIONS_PER_RUN; i++ ) {
-        while(curr != NULL) {
-            curr = curr->next;
-        }
-        curr = head;
+        f1 += i;
+        f2 *= i;
+        f3 = f1 + f2;
     }
     
     retval=PAPI_stop(eventset, count);
@@ -173,19 +169,17 @@ int do_measure(int eventset, int eventset2, float* r1) {
             printf("%s: %lld\n", rapl_events[j], count[j]);
         }
 
-        printf("Num l1 cache misses: %lld\n", count2);
+        printf("Num floating point instructions: %lld\n", count2);
 
     }
 
     float avg_energy = ((float) count[0]/count2);
 
-    printf("Avg energy consumed per cache miss: %f\n", avg_energy);
+    printf("Avg energy consumed per fp instruction %f\n", avg_energy);
     printf("---------------------------------------\n");
     *r1 = avg_energy;
-//     free(arr);
-    int temp = curr->val;
-    free_list(head);
-    return temp;
+    return (int)f3;
+
 }
 
 int main (int argc, char* argv[]) {
