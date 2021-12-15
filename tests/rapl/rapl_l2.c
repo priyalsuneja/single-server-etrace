@@ -15,7 +15,7 @@
 // #include "papi_test.h"
 
 #define NUM_EVENTS 3
-#define RUNS 10
+#define RUNS 1
 #define ITERATIONS_PER_RUN 1
 #define L2_SIZE 5*256*1024
 

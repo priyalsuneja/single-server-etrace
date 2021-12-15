@@ -17,8 +17,8 @@
 // #include "papi_test.h"
 
 #define NUM_EVENTS 3
-#define RUNS 10
-#define ITERATIONS_PER_RUN 10000
+#define RUNS 1
+#define ITERATIONS_PER_RUN 1000
 #define PAGE_SIZE 4*1024    // 4kB
 #define TLB_ENTRIES 64
 #define TLB_ASSOC 4

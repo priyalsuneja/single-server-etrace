@@ -1,10 +1,10 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../utils.h"
+#include "utils.h"
 
-#define RUNS 10
-#define ITERATIONS_PER_RUN 10000
+#define RUNS 1
+#define ITERATIONS_PER_RUN 1000
 #define PAGE_SIZE 4*1024    // 4kB * 8 just to see
 #define TLB_ENTRIES 64
 #define TLB_ASSOC 4
@@ -26,5 +26,5 @@ int main() {
         curr = head;
     }
 
-    free_ps_list(head);
+//     free_ps_list(head);
 }

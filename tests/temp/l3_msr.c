@@ -15,8 +15,10 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <math.h>
+#include "utils.h"
 
 #define RUNS 1
+#define L3_SIZE 5*30720*1024
 #define MSR_RAPL_POWER_UNIT	0x606
 
 /*
@@ -97,6 +99,20 @@ void print_avg(double measurements[]) {
     double avg = sum/RUNS;
 
     fprintf(stdout, "Average over %d runs: %f\n", RUNS, avg);
+    printf("---------------------------------------\n");
+
+}
+
+void print_avg_ll(long long measurements[]) {
+
+    long long sum = 0;      // overflow possibility?
+    for(int i = 0; i < RUNS; i++) {
+        sum+=measurements[i];
+    }
+
+//     double avg = sum/RUNS;
+
+    fprintf(stdout, "sum over %d runs: %lld\n", RUNS, sum);
     printf("---------------------------------------\n");
 
 }
@@ -240,38 +256,23 @@ int get_cpu_info(int cpu_model, int cpu_info[3], double energy_units[2]) {
 
 int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2], 
             double *r1, double *r2) {
-    int pp0_avail = 0, pp1_avail = 1, dram_avail = 2;
+    int dram_avail = 2;
 	int fd;
 	long long result;
-    long long diff;
 	double package_before,package_after;
-	double raw_package_before,raw_package_after;
-	double pp0_before,pp0_after;
-	double pp1_before,pp1_after;
 	double dram_before,dram_after;
-    struct timespec start, end; 
+    struct ll *head = malloc(sizeof(struct ll));
+    struct ll *curr = head; 
+    long long ll_size = 1*L3_SIZE;
+
+    int retval = populate_list(head, ll_size);
+
 
     fd=open_msr(0); // todo: add package detection + map and stuff
 
     /* Package Energy */
     result=read_msr(fd,MSR_PKG_ENERGY_STATUS);
-    raw_package_before=(double)result;
     package_before=(double)result*energy_units[0];
-
-    /* PP0 energy */
-    /* Not available on Knights* */
-    /* Always returns zero on Haswell-EP? */
-    if (cpu_info[pp0_avail]) {
-        result=read_msr(fd,MSR_PP0_ENERGY_STATUS);
-        pp0_before=(double)result*energy_units[0];
-    }
-
-    /* PP1 energy */
-    /* not available on *Bridge-EP */
-    if (cpu_info[pp1_avail]) {
-        result=read_msr(fd,MSR_PP1_ENERGY_STATUS);
-        pp1_before=(double)result*energy_units[0];
-    }
 
 
     /* Updated documentation (but not the Vol3B) says Haswell and	*/
@@ -283,27 +284,17 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
 
     close(fd);
 
-    clock_gettime(CLOCK_MONOTONIC, &start);
-	sleep(1);   // TODO: to amortize other costs, sleep for longer!!! 
-    clock_gettime(CLOCK_MONOTONIC, &end);
-    
+    while(curr != NULL) {
+        curr = curr->next; 
+    }
+    curr = head;
+
     fd = open_msr(0);
 
     result=read_msr(fd,MSR_PKG_ENERGY_STATUS);
-    raw_package_after=(double)result;
-    diff = ((end.tv_sec * 1.0e9) + end.tv_nsec ) - ((start.tv_sec *
-                                                       1.0e9) + start.tv_nsec);
     package_after=(double)result*energy_units[0];
     *r1 = package_after - package_before;
 
-    result=read_msr(fd,MSR_PP0_ENERGY_STATUS);
-    pp0_after=(double)result*energy_units[0]; // nOTE: this is always 0 for us
-
-    /* not available on SandyBridge-EP */
-    if (cpu_info[pp1_avail]) {  // TODO: not avail for us so not returning this
-        result=read_msr(fd,MSR_PP1_ENERGY_STATUS);
-        pp1_after=(double)result*energy_units[0];
-    }
 
     if (cpu_info[dram_avail]) {
         result=read_msr(fd,MSR_DRAM_ENERGY_STATUS);
@@ -312,7 +303,7 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
     }
 
     close(fd);
-	return 0;
+	return retval;
 
 }
 
@@ -331,7 +322,7 @@ int main (int argc, char* argv[]) {
     }
 
     print_avg(package_measure);
-    print_avg(dram_measure);
+//     print_avg(dram_measure);
 
     return 0;
 

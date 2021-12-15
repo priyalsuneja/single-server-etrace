@@ -15,8 +15,13 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <math.h>
+#include "utils.h"
 
 #define RUNS 1
+#define ITERATIONS_PER_RUN 1000
+#define PAGE_SIZE 4*1024    // 4kB * 8 just to see
+#define TLB_ENTRIES 64
+#define TLB_ASSOC 4
 #define MSR_RAPL_POWER_UNIT	0x606
 
 /*
@@ -97,6 +102,20 @@ void print_avg(double measurements[]) {
     double avg = sum/RUNS;
 
     fprintf(stdout, "Average over %d runs: %f\n", RUNS, avg);
+    printf("---------------------------------------\n");
+
+}
+
+void print_avg_ll(long long measurements[]) {
+
+    long long sum = 0;      // overflow possibility?
+    for(int i = 0; i < RUNS; i++) {
+        sum+=measurements[i];
+    }
+
+//     double avg = sum/RUNS;
+
+    fprintf(stdout, "sum over %d runs: %lld\n", RUNS, sum);
     printf("---------------------------------------\n");
 
 }
@@ -239,17 +258,23 @@ int get_cpu_info(int cpu_model, int cpu_info[3], double energy_units[2]) {
 }
 
 int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2], 
-            double *r1, double *r2) {
+            double *r1, double *r2, long long *r3) {
     int pp0_avail = 0, pp1_avail = 1, dram_avail = 2;
 	int fd;
 	long long result;
     long long diff;
 	double package_before,package_after;
-	double raw_package_before,raw_package_after;
+	long long raw_package_before,raw_package_after;
 	double pp0_before,pp0_after;
 	double pp1_before,pp1_after;
 	double dram_before,dram_after;
-    struct timespec start, end; 
+//     struct timespec start, end; 
+    struct page_size_ll *head = malloc(sizeof(struct page_size_ll));
+    struct page_size_ll *curr = head; 
+    long long ll_size = TLB_ASSOC*TLB_ENTRIES*8;
+
+    int retval = populate_ps_list(head, ll_size);
+
 
     fd=open_msr(0); // todo: add package detection + map and stuff
 
@@ -283,16 +308,24 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
 
     close(fd);
 
-    clock_gettime(CLOCK_MONOTONIC, &start);
-	sleep(1);   // TODO: to amortize other costs, sleep for longer!!! 
-    clock_gettime(CLOCK_MONOTONIC, &end);
+//     clock_gettime(CLOCK_MONOTONIC, &start);
+// 	sleep(1);   // TODO: to amortize other costs, sleep for longer!!! 
+    for( int i = 0; i < ITERATIONS_PER_RUN; i++ ) {
+
+        while(curr != NULL) {
+            curr = curr->next; 
+        }
+        curr = head;
+    }
+
+//     clock_gettime(CLOCK_MONOTONIC, &end);
     
     fd = open_msr(0);
 
     result=read_msr(fd,MSR_PKG_ENERGY_STATUS);
     raw_package_after=(double)result;
-    diff = ((end.tv_sec * 1.0e9) + end.tv_nsec ) - ((start.tv_sec *
-                                                       1.0e9) + start.tv_nsec);
+//     diff = ((end.tv_sec * 1.0e9) + end.tv_nsec ) - ((start.tv_sec *
+//                                                        1.0e9) + start.tv_nsec);
     package_after=(double)result*energy_units[0];
     *r1 = package_after - package_before;
 
@@ -311,6 +344,9 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
         *r2 = dram_after - dram_before;
     }
 
+    *r3 = raw_package_after - raw_package_before;
+
+//     free_ps_list(head);
     close(fd);
 	return 0;
 
@@ -318,6 +354,7 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
 
 int main (int argc, char* argv[]) {
     double package_measure[RUNS];
+    long long raw_package_measure[RUNS];
     double dram_measure[RUNS];
     int cpu_info[3]; // 0 -> pp0, 1-> pp1, 2-> dram
     double energy_units[2]; // 0 -> cpu, 1 -> dram
@@ -325,13 +362,15 @@ int main (int argc, char* argv[]) {
     get_cpu_info(CPU_HASWELL_EP, cpu_info, energy_units);
     
     printf("---------------------------------------\n");
-    for(int i = 0; i < RUNS; i++) {
+//     for(int i = 0; i < RUNS; i++) {
         measure_msr(CPU_HASWELL_EP, cpu_info, energy_units, 
-                                    (package_measure + i), (dram_measure + i));
-    }
+                                    (package_measure + 0), (dram_measure + 0), 
+                                    (raw_package_measure + 0));
+//     }
 
     print_avg(package_measure);
-    print_avg(dram_measure);
+//     print_avg_ll(raw_package_measure);
+//     print_avg(dram_measure);
 
     return 0;
 

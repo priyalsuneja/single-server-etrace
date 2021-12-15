@@ -133,7 +133,6 @@ int do_measure(int eventset, int eventset2, float* r1) {
     int retval;
     long long count[NUM_EVENTS]; 
     long long count2; 
-    int *arr = malloc(1*L1_SIZE*sizeof(int));
 
     PAPI_reset(eventset);
     PAPI_reset(eventset2);
@@ -178,7 +177,6 @@ int do_measure(int eventset, int eventset2, float* r1) {
     printf("Avg energy consumed per instruction completed: %f\n", avg_energy);
     printf("---------------------------------------\n");
     *r1 = avg_energy;
-    free(arr);
     return n;   // returning n so it doesn't optimize it away
 
 }
