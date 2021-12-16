@@ -20,3 +20,6 @@ nice to validate that the files in papi-code work.
     - you need to provide permissions to your code to read certain counters. use
       the following command:
         echo 0 > /proc/sys/kernel/perf_event_paranoid
+
+command to run things: 
+sudo perf stat -e l2_rqsts.miss -e dTLB-load-misses -e L1-dcache-load-misses -e instructions ~/gapbs/sssp -g 20 -n 1 2>> out

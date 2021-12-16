@@ -45,7 +45,7 @@
 
 int get_cpu_info(int cpu_model, int cpu_info[3], double energy_units[2]) {
     int fd, result;
-	double power_units,time_units;
+// 	double power_units,time_units;
 	double cpu_energy_units,dram_energy_units;
 
     /** indices to cpu_info **/
@@ -113,32 +113,32 @@ int get_cpu_info(int cpu_model, int cpu_info[3], double energy_units[2]) {
 
 	}
 
-		printf("\tListing paramaters for package #0\n");
+// 		printf("\tListing paramaters for package #0\n");
 
     fd=open_msr(0); // todo: add package detection + map and stuff
 
     /* Calculate the units used */
     result=read_msr(fd,MSR_RAPL_POWER_UNIT);
 
-    power_units=pow(0.5,(double)(result&0xf));
+//     power_units=pow(0.5,(double)(result&0xf));
     cpu_energy_units=pow(0.5,(double)((result>>8)&0x1f));
-    time_units=pow(0.5,(double)((result>>16)&0xf));
+//     time_units=pow(0.5,(double)((result>>16)&0xf));
 
     /* On Haswell EP and Knights Landing */
     /* The DRAM units differ from the CPU ones */
         dram_energy_units=pow(0.5,(double)16);   // we know we're on haswell
                                                     // so this is ok
-        printf("DRAM: Using %lf instead of %lf\n",
-            dram_energy_units,cpu_energy_units);
-
-    printf("\t\tPower units = %.3fW\n",power_units);
-    printf("\t\tCPU Energy units = %.8fJ\n",cpu_energy_units);
-    printf("\t\tDRAM Energy units = %.8fJ\n",dram_energy_units);
-    printf("\t\tTime units = %.8fs\n",time_units);
+//         printf("DRAM: Using %lf instead of %lf\n",
+//             dram_energy_units,cpu_energy_units);
+// 
+//     printf("\t\tPower units = %.3fW\n",power_units);
+//     printf("\t\tCPU Energy units = %.8fJ\n",cpu_energy_units);
+//     printf("\t\tDRAM Energy units = %.8fJ\n",dram_energy_units);
+//     printf("\t\tTime units = %.8fs\n",time_units);
 
     energy_units[0] = cpu_energy_units;
     energy_units[1] = dram_energy_units;
-    printf("\n");
+//     printf("\n");
 
     return 0;
 }
