@@ -54,11 +54,11 @@ Instructions
     To measure the energy and HPCs for gapbs, go to the gapbs folder and run:
     sudo perf stat -e l2_rqsts.miss -e dTLB-load-misses -e L1-dcache-load-misses -e instructions sssp -g 20 -n 1
         
-        where sssp is one of the 8 benchmarks provided by gapbs
+     where sssp is one of the 8 benchmarks provided by gapbs
 
-        This will print 5 numbers to stderr: the energy consumption of the
-        process, #l2 misses, #l1 misses, #tlb misses and total number of
-        instructions. 
+     This will print 5 numbers to stderr: the energy consumption of the
+     process, #l2 misses, #l1 misses, #tlb misses and total number of
+     instructions. 
 
     We used this information to then create an energy consumption prediction for
     the application. 
