@@ -1,8 +1,7 @@
  /*
  * author: Priyal Suneja ; suneja@cs.washington.edu
  * 
- * to compile: gcc -O0 -Wall -o rapl_sleep_msr rapl_sleep_msr.c -lpapi
- * to run: sudo ./rapl_sleep_msr
+ * to run: sudo ./build/l2_msr
  */
 #include "msr.h"
 

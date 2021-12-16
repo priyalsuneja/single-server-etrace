@@ -1,3 +1,6 @@
+ /*
+ * author: Priyal Suneja ; suneja@cs.washington.edu
+ */
 #include "msr.h"
 
 int main() {
@@ -16,6 +19,5 @@ int main() {
         curr = head;
     }
 
-//     free_list(head);
     return retval;
 }

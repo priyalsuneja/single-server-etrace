@@ -1,3 +1,6 @@
+ /*
+ * author: Priyal Suneja ; suneja@cs.washington.edu
+ */
 #include "utils.h"
 
 // assumes that ll is not NULL

@@ -1,5 +1,7 @@
 /** 
  * @author  Vince Weaver
+ * 
+ * 12/15/21 - edit by Priyal Suneja to run this on machine with single socket`
  */
 
 #include <stdio.h>

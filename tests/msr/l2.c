@@ -1,3 +1,8 @@
+ /*
+ * author: Priyal Suneja ; suneja@cs.washington.edu
+ * 
+ * to run: sudo ./build/l2
+ */
 #include "msr.h"
 
 int main() {

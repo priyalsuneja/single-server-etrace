@@ -1,4 +1,5 @@
-#Introduction 
+Introduction 
+------------
 This is a project to measure the energy consumed by applications with the help
 of Hardware Performance Counters.
 The folders have the following content:
@@ -20,7 +21,8 @@ The folders have the following content:
               limited to code to measure branch mispredictions, l3 cache misses
               and fp instructions.
 
-# Instructions 
+Instructions 
+------------
 - The code that you would want to run is in the test/msr folder. To build it,
   simply run `make` in that directory. This should result in compiled binaries
   in the test/msr/build folder. 
@@ -61,7 +63,8 @@ The folders have the following content:
     We used this information to then create an energy consumption prediction for
     the application. 
     
-# Common Errors
+Common Errors
+-------------
 1. Can't find shared library
     - if you get that error in non-sudo mode, you should update you
       LD_LIBRARY_PATH variable to reflect wherever the lib files are compiled to

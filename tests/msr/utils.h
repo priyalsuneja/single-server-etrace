@@ -1,3 +1,6 @@
+ /*
+ * author: Priyal Suneja ; suneja@cs.washington.edu
+ */
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>

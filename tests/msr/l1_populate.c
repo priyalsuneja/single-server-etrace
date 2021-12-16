@@ -1,3 +1,6 @@
+ /*
+ * author: Priyal Suneja ; suneja@cs.washington.edu
+ */
 #include "msr.h"
 
 int main() {

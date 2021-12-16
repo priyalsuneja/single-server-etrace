@@ -1,3 +1,8 @@
+ /*
+ * author: Priyal Suneja ; suneja@cs.washington.edu
+ * 
+ * to run: sudo ./build/tlb_populate
+ */
 #include "msr.h"
 
 int main() {
