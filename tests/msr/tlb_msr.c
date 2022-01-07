@@ -28,10 +28,10 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
 
     /* Updated documentation (but not the Vol3B) says Haswell and	*/
     /* Broadwell have DRAM support too				*/
-    if (cpu_info[dram_avail]) {
-        result=read_msr(fd,MSR_DRAM_ENERGY_STATUS);
-        dram_before=(double)result*energy_units[1];
-    }
+//     if (cpu_info[dram_avail]) {
+//         result=read_msr(fd,MSR_DRAM_ENERGY_STATUS);
+//         dram_before=(double)result*energy_units[1];
+//     }
 
     close(fd);
 
@@ -48,11 +48,11 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
     package_after=(double)result*energy_units[0];
     *r1 = package_after - package_before;
 
-    if (cpu_info[dram_avail]) {
-        result=read_msr(fd,MSR_DRAM_ENERGY_STATUS);
-        dram_after=(double)result*energy_units[1];
-        *r2 = dram_after - dram_before;
-    }
+//     if (cpu_info[dram_avail]) {
+//         result=read_msr(fd,MSR_DRAM_ENERGY_STATUS);
+//         dram_after=(double)result*energy_units[1];
+//         *r2 = dram_after - dram_before;
+//     }
 
     close(fd);
 	return retval;

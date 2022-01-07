@@ -35,10 +35,12 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
 
     close(fd);
 
-    while(curr != NULL) {
-        curr = curr->next; 
+    for(int i = 0; i < ITERATIONS_PER_RUN; i++) {
+        while(curr != NULL) {
+            curr = curr->next; 
+        }
+        curr = head;
     }
-    curr = head;
 
     fd = open_msr(0);
 

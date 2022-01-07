@@ -76,7 +76,8 @@ void print_avg(double measurements[], int runs) {
 
     double avg = sum/runs;
 
-    fprintf(stdout, "Average over %d runs: %fJ\n", runs, avg);
-    printf("---------------------------------------\n");
+    fprintf(stderr, "*******************************");
+    fprintf(stderr, "Average over %d runs: %fJ", runs, avg);
+    fprintf(stderr, "*******************************\n");
 
 }
