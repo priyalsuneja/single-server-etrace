@@ -13,6 +13,7 @@
  *
  * from python:
  * double l10 = 3.425e-8, l20 = 3.310e-7, tlb0 = 4.205e-8, i0 = -9.058e-10
+ * double l20 = 1.866e-7, l10 = 7.32e-8;
  */
 
 #include <stdio.h>
@@ -21,30 +22,39 @@
 
 int main() {
     char input[20];
+//     double l20 = 1.866e-7, l10 = 7.32e-8, tlb0= 0, i0=0;
     double l10 = 3.425e-8, l20 = 3.310e-7, tlb0 = 4.205e-8, i0 = -9.058e-10;
 
     while(1) {
-        printf("Enter num of l1 cache misses: ");
+//         printf("Enter num of l1 cache misses: ");
         fgets(input, 20, stdin);
+
+        if(input[0] == 'a') {
+            break;
+        }
 
         double l1 = atof(input);
 
     //     printf("String value: %s, double value: %f\n", input, l1);
-        printf("Enter num of l2 cache misses: ");
+//         printf("Enter num of l2 cache misses: ");
         fgets(input, 20, stdin);
 
         double l2 = atof(input);
 
     //     printf("String value: %s, double value: %f\n", input, l2);
-        printf("Enter num of tlb misses: ");
+//         printf("Enter num of tlb misses: ");
         fgets(input, 20, stdin);
 
         double tlb = atof(input);
 
-        printf("Enter num of instructions: ");
+//         printf("Enter num of instructions: ");
         fgets(input, 20, stdin);
 
         double ins = atof(input);
+
+        fgets(input, 20, stdin);
+
+        double ans = atof(input);
 
         double output = 0;
 
@@ -52,8 +62,16 @@ int main() {
         output += l20*l2;
         output += tlb0*tlb;
         output += i0*ins;
+        
+        double error;
+        if(output > ans) {
+            error = output - ans;
+        } else {
+            error = ans - output;
+        }
 
-        printf("answer: %f\n", output);
+        printf("Answer: %f, Output: %f\n", ans, output);
+        printf("\tError: %f, error %% : %f%%\n", error, (error/ans)*100);
 
     }
 
