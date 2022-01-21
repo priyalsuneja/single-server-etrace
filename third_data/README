@@ -1,0 +1,6 @@
+this folder contains readings of the following metrics:
+* l1 instruction cache misses
+* IPC (cycles + instructions)
+* l2 data misses
+* tlb data misses
+* l1 data cache misses 
