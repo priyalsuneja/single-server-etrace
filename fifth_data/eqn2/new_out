@@ -1,0 +1,25 @@
+Answer: 75.286255, Output: 63.487386
+	Error: 11.798869, error % : 15.672009%
+Answer: 70.716797, Output: 59.475158
+	Error: 11.241639, error % : 15.896703%
+Answer: 67.974243, Output: 61.310324
+	Error: 6.663919, error % : 9.803594%
+Answer: 71.803833, Output: 78.230097
+	Error: 6.426264, error % : 8.949751%
+Answer: 0.087830, Output: 0.087830
+	Error: 0.000000, error % : 0.000087%
+Answer: 140.682190, Output: 123.357398
+	Error: 17.324792, error % : 12.314844%
+Answer: 249.596802, Output: 209.923906
+	Error: 39.672896, error % : 15.894793%
+Answer: 84.429199, Output: 154.789986
+	Error: 70.360787, error % : 83.337030%
+Answer: 80.265686, Output: 126.952799
+	Error: 46.687113, error % : 58.165719%
+Answer: 84.155579, Output: 112.501335
+	Error: 28.345756, error % : 33.682563%
+Answer: 184.976379, Output: 205.061328
+	Error: 20.084949, error % : 10.858115%
+Answer: 28.126038, Output: 27.976685
+	Error: 0.149353, error % : 0.531012%
+Mean error: 21.563028 
