@@ -18,31 +18,38 @@ for row in coeff:
 
 coeffs = coeffs[0]
 
-inputs = []
-print("Enter num of l1_icache cache misses: ")
-inputs.append(float(input()))
+while(True):
+    inputs = []
+#     print("Enter num of l1_icache cache misses: ")
+    temp_input = input()
 
-print("Enter num of lpc cache misses: ")
-inputs.append(float(input()))
+    if temp_input == 'a':
+        break
+    inputs.append(float(temp_input))
 
-print("Enter num of l2 cache misses: ")
-inputs.append(float(input()))
+#     print("Enter num of lpc cache misses: ")
+    inputs.append(float(input()))
 
-print("Enter num of data_tlb misses: ")
-inputs.append(float(input()))
+#     print("Enter num of l2 cache misses: ")
+    inputs.append(float(input()))
 
-print("Enter num of l1_dcache misses: ")
-inputs.append(float(input()))
+#     print("Enter num of data_tlb misses: ")
+    inputs.append(float(input()))
 
-print("Enter num of ins_tlb0 misses: ")
-inputs.append(float(input()))
+#     print("Enter num of l1_dcache misses: ")
+    inputs.append(float(input()))
 
+#     print("Enter num of ins_tlb0 misses: ")
+    inputs.append(float(input()))
+    
+#     print("Enter answer: ")
+    inputs.append(float(input()))
 
-output = 0.0
+    output = 0.0
 
-for i in range(len(inputs)):
-    output += float(coeffs[i]) * inputs[i]
+    for i in range(len(inputs)-1):
+        output += float(coeffs[i]) * inputs[i]
 
-output *= 0.1
+#     output *= 0.1
 
-print("answer: ", str(output))
+    print("answer: ", str(output))
