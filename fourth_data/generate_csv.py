@@ -1,11 +1,9 @@
 import csv
 import argparse
-'''
 parser = argparse.ArgumentParser()
 parser.add_argument('username', type=str, default="")
 parser.add_argument('datafolder', type=str, default="")
 args = parser.parse_args()
-'''
 def get_data(path):
     f = open(path)
     text = f.readlines()
@@ -33,8 +31,7 @@ def get_data(path):
 def cast(input, index):
     return float(input[index].replace(',', ''))
 
-# filepath = '/scratch/' + args.scratch-username + '/' + args.datafolder + '/'
-filepath = ''
+filepath = '/scratch/' + args.scratch-username + '/' + args.datafolder + '/'
 files = ['bc', 'bfs', 'cc', 'cc_sv', 'l1_msr', 'l2_msr', 'pr', 'pr_spmv', 'sssp', 'tc', 'tlb_msr']
 all_data = []
 

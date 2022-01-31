@@ -2,22 +2,22 @@ import cvxpy as cp
 import numpy as np 
 import csv
 import argparse
-'''
+
 parser = argparse.ArgumentParser()
 parser.add_argument('username', type=str, default="")
 parser.add_argument('datafolder', type=str, defaul="")
 args = parser.parse_args()
 
 filepath = '/scratch/' + args.username + '/' + args.datafolder + '/'
-'''
-filepath = ''
+
+# filepath = ''
 A_data = open(filepath + 'A_data')
 A_input = A_data.read()
 
 B_data = open(filepath + 'b_data.csv')
 B_reader = csv.reader(B_data)
 x = cp.Variable(6)
-'''
+
 A = np.matrix('1106532 0.63 241883851 112964265 302996969 156787; \
 1120819 0.65 173700287 82785104 227693531 262389; \
 1042915 0.65 178048842 82601371 225725815 264178; \
