@@ -1,11 +1,20 @@
 import cvxpy as cp
 import numpy as np 
 import csv
+import argparse
+'''
+parser = argparse.ArgumentParser()
+parser.add_argument('username', type=str, default="")
+parser.add_argument('datafolder', type=str, defaul="")
+args = parser.parse_args()
 
-A_data = open('fourth_data/A_input')
+filepath = '/scratch/' + args.username + '/' + args.datafolder + '/'
+'''
+filepath = ''
+A_data = open(filepath + 'A_data')
 A_input = A_data.read()
 
-B_data = open('fourth_data/data.csv')
+B_data = open(filepath + 'b_data.csv')
 B_reader = csv.reader(B_data)
 x = cp.Variable(6)
 '''
@@ -27,7 +36,6 @@ A = np.matrix(A_input)
 b = []
 for row in B_reader:
     b.append(row[0])
-print(b)
 # '''
 obj = cp.Minimize(cp.sum(cp.abs(A@ x - b)))
 # con = [x>=0]
@@ -39,6 +47,11 @@ prob = cp.Problem(obj,con)
 prob.solve()
 
 print(x.value)
+
+with open('coefficients.csv', 'w') as f:
+    writer = csv.writer(f)
+
+    writer.writerow(x.value)
 
 # p = cp.sum(cp.abs(A @ x.value - b))
 
