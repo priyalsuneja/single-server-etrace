@@ -5,7 +5,9 @@ parser.add_argument('username', type=str, default="")
 parser.add_argument('datafolder', type=str, default="")
 args = parser.parse_args()
 
-filepath = '/scratch/' + args.username + '/' + args.datafolder + '/'
+# filepath = '/scratch/' + args.username + '/' + args.datafolder + '/'
+# filepath = args.datafolder + '/'
+filepath= ""
 
 coeff_file = open(filepath + 'coefficients.csv')
 coeff = csv.reader(coeff_file) #check if this gives array

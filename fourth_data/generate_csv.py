@@ -31,7 +31,7 @@ def get_data(path):
 def cast(input, index):
     return float(input[index].replace(',', ''))
 
-filepath = '/scratch/' + args.scratch-username + '/' + args.datafolder + '/'
+filepath = '/scratch/' + args.username + '/' + args.datafolder + '/'
 files = ['bc', 'bfs', 'cc', 'cc_sv', 'l1_msr', 'l2_msr', 'pr', 'pr_spmv', 'sssp', 'tc', 'tlb_msr']
 all_data = []
 

@@ -5,12 +5,13 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('username', type=str, default="")
-parser.add_argument('datafolder', type=str, defaul="")
+parser.add_argument('datafolder', type=str, default="")
 args = parser.parse_args()
 
-filepath = '/scratch/' + args.username + '/' + args.datafolder + '/'
+# filepath = '/scratch/' + args.username + '/' + args.datafolder + '/'
 
-# filepath = ''
+# filepath = args.datafolder + '/'
+filepath = ""
 A_data = open(filepath + 'A_data')
 A_input = A_data.read()
 
