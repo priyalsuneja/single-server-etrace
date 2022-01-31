@@ -1,10 +1,13 @@
+SRC= src
+UTIL = utils
+BUILD= build
 all: one two three four
 
-one: calc_formulae.c calc_error.c
-	gcc -O0 -Wall -o one calc_formulae.c calc_error.c
-two: calc_formulae2.c calc_error.c
-	gcc -O0 -Wall -o two calc_formulae2.c calc_error.c
-three: calc_formulae3.c calc_error.c
-	gcc -O0 -Wall -o three calc_formulae3.c calc_error.c
-four: calc_formulae4.c calc_error.c
-	gcc -O0 -Wall -o four calc_formulae4.c calc_error.c
+one: $(SRC)/calc_formulae.c $(UTIL)/calc_error.c
+	gcc -O0 -Wall -o $(BUILD)/one $(SRC)/calc_formulae.c $(UTIL)/calc_error.c
+two: $(SRC)/calc_formulae2.c $(UTIL)/calc_error.c
+	gcc -O0 -Wall -o $(BUILD)/two $(SRC)/calc_formulae2.c $(UTIL)/calc_error.c
+three: $(SRC)/calc_formulae3.c $(UTIL)/calc_error.c
+	gcc -O0 -Wall -o $(BUILD)/three $(SRC)/calc_formulae3.c $(UTIL)/calc_error.c
+four: $(SRC)/calc_formulae4.c $(UTIL)/calc_error.c
+	gcc -O0 -Wall -o $(BUILD)/four $(SRC)/calc_formulae4.c $(UTIL)/calc_error.c
