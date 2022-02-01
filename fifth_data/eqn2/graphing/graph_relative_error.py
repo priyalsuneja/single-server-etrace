@@ -9,15 +9,32 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-def graph_relative_error(name, errors, field_data):
-    plt.xlabel(name)
-    plt.ylabel("Relative Error")
+# def graph_relative_error(axs, name, errors, field_data, row, col, normalize_by):
+def graph_relative_error(name, errors, field_data, row, col, normalize_by):
+#     ax = axs[row,col]
+    fig, ax = plt.subplots(nrows=1, ncols=1)
+    ax.set_xlabel(name)
+    ax.set_ylabel("Relative Error")
+
+    lists = list(zip(field_data,errors))
+    lists.sort()
+    new_x, new_y = list(zip(*lists))
+
+#     print(new_x)
+#     print(new_y)
+    count = 0
+    ax.scatter(new_x, new_y, color="none", edgecolor="red")
+    for i, j in zip(new_x, new_y): 
+        if count % 2 == 0:
+            ax.annotate("{0:.2f}".format((i/normalize_by)), (i,j), ha="left",
+            fontsize=10)
+        else:
+            ax.annotate("{0:.2f}".format((i/normalize_by)), (i,j), ha="right",
+            fontsize=10)
+        count+=1
+#     ax.set_xscale("log")
     plt.xticks(rotation=90)
-
-#     plt.plot(field_data, errors, linestyle="None")
-    plt.scatter(field_data,errors)
     plt.savefig(name + ".png", bbox_inches='tight')
-
 
 def main():
     names=[]
@@ -37,18 +54,34 @@ def main():
         with open(sys.argv[i]) as f:
             for line in f:
                 str_list = line.split(",")
+                str_list[8] = str_list[8][:-1]
 
                 names.append(str_list[0])
-                l1_icache.append(str_list[1])
-                cycles.append(str_list[2])
-                ipc.append(str_list[3])
-                l2.append(str_list[4])
-                tlb_data.append(str_list[5])
-                l1_dcache.append(str_list[6])
-                tlb_ins.append(str_list[7])
-                error.append(str_list[8])
+                l1_icache.append(int(str_list[1]))
+                cycles.append(int(str_list[2]))
+                ipc.append(float(str_list[3]))
+                l2.append(int(str_list[4]))
+                tlb_data.append(int(str_list[5]))
+                l1_dcache.append(int(str_list[6]))
+                tlb_ins.append(int(str_list[7]))
+                error.append(float(str_list[8]))
 
-    graph_relative_error("l1_icache",error, l1_icache)
+    fig, ax = plt.subplots(nrows=2, ncols=4)
+#     fig, ax = plt.subplots(nrows=1, ncols=1)
+#     graph_relative_error(ax, "l1_icache",error, l1_icache,0,0,1000)
+#     graph_relative_error(ax, "cycles",error, cycles,0,1,10000000)
+#     graph_relative_error(ax, "ipc",error, ipc,0,2,1)
+#     graph_relative_error(ax, "l2",error, l2,0,3,100000)
+#     graph_relative_error(ax, "tlb_data",error, tlb_data,1,0,10000)
+#     graph_relative_error(ax, "l1_dcache",error, l1_dcache,1,1,100000)
+#     graph_relative_error(ax, "tlb_ins",error, tlb_ins,1,2,100000)
+    graph_relative_error("l1_icache",error, l1_icache,0,0,1000)
+    graph_relative_error("cycles",error, cycles,0,1,10000000)
+    graph_relative_error("ipc",error, ipc,0,2,1)
+    graph_relative_error("l2",error, l2,0,3,100000)
+    graph_relative_error("tlb_data",error, tlb_data,1,0,10000)
+    graph_relative_error("l1_dcache",error, l1_dcache,1,1,100000)
+    graph_relative_error("tlb_ins",error, tlb_ins,1,2,100000)
 
 main()
 

@@ -10,7 +10,7 @@ int print_graphing_info(char* graph_fname, char name[20], double
         return -1;
     }
 
-    fprintf(fptr,"%s,%f,%f,%f,%f,%f,%f,%f,%f\n",name, inputs[L1_ICACHE],
+    fprintf(fptr,"%s,%.0f,%.0f,%.2f,%.0f,%.0f,%.0f,%.0f,%.3f\n",name, inputs[L1_ICACHE],
         inputs[CYCLES], inputs[IPC], inputs[L2], inputs[TLB_DATA],
         inputs[L1_DCACHE], inputs[TLB_INS], rel_error);
 
@@ -79,8 +79,9 @@ int get_input(char name[20], double inputs[INPUT_SIZE]) {
     fgets(input, 20, stdin);
 
     inputs[L2] = atof(input);
-
+    
     fgets(input, 20, stdin);
+
 
     inputs[TLB_DATA] = atof(input);
 
