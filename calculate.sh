@@ -1,10 +1,11 @@
 #!/bin/bash
 
-read -p 'Username: ' username
-read -p 'Data folder: ' data_file
+# read -p 'Username: ' username
+# read -p 'Data folder: ' data_file
+read -p 'Path to data: ' data_folder
 
-python3 $data_file/generate_csv.py $username $data_file
+python3 generate_csv.py $data_folder
 
-python3 $data_file/linear_solver2.py $username $data_file 
+python3 linear_solver2.py $data_folder
 
-python3 $data_file/calc_formulae.py $username $data_file < $data_file/temp 
+python3 calc_formulae.py $data_folder < $data_folder/temp ##TODO: edit this to generate the temp file

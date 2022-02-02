@@ -1,25 +1,49 @@
-Answer: 75.286, Output: 51.811
-	Error: 23.475, error % : 31.181%
-Answer: 70.717, Output: 52.445
-	Error: 18.271, error % : 25.837%
-Answer: 67.974, Output: 54.566
-	Error: 13.408, error % : 19.726%
-Answer: 71.804, Output: 66.814
-	Error: 4.990, error % : 6.950%
-Answer: 0.088, Output: 0.088
-	Error: 0.001, error % : 0.730%
-Answer: 140.682, Output: 131.670
-	Error: 9.013, error % : 6.406%
-Answer: 249.597, Output: 224.858
-	Error: 24.739, error % : 9.911%
-Answer: 84.429, Output: 136.206
-	Error: 51.777, error % : 61.326%
-Answer: 80.266, Output: 111.517
-	Error: 31.251, error % : 38.935%
-Answer: 84.156, Output: 108.522
-	Error: 24.367, error % : 28.955%
-Answer: 184.976, Output: 206.061
-	Error: 21.084, error % : 11.398%
-Answer: 28.126, Output: 27.870
-	Error: 0.256, error % : 0.910%
-Mean error: 18.553 
+******* File: bc *********
+ 	Answer: 75.286, Output: 51.811
+	Error: -23.475, error % : 30.550%
+
+******* File: bfs *********
+ 	Answer: 70.717, Output: 52.445
+	Error: -18.271, error % : 25.454%
+
+******* File: cc *********
+ 	Answer: 67.974, Output: 54.566
+	Error: -13.408, error % : 19.125%
+
+******* File: cc_sv *********
+ 	Answer: 71.804, Output: 66.814
+	Error: -4.990, error % : 5.571%
+
+******* File: ins_msr *********
+ 	Answer: 0.088, Output: 0.088
+	Error: 0.001, error % : 0.000%
+
+******* File: l1_msr *********
+ 	Answer: 140.682, Output: 131.670
+	Error: -9.013, error % : 6.397%
+
+******* File: l2_msr *********
+ 	Answer: 249.597, Output: 224.858
+	Error: -24.739, error % : 9.616%
+
+******* File: pr *********
+ 	Answer: 84.429, Output: 136.206
+	Error: 51.777, error % : 60.406%
+
+******* File: pr_spmv *********
+ 	Answer: 80.266, Output: 111.517
+	Error: 31.251, error % : 38.622%
+
+******* File: sssp *********
+ 	Answer: 84.156, Output: 108.522
+	Error: 24.367, error % : 28.519%
+
+******* File: tc *********
+ 	Answer: 184.976, Output: 206.061
+	Error: 21.084, error % : 11.353%
+
+******* File: tlb_msr *********
+ 	Answer: 28.126, Output: 27.870
+	Error: -0.256, error % : 0.000%
+
+Mean error: 18.167

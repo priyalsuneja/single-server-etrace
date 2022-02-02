@@ -133,7 +133,7 @@ int calc_error_main (double weights[INPUT_SIZE], char* flags, char* graph_fname)
     }
 
     if(strstr(flags, "m")) {
-        printf("Mean error: %f", error_sum/num_data);
+        printf("Mean error: %.3f\n", error_sum/num_data);
     }
 
     return 0;
