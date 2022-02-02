@@ -13,7 +13,7 @@ A_input = A_data.read()
 
 B_data = open(filepath + 'b_data.csv')
 B_reader = csv.reader(B_data)
-x = cp.Variable(6)
+x = cp.Variable(7)
 
 A = np.matrix(A_input)
 b = []

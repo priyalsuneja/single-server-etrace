@@ -11,7 +11,6 @@ def get_data(path):
     offset = 0
     
     if text[1].startswith('energy'):
-        print(text)
         offset = 1
         energy = text[1].split()
         energy = float(energy[2][0:-1])
@@ -20,7 +19,7 @@ def get_data(path):
         energy = float(energy[4])
 
     data = []
-    key_lines = [4, 6, 7, 8, 9, 10]
+    key_lines = [4, 5, 6, 7, 8, 9, 10]
     for i in key_lines:
         if i == 6:
             data.append(cast(text[i + offset].split(), 3))
