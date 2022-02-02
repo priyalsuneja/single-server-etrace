@@ -1,7 +1,7 @@
 import csv
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('username', type=str, default="")
+
 parser.add_argument('datafolder', type=str, default="")
 args = parser.parse_args()
 def get_data(path):
@@ -31,8 +31,8 @@ def get_data(path):
 def cast(input, index):
     return float(input[index].replace(',', ''))
 
-filepath = '/scratch/' + args.username + '/' + args.datafolder + '/'
-files = ['bc', 'bfs', 'cc', 'cc_sv', 'l1_msr', 'l2_msr', 'pr', 'pr_spmv', 'sssp', 'tc', 'tlb_msr']
+files = ['bc', 'bfs', 'cc', 'cc_sv', 'l1_msr', 'l2_msr', 'pr', 'pr_spmv',
+'sssp', 'tc', 'tlb_msr'] ##TODO: automate to looping through all files in folder
 all_data = []
 
 # CREATES CSV FILE OF ENERGIES
@@ -40,7 +40,7 @@ with open('b_data.csv', 'w') as f:
     writer = csv.writer(f)
     
     for path in files:
-        energy, data = get_data(filepath + path)
+        energy, data = get_data(datafolder + path)
         all_data.append(data)
 
         # writer.writerow(data)
