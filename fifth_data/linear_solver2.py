@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('datafolder', type=str, default="")
 args = parser.parse_args()
 
-filepath = ""       # maybe change to an argument 
+filepath = args.datafolder + "/"       # maybe change to an argument 
 A_data = open(filepath + 'A_data')
 A_input = A_data.read()
 
@@ -30,7 +30,7 @@ prob.solve()
 
 print(x.value)
 
-with open('coefficients.csv', 'w') as f:
+with open(filepath + 'coefficients.csv', 'w') as f:
     writer = csv.writer(f)
 
     writer.writerow(x.value)

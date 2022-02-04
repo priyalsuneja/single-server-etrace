@@ -98,7 +98,6 @@ int get_input(char name[20], double inputs[INPUT_SIZE]) {
     inputs[ANS] = atof(input);
 
     return 1;
-
 }
 
 int calc_error_main (double weights[INPUT_SIZE], char* flags, char* graph_fname) {

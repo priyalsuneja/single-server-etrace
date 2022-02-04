@@ -2,7 +2,8 @@ import csv
 import argparse
 parser = argparse.ArgumentParser()
 
-parser.add_argument('datafolder', type=str, default="")
+parser.add_argument('inputfolder', type=str, default="")
+parser.add_argument('outputfolder', type=str, default="")
 args = parser.parse_args()
 def get_data(path):
     f = open(path)
@@ -31,32 +32,52 @@ def get_data(path):
 def cast(input, index):
     return float(input[index].replace(',', ''))
 
-files = ['bc', 'bfs', 'cc', 'cc_sv', 'l1_msr', 'l2_msr', 'pr', 'pr_spmv',
+files = ['bc', 'bfs', 'cc', 'cc_sv', 'ins_msr', 'l1_msr', 'l2_msr', 'pr', 'pr_spmv',
 'sssp', 'tc', 'tlb_msr'] ##TODO: automate to looping through all files in folder
 all_data = []
+energy_list = []
 
 # CREATES CSV FILE OF ENERGIES
-with open('b_data.csv', 'w') as f:
+with open(args.outputfolder + "/" + 'b_data.csv', 'w') as f:
     writer = csv.writer(f)
     
-    for path in files:
-        energy, data = get_data(args.datafolder + '/' + path)
+    for filename in files:
+        energy, data = get_data(args.inputfolder + '/' + filename)
         all_data.append(data)
+        energy_list.append(energy)
 
         writer.writerow([energy])
 
 # CREATES INPUT FOR MATRIX A
-f1 = open("A_data", "w")
+
+f1 = open(args.outputfolder + "/" + "A_data", "w")
 line1 = ""
 
+f2 = open(args.outputfolder + "/" + "temp", "w")
+
 for i in range(len(all_data) - 1):
+    f2.write(files[i] + "\n")
     data = all_data[i]
     for j in range(len(data) - 1):
         line1 += str(data[j]) + " "
+        line2 = str(data[j]) + "\n"
+        f2.write(line2)
     line1 += str(data[len(data) - 1]) + "; "
+    line2 = str(data[len(data)-1]) + "\n"
+    f2.write(line2)
+    line2 = str(energy_list[i]) + "\n"
+    f2.write(line2)
 data = all_data[len(all_data) - 1]
+f2.write(files[len(all_data)-1] + "\n")
 for j in range(len(data) - 1):
     line1 += str(data[j]) + " "
+    line2 = str(data[j]) + "\n"
+    f2.write(line2)
 line1 += str(data[len(data) - 1])
+line2 = str(data[len(data)-1]) + "\n"
+f2.write(line2)
+line2 = str(energy_list[len(all_data)-1]) + "\n"
+f2.write(line2)
+f2.write(';')
 
 f1.write(line1)

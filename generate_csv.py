@@ -40,13 +40,14 @@ all_data = []
 with open('b_data.csv', 'w') as f:
     writer = csv.writer(f)
     
-    for path in files:
-        energy, data = get_data(args.datafolder + '/' + path)
+    for filename in files:
+        energy, data = get_data(args.datafolder + '/' + filename)
         all_data.append(data)
 
         writer.writerow([energy])
 
 # CREATES INPUT FOR MATRIX A
+print(all_data)
 f1 = open("A_data", "w")
 line1 = ""
 
