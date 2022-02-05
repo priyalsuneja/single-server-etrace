@@ -17,4 +17,4 @@ python3 $code_folder/generate_csv.py $data_folder $code_folder
 
 python3 $code_folder/linear_solver2.py $code_folder
 
-./$code_folder/eqn2/build/fifth -$flags < $code_folder/temp >> $code_folder/out
+./$code_folder/fifth -$flags < $code_folder/temp >> $code_folder/out

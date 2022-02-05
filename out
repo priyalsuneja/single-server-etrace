@@ -1,0 +1,61 @@
+file not opened, errno: 2!
+file not opened, errno: 2!
+file not opened, errno: 2!
+-9.110214893023985e-09,-8.177989766542778e-10,0.13335215767701938,3.01277002049851e-07,-3.9498119502122225e-08,-5.955600415790881e-09,0.0001537324995640172
+
+-9.110215e-09
+-8.177990e-10
+1.333522e-01
+3.012770e-07
+-3.949812e-08
+-5.955600e-09
+1.537325e-04
+******* File: l1_msr *********
+ 	Answer: 140.682, Output: 117.031
+	Error: -23.651, error % : 16.349%
+
+******* File: l2_msr *********
+ 	Answer: 249.597, Output: 200.015
+	Error: -49.582, error % : 19.632%
+
+******* File: pr *********
+ 	Answer: 84.429, Output: 129.426
+	Error: 44.996, error % : 52.115%
+
+******* File: cc *********
+ 	Answer: 67.974, Output: 56.149
+	Error: -11.825, error % : 16.183%
+
+******* File: tc *********
+ 	Answer: 184.976, Output: 203.590
+	Error: 18.614, error % : 9.731%
+
+******* File: bfs *********
+ 	Answer: 70.717, Output: 54.353
+	Error: -16.363, error % : 22.625%
+
+******* File: sssp *********
+ 	Answer: 84.156, Output: 104.333
+	Error: 20.178, error % : 23.766%
+
+******* File: bc *********
+ 	Answer: 75.286, Output: 54.852
+	Error: -20.435, error % : 26.565%
+
+******* File: pr_spmv *********
+ 	Answer: 80.266, Output: 107.457
+	Error: 27.192, error % : 33.638%
+
+******* File: tlb_msr *********
+ 	Answer: 28.126, Output: 24.349
+	Error: -3.777, error % : 10.666%
+
+******* File: ins_msr *********
+ 	Answer: 0.088, Output: 0.088
+	Error: 0.000, error % : 0.000%
+
+******* File: cc_sv *********
+ 	Answer: 71.804, Output: 67.564
+	Error: -4.240, error % : 5.571%
+
+Mean error: 19.583

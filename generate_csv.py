@@ -1,4 +1,5 @@
 import csv
+import os
 import argparse
 parser = argparse.ArgumentParser()
 
@@ -32,17 +33,18 @@ def get_data(path):
 def cast(input, index):
     return float(input[index].replace(',', ''))
 
-files = ['bc', 'bfs', 'cc', 'cc_sv', 'ins_msr', 'l1_msr', 'l2_msr', 'pr', 'pr_spmv',
-'sssp', 'tc', 'tlb_msr'] ##TODO: automate to looping through all files in folder
 all_data = []
 energy_list = []
+files = []
 
 # CREATES CSV FILE OF ENERGIES
 with open(args.outputfolder + "/" + 'b_data.csv', 'w') as f:
     writer = csv.writer(f)
     
-    for filename in files:
-        energy, data = get_data(args.inputfolder + '/' + filename)
+    for filename in os.scandir(args.inputfolder):
+        energy, data = get_data(filename.path)
+        files.append(filename.name)
+
         all_data.append(data)
         energy_list.append(energy)
 
