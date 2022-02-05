@@ -1,11 +1,21 @@
 #!/bin/bash 
 file=".sse_config"
 
-readarray -t a < $file 
+declare -a vars
 
-if [ ${#a[@]} -ne 4 ]
+# readarray -t a < $file 
+while IFS= read -r var 
+do 
+    vars+=($var)
+done < $file
+
+for val in "${vars[@]}"
+do 
+    echo $val
+done
+
+if [ ${#vars[@]} -ne 4 ]
 then
     echo "Please give correctly formatted .sse_config file. Look at README for details"
     exit
 fi
-printf '%s\n' "${a[@]}"

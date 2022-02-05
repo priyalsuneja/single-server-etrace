@@ -14,7 +14,14 @@
 # read -p 'Flags: ' flags
 file=".sse_config"
 
-readarray -t a < $file 
+# readarray -t a < $file 
+
+declare -a a
+
+while IFS= read -r var 
+do
+    a+=($var)
+done < $file
 
 if [ ${#a[@]} -ne 4 ]
 then
