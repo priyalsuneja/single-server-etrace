@@ -3,10 +3,10 @@
 #TODO: full pipeline
 # get as input: folder with files that need to be analyzed
 # 1. run script to generate perf outputs
-# 2. read perf outputs to generate csv files 
-# 3. read csv file to linearly solve
-# 4. have file that reads coefficients.csv to read coeff and reads the csv file
-# to get input to different values & calculates result
+# 2. read perf outputs to generate csv files (done)
+# 3. read csv file to linearly solve (done)
+# 4. have file that reads coefficients.csv to read coeff and reads the csv file (done)
+# to get input to different values & calculates result 
 
 # read -p 'Path to code: ' code_folder
 # read -p 'Path to data: ' data_folder
