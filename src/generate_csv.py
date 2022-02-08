@@ -1,9 +1,10 @@
 import csv
+import os
 import argparse
 parser = argparse.ArgumentParser()
 
 parser.add_argument('inputfolder', type=str, default="")
-parser.add_argument('outputfolder', type=str, default="")
+parser.add_argument('tempfolder', type=str, default=".sse_temp")
 args = parser.parse_args()
 def get_data(path):
     f = open(path)
@@ -32,28 +33,40 @@ def get_data(path):
 def cast(input, index):
     return float(input[index].replace(',', ''))
 
-files = ['bc', 'bfs', 'cc', 'cc_sv', 'ins_msr', 'l1_msr', 'l2_msr', 'pr', 'pr_spmv',
-'sssp', 'tc', 'tlb_msr'] ##TODO: automate to looping through all files in folder
 all_data = []
 energy_list = []
+files = []
 
 # CREATES CSV FILE OF ENERGIES
-with open(args.outputfolder + "/" + 'b_data.csv', 'w') as f:
+with open(args.tempfolder + "/" + 'b_data.csv', 'w') as f:
     writer = csv.writer(f)
     
-    for filename in files:
-        energy, data = get_data(args.inputfolder + '/' + filename)
+    for filename in os.scandir(args.inputfolder):
+        energy, data = get_data(filename.path)
+        files.append(filename.name)
+
         all_data.append(data)
         energy_list.append(energy)
 
         writer.writerow([energy])
 
+b_line = ""
+f = open(args.tempfolder + "/" + "bm_input", "w")
+for i in range(len(energy_list) -1):
+    b_line += str(energy_list[i])
+    b_line += "; "
+
+b_line += str(energy_list[len(energy_list) -1])
+
+f.write(b_line)
+    
+
 # CREATES INPUT FOR MATRIX A
 
-f1 = open(args.outputfolder + "/" + "A_data", "w")
+f1 = open(args.tempfolder + "/" + "A_data", "w")
 line1 = ""
 
-f2 = open(args.outputfolder + "/" + "temp", "w")
+f2 = open(args.tempfolder + "/" + "temp", "w")
 
 for i in range(len(all_data) - 1):
     f2.write(files[i] + "\n")
