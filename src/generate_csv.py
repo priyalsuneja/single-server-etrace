@@ -4,7 +4,6 @@ import argparse
 parser = argparse.ArgumentParser()
 
 parser.add_argument('inputfolder', type=str, default="")
-parser.add_argument('outputfolder', type=str, default="")
 parser.add_argument('tempfolder', type=str, default=".sse_temp")
 args = parser.parse_args()
 def get_data(path):
@@ -39,7 +38,7 @@ energy_list = []
 files = []
 
 # CREATES CSV FILE OF ENERGIES
-with open(args.outputfolder + "/" + args.tempfolder + "/" + 'b_data.csv', 'w') as f:
+with open(args.tempfolder + "/" + 'b_data.csv', 'w') as f:
     writer = csv.writer(f)
     
     for filename in os.scandir(args.inputfolder):
@@ -52,7 +51,7 @@ with open(args.outputfolder + "/" + args.tempfolder + "/" + 'b_data.csv', 'w') a
         writer.writerow([energy])
 
 b_line = ""
-f = open(args.outputfolder + "/" + args.tempfolder + "/" + "bm_input", "w")
+f = open(args.tempfolder + "/" + "bm_input", "w")
 for i in range(len(energy_list) -1):
     b_line += str(energy_list[i])
     b_line += "; "
@@ -64,10 +63,10 @@ f.write(b_line)
 
 # CREATES INPUT FOR MATRIX A
 
-f1 = open(args.outputfolder + "/" + args.tempfolder + "/" + "A_data", "w")
+f1 = open(args.tempfolder + "/" + "A_data", "w")
 line1 = ""
 
-f2 = open(args.outputfolder + "/" + args.tempfolder + "/" + "temp", "w")
+f2 = open(args.tempfolder + "/" + "temp", "w")
 
 for i in range(len(all_data) - 1):
     f2.write(files[i] + "\n")
