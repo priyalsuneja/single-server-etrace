@@ -1,0 +1,1141 @@
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            anteater
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4117
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx4_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           anteater
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       udcm
+--------------------------------------------------------------------------
+graph_generation:               0.000557 s
+construction_time:              0.000349 s
+Running BFS 0
+Time for BFS 0 is 0.000080
+TEPS for BFS 0 is 451553
+Validating BFS 0
+Validate time for BFS 0 is 0.000105
+Running BFS 1
+Time for BFS 1 is 0.000081
+TEPS for BFS 1 is 442314
+Validating BFS 1
+Validate time for BFS 1 is 0.000113
+Running BFS 2
+Time for BFS 2 is 0.000082
+TEPS for BFS 2 is 438759
+Validating BFS 2
+Validate time for BFS 2 is 0.000102
+Running BFS 3
+Time for BFS 3 is 0.000068
+TEPS for BFS 3 is 531059
+Validating BFS 3
+Validate time for BFS 3 is 0.000086
+Running BFS 4
+Time for BFS 4 is 0.000081
+TEPS for BFS 4 is 445803
+Validating BFS 4
+Validate time for BFS 4 is 0.000103
+Running BFS 5
+Time for BFS 5 is 0.000069
+TEPS for BFS 5 is 520869
+Validating BFS 5
+Validate time for BFS 5 is 0.000086
+Running BFS 6
+Time for BFS 6 is 0.000080
+TEPS for BFS 6 is 447952
+Validating BFS 6
+Validate time for BFS 6 is 0.000120
+Running BFS 7
+Time for BFS 7 is 0.000079
+TEPS for BFS 7 is 455533
+Validating BFS 7
+Validate time for BFS 7 is 0.000097
+Running BFS 8
+Time for BFS 8 is 0.000066
+TEPS for BFS 8 is 547890
+Validating BFS 8
+Validate time for BFS 8 is 0.000086
+Running BFS 9
+Time for BFS 9 is 0.000080
+TEPS for BFS 9 is 449264
+Validating BFS 9
+Validate time for BFS 9 is 0.000100
+Running BFS 10
+Time for BFS 10 is 0.000081
+TEPS for BFS 10 is 445126
+Validating BFS 10
+Validate time for BFS 10 is 0.000102
+Running BFS 11
+Time for BFS 11 is 0.000081
+TEPS for BFS 11 is 446009
+Validating BFS 11
+Validate time for BFS 11 is 0.000098
+Running BFS 12
+Time for BFS 12 is 0.000065
+TEPS for BFS 12 is 556984
+Validating BFS 12
+Validate time for BFS 12 is 0.000091
+Running BFS 13
+Time for BFS 13 is 0.000093
+TEPS for BFS 13 is 385391
+Validating BFS 13
+Validate time for BFS 13 is 0.000100
+Running BFS 14
+Time for BFS 14 is 0.000064
+TEPS for BFS 14 is 560278
+Validating BFS 14
+Validate time for BFS 14 is 0.000085
+Running BFS 15
+Time for BFS 15 is 0.000081
+TEPS for BFS 15 is 445003
+Validating BFS 15
+Validate time for BFS 15 is 0.000100
+Running BFS 16
+Time for BFS 16 is 0.000067
+TEPS for BFS 16 is 534850
+Validating BFS 16
+Validate time for BFS 16 is 0.000086
+Running BFS 17
+Time for BFS 17 is 0.000079
+TEPS for BFS 17 is 457864
+Validating BFS 17
+Validate time for BFS 17 is 0.000100
+Running BFS 18
+Time for BFS 18 is 0.000105
+TEPS for BFS 18 is 343243
+Validating BFS 18
+Validate time for BFS 18 is 0.000095
+Running BFS 19
+Time for BFS 19 is 0.000074
+TEPS for BFS 19 is 485027
+Validating BFS 19
+Validate time for BFS 19 is 0.000090
+Running BFS 20
+Time for BFS 20 is 0.000059
+TEPS for BFS 20 is 613489
+Validating BFS 20
+Validate time for BFS 20 is 0.000075
+Running BFS 21
+Time for BFS 21 is 0.000060
+TEPS for BFS 21 is 602549
+Validating BFS 21
+Validate time for BFS 21 is 0.000075
+Running BFS 22
+Time for BFS 22 is 0.000073
+TEPS for BFS 22 is 490741
+Validating BFS 22
+Validate time for BFS 22 is 0.000090
+Running BFS 23
+Time for BFS 23 is 0.000061
+TEPS for BFS 23 is 587851
+Validating BFS 23
+Validate time for BFS 23 is 0.000077
+Running BFS 24
+Time for BFS 24 is 0.000074
+TEPS for BFS 24 is 485368
+Validating BFS 24
+Validate time for BFS 24 is 0.000088
+Running BFS 25
+Time for BFS 25 is 0.000074
+TEPS for BFS 25 is 483643
+Validating BFS 25
+Validate time for BFS 25 is 0.000091
+Running BFS 26
+Time for BFS 26 is 0.000059
+TEPS for BFS 26 is 612905
+Validating BFS 26
+Validate time for BFS 26 is 0.000075
+Running BFS 27
+Time for BFS 27 is 0.000058
+TEPS for BFS 27 is 615678
+Validating BFS 27
+Validate time for BFS 27 is 0.000077
+Running BFS 28
+Time for BFS 28 is 0.000072
+TEPS for BFS 28 is 500527
+Validating BFS 28
+Validate time for BFS 28 is 0.000088
+Running BFS 29
+Time for BFS 29 is 0.000073
+TEPS for BFS 29 is 492141
+Validating BFS 29
+Validate time for BFS 29 is 0.000088
+Running BFS 30
+Time for BFS 30 is 0.000072
+TEPS for BFS 30 is 502375
+Validating BFS 30
+Validate time for BFS 30 is 0.000090
+Running BFS 31
+Time for BFS 31 is 0.000072
+TEPS for BFS 31 is 501384
+Validating BFS 31
+Validate time for BFS 31 is 0.000090
+Running BFS 32
+Time for BFS 32 is 0.000060
+TEPS for BFS 32 is 600527
+Validating BFS 32
+Validate time for BFS 32 is 0.000076
+Running BFS 33
+Time for BFS 33 is 0.000072
+TEPS for BFS 33 is 501540
+Validating BFS 33
+Validate time for BFS 33 is 0.000091
+Running BFS 34
+Time for BFS 34 is 0.000060
+TEPS for BFS 34 is 603980
+Validating BFS 34
+Validate time for BFS 34 is 0.000077
+Running BFS 35
+Time for BFS 35 is 0.000072
+TEPS for BFS 35 is 498436
+Validating BFS 35
+Validate time for BFS 35 is 0.000089
+Running BFS 36
+Time for BFS 36 is 0.000059
+TEPS for BFS 36 is 608314
+Validating BFS 36
+Validate time for BFS 36 is 0.000076
+Running BFS 37
+Time for BFS 37 is 0.000057
+TEPS for BFS 37 is 627715
+Validating BFS 37
+Validate time for BFS 37 is 0.000077
+Running BFS 38
+Time for BFS 38 is 0.000058
+TEPS for BFS 38 is 621618
+Validating BFS 38
+Validate time for BFS 38 is 0.000076
+Running BFS 39
+Time for BFS 39 is 0.000073
+TEPS for BFS 39 is 490716
+Validating BFS 39
+Validate time for BFS 39 is 0.000088
+Running BFS 40
+Time for BFS 40 is 0.000058
+TEPS for BFS 40 is 616463
+Validating BFS 40
+Validate time for BFS 40 is 0.000078
+Running BFS 41
+Time for BFS 41 is 0.000074
+TEPS for BFS 41 is 484201
+Validating BFS 41
+Validate time for BFS 41 is 0.000093
+Running BFS 42
+Time for BFS 42 is 0.000078
+TEPS for BFS 42 is 460416
+Validating BFS 42
+Validate time for BFS 42 is 0.000094
+Running BFS 43
+Time for BFS 43 is 0.000059
+TEPS for BFS 43 is 609158
+Validating BFS 43
+Validate time for BFS 43 is 0.000076
+Running BFS 44
+Time for BFS 44 is 0.000060
+TEPS for BFS 44 is 597593
+Validating BFS 44
+Validate time for BFS 44 is 0.000090
+Running BFS 45
+Time for BFS 45 is 0.000075
+TEPS for BFS 45 is 480613
+Validating BFS 45
+Validate time for BFS 45 is 0.000089
+Running BFS 46
+Time for BFS 46 is 0.000073
+TEPS for BFS 46 is 492969
+Validating BFS 46
+Validate time for BFS 46 is 0.000091
+Running BFS 47
+Time for BFS 47 is 0.000061
+TEPS for BFS 47 is 591919
+Validating BFS 47
+Validate time for BFS 47 is 0.000075
+Running BFS 48
+Time for BFS 48 is 0.000059
+TEPS for BFS 48 is 609311
+Validating BFS 48
+Validate time for BFS 48 is 0.000075
+Running BFS 49
+Time for BFS 49 is 0.000072
+TEPS for BFS 49 is 497307
+Validating BFS 49
+Validate time for BFS 49 is 0.000087
+Running BFS 50
+Time for BFS 50 is 0.000059
+TEPS for BFS 50 is 611277
+Validating BFS 50
+Validate time for BFS 50 is 0.000075
+Running BFS 51
+Time for BFS 51 is 0.000063
+TEPS for BFS 51 is 570465
+Validating BFS 51
+Validate time for BFS 51 is 0.000076
+Running BFS 52
+Time for BFS 52 is 0.000071
+TEPS for BFS 52 is 505264
+Validating BFS 52
+Validate time for BFS 52 is 0.000089
+Running BFS 53
+Time for BFS 53 is 0.000073
+TEPS for BFS 53 is 492366
+Validating BFS 53
+Validate time for BFS 53 is 0.000086
+Running BFS 54
+Time for BFS 54 is 0.000072
+TEPS for BFS 54 is 497205
+Validating BFS 54
+Validate time for BFS 54 is 0.000088
+Running BFS 55
+Time for BFS 55 is 0.000058
+TEPS for BFS 55 is 617764
+Validating BFS 55
+Validate time for BFS 55 is 0.000074
+Running BFS 56
+Time for BFS 56 is 0.000060
+TEPS for BFS 56 is 601536
+Validating BFS 56
+Validate time for BFS 56 is 0.000076
+Running BFS 57
+Time for BFS 57 is 0.000071
+TEPS for BFS 57 is 504815
+Validating BFS 57
+Validate time for BFS 57 is 0.000090
+Running BFS 58
+Time for BFS 58 is 0.000070
+TEPS for BFS 58 is 510684
+Validating BFS 58
+Validate time for BFS 58 is 0.000089
+Running BFS 59
+Time for BFS 59 is 0.000058
+TEPS for BFS 59 is 618198
+Validating BFS 59
+Validate time for BFS 59 is 0.000076
+Running BFS 60
+Time for BFS 60 is 0.000059
+TEPS for BFS 60 is 605190
+Validating BFS 60
+Validate time for BFS 60 is 0.000076
+Running BFS 61
+Time for BFS 61 is 0.000061
+TEPS for BFS 61 is 590328
+Validating BFS 61
+Validate time for BFS 61 is 0.000075
+Running BFS 62
+Time for BFS 62 is 0.000060
+TEPS for BFS 62 is 604055
+Validating BFS 62
+Validate time for BFS 62 is 0.000076
+Running BFS 63
+Time for BFS 63 is 0.000071
+TEPS for BFS 63 is 505132
+Validating BFS 63
+Validate time for BFS 63 is 0.000086
+Running SSSP 0
+Time for SSSP 0 is 0.000252
+TEPS for SSSP 0 is 143098
+Validating SSSP 0
+Validate time for SSSP 0 is 0.000044
+Running SSSP 1
+Time for SSSP 1 is 0.000204
+TEPS for SSSP 1 is 176832
+Validating SSSP 1
+Validate time for SSSP 1 is 0.000043
+Running SSSP 2
+Time for SSSP 2 is 0.000214
+TEPS for SSSP 2 is 168410
+Validating SSSP 2
+Validate time for SSSP 2 is 0.000046
+Running SSSP 3
+Time for SSSP 3 is 0.000209
+TEPS for SSSP 3 is 172596
+Validating SSSP 3
+Validate time for SSSP 3 is 0.000053
+Running SSSP 4
+Time for SSSP 4 is 0.000227
+TEPS for SSSP 4 is 158475
+Validating SSSP 4
+Validate time for SSSP 4 is 0.000043
+Running SSSP 5
+Time for SSSP 5 is 0.000207
+TEPS for SSSP 5 is 174142
+Validating SSSP 5
+Validate time for SSSP 5 is 0.000043
+Running SSSP 6
+Time for SSSP 6 is 0.000207
+TEPS for SSSP 6 is 173948
+Validating SSSP 6
+Validate time for SSSP 6 is 0.000042
+Running SSSP 7
+Time for SSSP 7 is 0.000205
+TEPS for SSSP 7 is 175818
+Validating SSSP 7
+Validate time for SSSP 7 is 0.000043
+Running SSSP 8
+Time for SSSP 8 is 0.000208
+TEPS for SSSP 8 is 173277
+Validating SSSP 8
+Validate time for SSSP 8 is 0.000044
+Running SSSP 9
+Time for SSSP 9 is 0.000203
+TEPS for SSSP 9 is 177442
+Validating SSSP 9
+Validate time for SSSP 9 is 0.000043
+Running SSSP 10
+Time for SSSP 10 is 0.000204
+TEPS for SSSP 10 is 176680
+Validating SSSP 10
+Validate time for SSSP 10 is 0.000041
+Running SSSP 11
+Time for SSSP 11 is 0.000207
+TEPS for SSSP 11 is 174108
+Validating SSSP 11
+Validate time for SSSP 11 is 0.000042
+Running SSSP 12
+Time for SSSP 12 is 0.000207
+TEPS for SSSP 12 is 174224
+Validating SSSP 12
+Validate time for SSSP 12 is 0.000042
+Running SSSP 13
+Time for SSSP 13 is 0.000207
+TEPS for SSSP 13 is 173895
+Validating SSSP 13
+Validate time for SSSP 13 is 0.000044
+Running SSSP 14
+Time for SSSP 14 is 0.000169
+TEPS for SSSP 14 is 212922
+Validating SSSP 14
+Validate time for SSSP 14 is 0.000042
+Running SSSP 15
+Time for SSSP 15 is 0.000309
+TEPS for SSSP 15 is 116573
+Validating SSSP 15
+Validate time for SSSP 15 is 0.000044
+Running SSSP 16
+Time for SSSP 16 is 0.000180
+TEPS for SSSP 16 is 200113
+Validating SSSP 16
+Validate time for SSSP 16 is 0.000043
+Running SSSP 17
+Time for SSSP 17 is 0.000195
+TEPS for SSSP 17 is 184777
+Validating SSSP 17
+Validate time for SSSP 17 is 0.000041
+Running SSSP 18
+Time for SSSP 18 is 0.000193
+TEPS for SSSP 18 is 186651
+Validating SSSP 18
+Validate time for SSSP 18 is 0.000042
+Running SSSP 19
+Time for SSSP 19 is 0.000198
+TEPS for SSSP 19 is 181505
+Validating SSSP 19
+Validate time for SSSP 19 is 0.000041
+Running SSSP 20
+Time for SSSP 20 is 0.000205
+TEPS for SSSP 20 is 175831
+Validating SSSP 20
+Validate time for SSSP 20 is 0.000043
+Running SSSP 21
+Time for SSSP 21 is 0.000159
+TEPS for SSSP 21 is 226655
+Validating SSSP 21
+Validate time for SSSP 21 is 0.000042
+Running SSSP 22
+Time for SSSP 22 is 0.000199
+TEPS for SSSP 22 is 180934
+Validating SSSP 22
+Validate time for SSSP 22 is 0.000040
+Running SSSP 23
+Time for SSSP 23 is 0.000162
+TEPS for SSSP 23 is 222676
+Validating SSSP 23
+Validate time for SSSP 23 is 0.000040
+Running SSSP 24
+Time for SSSP 24 is 0.000197
+TEPS for SSSP 24 is 182640
+Validating SSSP 24
+Validate time for SSSP 24 is 0.000041
+Running SSSP 25
+Time for SSSP 25 is 0.000197
+TEPS for SSSP 25 is 182492
+Validating SSSP 25
+Validate time for SSSP 25 is 0.000041
+Running SSSP 26
+Time for SSSP 26 is 0.000193
+TEPS for SSSP 26 is 186482
+Validating SSSP 26
+Validate time for SSSP 26 is 0.000040
+Running SSSP 27
+Time for SSSP 27 is 0.000198
+TEPS for SSSP 27 is 181935
+Validating SSSP 27
+Validate time for SSSP 27 is 0.000041
+Running SSSP 28
+Time for SSSP 28 is 0.000195
+TEPS for SSSP 28 is 184746
+Validating SSSP 28
+Validate time for SSSP 28 is 0.000041
+Running SSSP 29
+Time for SSSP 29 is 0.000194
+TEPS for SSSP 29 is 185313
+Validating SSSP 29
+Validate time for SSSP 29 is 0.000042
+Running SSSP 30
+Time for SSSP 30 is 0.000219
+TEPS for SSSP 30 is 164715
+Validating SSSP 30
+Validate time for SSSP 30 is 0.000039
+Running SSSP 31
+Time for SSSP 31 is 0.000197
+TEPS for SSSP 31 is 182882
+Validating SSSP 31
+Validate time for SSSP 31 is 0.000039
+Running SSSP 32
+Time for SSSP 32 is 0.000195
+TEPS for SSSP 32 is 184626
+Validating SSSP 32
+Validate time for SSSP 32 is 0.000040
+Running SSSP 33
+Time for SSSP 33 is 0.000196
+TEPS for SSSP 33 is 183382
+Validating SSSP 33
+Validate time for SSSP 33 is 0.000038
+Running SSSP 34
+Time for SSSP 34 is 0.000191
+TEPS for SSSP 34 is 188939
+Validating SSSP 34
+Validate time for SSSP 34 is 0.000040
+Running SSSP 35
+Time for SSSP 35 is 0.000194
+TEPS for SSSP 35 is 185444
+Validating SSSP 35
+Validate time for SSSP 35 is 0.000038
+Running SSSP 36
+Time for SSSP 36 is 0.000158
+TEPS for SSSP 36 is 227622
+Validating SSSP 36
+Validate time for SSSP 36 is 0.000038
+Running SSSP 37
+Time for SSSP 37 is 0.000158
+TEPS for SSSP 37 is 227815
+Validating SSSP 37
+Validate time for SSSP 37 is 0.000038
+Running SSSP 38
+Time for SSSP 38 is 0.000179
+TEPS for SSSP 38 is 200912
+Validating SSSP 38
+Validate time for SSSP 38 is 0.000039
+Running SSSP 39
+Time for SSSP 39 is 0.000190
+TEPS for SSSP 39 is 189132
+Validating SSSP 39
+Validate time for SSSP 39 is 0.000042
+Running SSSP 40
+Time for SSSP 40 is 0.000163
+TEPS for SSSP 40 is 221415
+Validating SSSP 40
+Validate time for SSSP 40 is 0.000039
+Running SSSP 41
+Time for SSSP 41 is 0.000190
+TEPS for SSSP 41 is 189737
+Validating SSSP 41
+Validate time for SSSP 41 is 0.000039
+Running SSSP 42
+Time for SSSP 42 is 0.000190
+TEPS for SSSP 42 is 189879
+Validating SSSP 42
+Validate time for SSSP 42 is 0.000039
+Running SSSP 43
+Time for SSSP 43 is 0.000155
+TEPS for SSSP 43 is 232266
+Validating SSSP 43
+Validate time for SSSP 43 is 0.000038
+Running SSSP 44
+Time for SSSP 44 is 0.000161
+TEPS for SSSP 44 is 223717
+Validating SSSP 44
+Validate time for SSSP 44 is 0.000038
+Running SSSP 45
+Time for SSSP 45 is 0.000190
+TEPS for SSSP 45 is 189146
+Validating SSSP 45
+Validate time for SSSP 45 is 0.000038
+Running SSSP 46
+Time for SSSP 46 is 0.000189
+TEPS for SSSP 46 is 190884
+Validating SSSP 46
+Validate time for SSSP 46 is 0.000038
+Running SSSP 47
+Time for SSSP 47 is 0.000185
+TEPS for SSSP 47 is 194773
+Validating SSSP 47
+Validate time for SSSP 47 is 0.000038
+Running SSSP 48
+Time for SSSP 48 is 0.000158
+TEPS for SSSP 48 is 227563
+Validating SSSP 48
+Validate time for SSSP 48 is 0.000038
+Running SSSP 49
+Time for SSSP 49 is 0.000188
+TEPS for SSSP 49 is 191008
+Validating SSSP 49
+Validate time for SSSP 49 is 0.000039
+Running SSSP 50
+Time for SSSP 50 is 0.000189
+TEPS for SSSP 50 is 190537
+Validating SSSP 50
+Validate time for SSSP 50 is 0.000038
+Running SSSP 51
+Time for SSSP 51 is 0.000157
+TEPS for SSSP 51 is 229100
+Validating SSSP 51
+Validate time for SSSP 51 is 0.000039
+Running SSSP 52
+Time for SSSP 52 is 0.000191
+TEPS for SSSP 52 is 188950
+Validating SSSP 52
+Validate time for SSSP 52 is 0.000039
+Running SSSP 53
+Time for SSSP 53 is 0.000191
+TEPS for SSSP 53 is 188526
+Validating SSSP 53
+Validate time for SSSP 53 is 0.000039
+Running SSSP 54
+Time for SSSP 54 is 0.000191
+TEPS for SSSP 54 is 188799
+Validating SSSP 54
+Validate time for SSSP 54 is 0.000039
+Running SSSP 55
+Time for SSSP 55 is 0.000161
+TEPS for SSSP 55 is 223133
+Validating SSSP 55
+Validate time for SSSP 55 is 0.000039
+Running SSSP 56
+Time for SSSP 56 is 0.000161
+TEPS for SSSP 56 is 223401
+Validating SSSP 56
+Validate time for SSSP 56 is 0.000039
+Running SSSP 57
+Time for SSSP 57 is 0.000193
+TEPS for SSSP 57 is 186521
+Validating SSSP 57
+Validate time for SSSP 57 is 0.000038
+Running SSSP 58
+Time for SSSP 58 is 0.000197
+TEPS for SSSP 58 is 183173
+Validating SSSP 58
+Validate time for SSSP 58 is 0.000039
+Running SSSP 59
+Time for SSSP 59 is 0.000159
+TEPS for SSSP 59 is 226130
+Validating SSSP 59
+Validate time for SSSP 59 is 0.000037
+Running SSSP 60
+Time for SSSP 60 is 0.000164
+TEPS for SSSP 60 is 219370
+Validating SSSP 60
+Validate time for SSSP 60 is 0.000040
+Running SSSP 61
+Time for SSSP 61 is 0.000163
+TEPS for SSSP 61 is 221253
+Validating SSSP 61
+Validate time for SSSP 61 is 0.000038
+Running SSSP 62
+Time for SSSP 62 is 0.000191
+TEPS for SSSP 62 is 188123
+Validating SSSP 62
+Validate time for SSSP 62 is 0.000039
+Running SSSP 63
+Time for SSSP 63 is 0.000193
+TEPS for SSSP 63 is 186467
+Validating SSSP 63
+Validate time for SSSP 63 is 0.000039
+SCALE:                          2
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.000557441
+num_mpi_processes:              12
+construction_time:              0.000348911
+bfs  min_time:                  5.73508e-05
+bfs  firstquartile_time:        5.97965e-05
+bfs  median_time:               7.12909e-05
+bfs  thirdquartile_time:        7.43922e-05
+bfs  max_time:                  0.000104882
+bfs  mean_time:                 6.95842e-05
+bfs  stddev_time:               9.68137e-06
+sssp min_time:                  0.000154994
+sssp firstquartile_time:        0.00017954
+sssp median_time:               0.000193028
+sssp thirdquartile_time:        0.000203233
+sssp max_time:                  0.000308819
+sssp mean_time:                 0.000191351
+sssp stddev_time:               2.44392e-05
+min_nedge:                      36
+firstquartile_nedge:            36
+median_nedge:                   36
+thirdquartile_nedge:            36
+max_nedge:                      36
+mean_nedge:                     36
+stddev_nedge:                   0
+bfs  min_TEPS:                  343243
+bfs  firstquartile_TEPS:        483922
+bfs  median_TEPS:               504973
+bfs  thirdquartile_TEPS:        602042
+bfs  max_TEPS:                  627715
+bfs  harmonic_mean_TEPS:     !  517359
+bfs  harmonic_stddev_TEPS:      9068.76
+sssp min_TEPS:                  116573
+sssp firstquartile_TEPS:        177136
+sssp median_TEPS:               186502
+sssp thirdquartile_TEPS:        200512
+sssp max_TEPS:                  232266
+sssp harmonic_mean_TEPS:     !  188136
+sssp harmonic_stddev_TEPS:      3027.32
+bfs  min_validate:              7.40625e-05
+bfs  firstquartile_validate:    7.63852e-05
+bfs  median_validate:           8.8023e-05
+bfs  thirdquartile_validate:    9.10591e-05
+bfs  max_validate:              0.000119623
+bfs  mean_validate:             8.71525e-05
+bfs  stddev_validate:           1.03388e-05
+sssp min_validate:              3.71337e-05
+sssp firstquartile_validate:    3.86406e-05
+sssp median_validate:           4.00748e-05
+sssp thirdquartile_validate:    4.23919e-05
+sssp max_validate:              5.31077e-05
+sssp mean_validate:             4.05803e-05
+sssp stddev_validate:           2.64718e-06

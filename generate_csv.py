@@ -50,6 +50,17 @@ with open(args.outputfolder + "/" + 'b_data.csv', 'w') as f:
 
         writer.writerow([energy])
 
+b_line = ""
+f = open(args.outputfolder + "/" + "bm_input", "w")
+for i in range(len(energy_list) -1):
+    b_line += str(energy_list[i])
+    b_line += "; "
+
+b_line += str(energy_list[len(energy_list) -1])
+
+f.write(b_line)
+    
+
 # CREATES INPUT FOR MATRIX A
 
 f1 = open(args.outputfolder + "/" + "A_data", "w")

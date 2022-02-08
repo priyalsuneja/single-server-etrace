@@ -17,7 +17,7 @@
 #include <mpi.h>
 #include "../generator/graph_generator.h"
 #ifndef PROCS_PER_NODE_NOT_POWER_OF_TWO
-#define SIZE_MUST_BE_A_POWER_OF_TWO
+// #define SIZE_MUST_BE_A_POWER_OF_TWO
 #endif
 extern int rank, size;
 #ifdef SIZE_MUST_BE_A_POWER_OF_TWO
