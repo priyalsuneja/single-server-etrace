@@ -64,3 +64,69 @@
 	Error: -24.651, error % : 17.060%
 
 Mean error: 15.357
+-1.1575830939619558e-05,-9.735388640830302e-11,0.29314286138032714,3.931683656852682e-07,-1.9955072502924222e-07,-1.1350971782302156e-07,0.00018718272929943547
+
+-1.157583e-05
+-9.735389e-11
+2.931429e-01
+3.931684e-07
+-1.995507e-07
+-1.135097e-07
+1.871827e-04
+******* File: tlb_msr *********
+ 	Answer: 28.126, Output: 24.891
+	Error: -3.235, error % : 10.666%
+
+******* File: l2_msr *********
+ 	Answer: 249.597, Output: 202.703
+	Error: -46.893, error % : 18.430%
+
+******* File: err_bfs *********
+ 	Answer: 0.823, Output: 0.742
+	Error: -0.081, error % : 0.000%
+
+******* File: ins_msr *********
+ 	Answer: 0.088, Output: 0.088
+	Error: -0.000, error % : 0.000%
+
+******* File: cc *********
+ 	Answer: 67.974, Output: 61.468
+	Error: -6.506, error % : 8.827%
+
+******* File: err_sssp *********
+ 	Answer: 2.003, Output: 2.214
+	Error: 0.212, error % : 0.000%
+
+******* File: bfs *********
+ 	Answer: 70.717, Output: 58.239
+	Error: -12.477, error % : 16.969%
+
+******* File: tc *********
+ 	Answer: 184.976, Output: 237.451
+	Error: 52.475, error % : 28.112%
+
+******* File: pr *********
+ 	Answer: 84.429, Output: 103.153
+	Error: 18.723, error % : 21.320%
+
+******* File: cc_sv *********
+ 	Answer: 71.804, Output: 61.886
+	Error: -9.918, error % : 12.534%
+
+******* File: bc *********
+ 	Answer: 75.286, Output: 50.612
+	Error: -24.675, error % : 31.878%
+
+******* File: sssp *********
+ 	Answer: 84.156, Output: 96.390
+	Error: 12.235, error % : 14.259%
+
+******* File: pr_spmv *********
+ 	Answer: 80.266, Output: 89.851
+	Error: 9.586, error % : 11.213%
+
+******* File: l1_msr *********
+ 	Answer: 140.682, Output: 116.031
+	Error: -24.651, error % : 17.060%
+
+Mean error: 15.357

@@ -6,9 +6,10 @@ from cvxpy.settings import CPLEX
 
 parser = argparse.ArgumentParser()
 parser.add_argument('datafolder', type=str, default="")
+parser.add_argument('tempfolder', type=str, default=".sse_temp")
 args = parser.parse_args()
 
-filepath = args.datafolder + "/"       # maybe change to an argument 
+filepath = args.datafolder + "/" + args.tempfolder + "/"      # maybe change to an argument 
 A_data = open(filepath + 'A_data')
 # A_data = open(filepath + 'A_data_data')
 A_input = A_data.read()
