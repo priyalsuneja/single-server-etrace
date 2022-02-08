@@ -2,6 +2,7 @@ import cvxpy as cp
 import numpy as np 
 import csv
 import argparse
+from cvxpy.settings import CPLEX
 
 parser = argparse.ArgumentParser()
 parser.add_argument('datafolder', type=str, default="")
@@ -9,6 +10,7 @@ args = parser.parse_args()
 
 filepath = args.datafolder + "/"       # maybe change to an argument 
 A_data = open(filepath + 'A_data')
+# A_data = open(filepath + 'A_data_data')
 A_input = A_data.read()
 
 bm_data = open(filepath + 'bm_input')
@@ -33,12 +35,15 @@ b_m = np.matrix(bm_input)   # TODO: automate this input generation
 # obj = cp.Minimize(cp.sum(cp.abs(A@ x - b)))
 obj = cp.Minimize(cp.sum(cp.square((A/b_m)@ x - b_temp)))
 # con = [x>=0]
-con = [0<=x]
+# con = [0<=x]
+con = []
 
 prob = cp.Problem(obj,con)
 
 # prob.solve(verbose=True)
 prob.solve(solver=cp.SCS)
+# prob.solve(solver=CPLEX, verbose=True)
+
 
 print(x.value)
 

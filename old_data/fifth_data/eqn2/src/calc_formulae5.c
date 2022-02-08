@@ -45,6 +45,7 @@ int main(int argc, char** argv) {
     }
 
 
+    // argv[1] contains flags
     if(argc == 2) {
         if(argv[1][0] == '-') {
             return calc_error_main(weights, argv[1], "graph_out_one");
