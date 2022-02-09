@@ -36,6 +36,6 @@ python3 ${a[0]}/generate_csv.py ${a[1]} ${a[4]}
 
 python3 ${a[0]}/linear_solver2.py ${a[4]}
 
-./${a[0]}/fifth -${a[3]} < ./${a[4]}/temp >> ${a[2]}
+./${a[0]}/fifth -${a[3]} < ./${a[4]}/temp > ${a[2]}
 
 rm -rf ${a[4]}

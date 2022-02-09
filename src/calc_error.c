@@ -18,20 +18,35 @@ int print_graphing_info(char* graph_fname, char name[20], double
 
 }
 
-double calc_error (double weights[INPUT_SIZE], double inputs[INPUT_SIZE]) {
+double calc_error (char name[20], double weights[INPUT_SIZE], double inputs[INPUT_SIZE]) {
 
 
     double output = 0;
+    double l1i = 0;
+    double cycles = 0;
+    double ipc = 0;
+    double l2 = 0;
+    double tlbd = 0;
+    double l1d = 0;
+    double tlbi = 0;
 
-    output += weights[L1_ICACHE]*inputs[L1_ICACHE];
-    output += weights[CYCLES]*inputs[CYCLES];
-    output += weights[IPC]*inputs[IPC];
-    output += weights[L2]*inputs[L2];
-    output += weights[TLB_DATA]*inputs[TLB_DATA];
-    output += weights[L1_DCACHE]*inputs[L1_DCACHE];
-    output += weights[TLB_INS]*inputs[TLB_INS];
+    l1i = weights[L1_ICACHE]*inputs[L1_ICACHE];
+    cycles = weights[CYCLES]*inputs[CYCLES];
+    ipc = weights[IPC]*inputs[IPC];
+    l2 = weights[L2]*inputs[L2];
+    tlbd = weights[TLB_DATA]*inputs[TLB_DATA];
+    l1d = weights[L1_DCACHE]*inputs[L1_DCACHE];
+    tlbi = weights[TLB_INS]*inputs[TLB_INS];
 
-    return output - inputs[ANS];
+    output = l1i + cycles + ipc + l2 + tlbd + l1d + tlbi;
+
+    double error = output - inputs[ANS];
+
+    printf("%s\t\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n",
+    name,  inputs[ANS], output, error, (fabs(error) * 100/inputs[ANS]), l1i,
+    cycles, ipc, l2, tlbd, l1d, tlbi);
+
+    return error;
 }
 
 void print_stats(double inputs[INPUT_SIZE]) {
@@ -104,30 +119,50 @@ int calc_error_main (double weights[INPUT_SIZE], char* flags, char* graph_fname)
 
     double inputs[INPUT_SIZE];
 
+    double total_inputs = 0;
     char name[20];
     double error_sum = 0;
     int num_data  = 0;
-
+    
+    printf(
+      "----------------------------------------------------------------------------------------\n"
+      );
+    printf(
+      "File\t\tAnswer\tOutput\tError\tError%%\tL1_I\tCycles\tIPC\tL2\tTLB_Data\tL1_D\tTLB_Ins\n"
+      );
+      printf(
+      "----------------------------------------------------------------------------------------\n"
+      );
     while(1) {
+
+        total_inputs = 0;
 
         if(!get_input(name, inputs)) {
             break;
         }
 
-        double error = calc_error(weights, inputs);
+        double error = calc_error(name, weights, inputs);
 
-        error_sum += abs(error);
+        error_sum += fabs(error);
         num_data++;
 
-        printf("******* File: %s *********\n \tAnswer: %.3f, Output: %.3f\n",
-        name, inputs[ANS], inputs[ANS]+error);
-        printf("\tError: %.3f, error %% : %.3f%%\n\n", error, (abs(error)/inputs[ANS])*100);
+        for(int i = 0; i < INPUT_SIZE - 1; i++) {
+            total_inputs += inputs[i];
+        }
+        total_inputs -= inputs[CYCLES];
+//         printf("%f\n",total_inputs);
+
+//         printf("******* File: %s *********\n \tAnswer: %.3f, Output: %.3f\n",
+//         name, inputs[ANS], inputs[ANS]+error);
+//         printf("\tError: %.3f, error %% : %.3f%%\n\n", error, ((fabs(error) *
+//         100)/inputs[ANS]));
+
 
         if(strstr(flags, "s")) {
             print_stats(inputs);
         }
         if(strstr(flags, "g")) {
-            print_graphing_info(graph_fname, name, inputs, abs(error)/inputs[ANS]);
+            print_graphing_info(graph_fname, name, inputs, fabs(error)/inputs[ANS]);
         }
     }
 

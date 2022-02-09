@@ -1,6 +1,9 @@
 #include "calc_error.h"
 #include "errno.h"
 int main(int argc, char** argv) {
+    
+    char weight_names[7][10] = {"l1_icache", "cycles", "ipc", "l2", "tlb_data", "l1_dcache",
+    "tlb_ins"};
 
 
     double weights[INPUT_SIZE];
@@ -27,17 +30,19 @@ int main(int argc, char** argv) {
         return -1;
     }
 
-    printf("%s\n", line);
+//     printf("%s\n", line);
 
     char* token = strtok(line, ",");
     int i = 0;
 
+    printf("Weights for each field: \n");
     while(token != NULL) {
         weights[i] = atof(token);
-        printf("%e\n", weights[i]);
+        printf("%s: %e\n", weight_names[i], weights[i]);
         token = strtok(NULL, ",");
         i++;
     }
+    printf("\n");
 
 
     // argv[1] contains flags

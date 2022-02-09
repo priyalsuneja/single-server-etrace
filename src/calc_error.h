@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #define L1_ICACHE 0
 #define CYCLES 1
@@ -12,9 +13,10 @@
 #define ANS 7
 #define INPUT_SIZE 8
 
+
 int calc_error_main(double weights[INPUT_SIZE], char* flags, char* graph_fname);
 
-double calc_error(double weights[INPUT_SIZE], double inputs[INPUT_SIZE]);
+double calc_error(char name[20], double weights[INPUT_SIZE], double inputs[INPUT_SIZE]);
 
 int get_input(char name[20], double inputs[INPUT_SIZE]);
 

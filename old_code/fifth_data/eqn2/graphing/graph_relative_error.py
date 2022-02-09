@@ -61,7 +61,7 @@ def main():
                 cycles.append(int(str_list[2]))
                 ipc.append(float(str_list[3]))
                 l2.append(int(str_list[4]))
-                tlb_data.append(int(str_list[5]))
+                tlb_data.append(float(str_list[5])/float(str_list[2]))
                 l1_dcache.append(int(str_list[6]))
                 tlb_ins.append(int(str_list[7]))
                 error.append(float(str_list[8]))
