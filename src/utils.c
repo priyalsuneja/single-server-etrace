@@ -1,18 +1,19 @@
 // currently only supports graphing relative error, have to add support for
 // other stuff
-#include "calc_error.h"
+#include "utils.h"
 
 int print_graphing_info(char* graph_fname, char name[20], double
-                                         inputs[INPUT_SIZE], double rel_error) {
+                                         inputs[INPUT_SIZE], double rel_error,
+                                         double output) {
 
     FILE* fptr = fopen(graph_fname, "a+");
     if(!fptr) {
         return -1;
     }
 
-    fprintf(fptr,"%s,%.0f,%.0f,%.2f,%.0f,%.0f,%.0f,%.0f,%.3f\n",name, inputs[L1_ICACHE],
+    fprintf(fptr,"%s,%.0f,%.0f,%.2f,%.0f,%.0f,%.0f,%.0f,%.3f,%.3f,%.3f\n",name, inputs[L1_ICACHE],
         inputs[CYCLES], inputs[IPC], inputs[L2], inputs[TLB_DATA],
-        inputs[L1_DCACHE], inputs[TLB_INS], rel_error);
+        inputs[L1_DCACHE], inputs[TLB_INS], rel_error, inputs[ANS], output);
 
     return 0;
 
@@ -43,8 +44,12 @@ double calc_error (char name[20], double weights[INPUT_SIZE], double inputs[INPU
     double error = output - inputs[ANS];
 
     printf("%s\t\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n",
-    name,  inputs[ANS], output, error, (fabs(error) * 100/inputs[ANS]), l1i,
-    cycles, ipc, l2, tlbd, l1d, tlbi);
+    name,  inputs[ANS], output, error, (fabs(error) * 100/inputs[ANS]),
+    l1i*100/output, cycles*100/output, ipc*100/output, l2*100/output,
+    tlbd*100/output, l1d*100/output, tlbi*100/output);
+//     printf("%s\t\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n",
+//     name,  inputs[ANS], output, error, (fabs(error) * 100/inputs[ANS]),
+//     l1i, cycles, ipc, l2, tlbd, l1d, tlbi);
 
     return error;
 }
@@ -128,7 +133,7 @@ int calc_error_main (double weights[INPUT_SIZE], char* flags, char* graph_fname)
       "----------------------------------------------------------------------------------------\n"
       );
     printf(
-      "File\t\tAnswer\tOutput\tError\tError%%\tL1_I\tCycles\tIPC\tL2\tTLB_Data\tL1_D\tTLB_Ins\n"
+      "File\t\tAnswer\tOutput\tError\tError%%\tL1_I%%\tCycles%%\tIns%%\tL2%%\tTLB_Data%%\tL1_D%%\tTLB_Ins%%\n"
       );
       printf(
       "----------------------------------------------------------------------------------------\n"
@@ -143,7 +148,7 @@ int calc_error_main (double weights[INPUT_SIZE], char* flags, char* graph_fname)
 
         double error = calc_error(name, weights, inputs);
 
-        error_sum += fabs(error);
+        error_sum += (fabs(error)*100/inputs[ANS]) ;
         num_data++;
 
         for(int i = 0; i < INPUT_SIZE - 1; i++) {
@@ -162,7 +167,8 @@ int calc_error_main (double weights[INPUT_SIZE], char* flags, char* graph_fname)
             print_stats(inputs);
         }
         if(strstr(flags, "g")) {
-            print_graphing_info(graph_fname, name, inputs, fabs(error)/inputs[ANS]);
+            print_graphing_info(graph_fname, name, inputs, error/inputs[ANS],
+            inputs[ANS] + error);
         }
     }
 

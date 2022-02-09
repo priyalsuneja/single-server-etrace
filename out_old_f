@@ -1,0 +1,66 @@
+Weights for each field: 
+l1_icache: 2.894834e-06
+cycles: 7.440517e-09
+ipc: -8.716590e-09
+l2: 8.357566e-07
+tlb_data: -1.566467e-07
+l1_dcache: -5.982813e-07
+tlb_ins: -5.498829e-05
+
+******* File: ins_msr *********
+ 	Answer: 0.088, Output: 0.044
+	Error: -0.044, error % : 49.684%
+
+******* File: l1_msr *********
+ 	Answer: 140.682, Output: 124.875
+	Error: -15.807, error % : 11.236%
+
+******* File: pr_spmv *********
+ 	Answer: 80.266, Output: 96.468
+	Error: 16.202, error % : 20.185%
+
+******* File: bfs *********
+ 	Answer: 70.717, Output: 58.454
+	Error: -12.263, error % : 17.341%
+
+******* File: cc *********
+ 	Answer: 67.974, Output: 62.442
+	Error: -5.532, error % : 8.138%
+
+******* File: sssp *********
+ 	Answer: 84.156, Output: 79.032
+	Error: -5.123, error % : 6.088%
+
+******* File: pr *********
+ 	Answer: 84.429, Output: 104.647
+	Error: 20.217, error % : 23.946%
+
+******* File: err_sssp *********
+ 	Answer: 2.003, Output: -0.489
+	Error: -2.491, error % : 124.407%
+
+******* File: tc *********
+ 	Answer: 184.976, Output: 220.831
+	Error: 35.854, error % : 19.383%
+
+******* File: tlb_msr *********
+ 	Answer: 28.126, Output: 10.237
+	Error: -17.889, error % : 63.603%
+
+******* File: err_bfs *********
+ 	Answer: 0.823, Output: 2.204
+	Error: 1.381, error % : 167.693%
+
+******* File: cc_sv *********
+ 	Answer: 71.804, Output: 68.432
+	Error: -3.372, error % : 4.697%
+
+******* File: l2_msr *********
+ 	Answer: 249.597, Output: 248.180
+	Error: -1.416, error % : 0.567%
+
+******* File: bc *********
+ 	Answer: 75.286, Output: 81.665
+	Error: 6.379, error % : 8.473%
+
+Mean error: 37.531

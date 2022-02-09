@@ -1,8 +1,8 @@
-#include "calc_error.h"
+#include "utils.h"
 #include "errno.h"
 int main(int argc, char** argv) {
     
-    char weight_names[7][10] = {"l1_icache", "cycles", "ipc", "l2", "tlb_data", "l1_dcache",
+    char weight_names[7][10] = {"l1_icache", "cycles", "ins", "l2", "tlb_data", "l1_dcache",
     "tlb_ins"};
 
 

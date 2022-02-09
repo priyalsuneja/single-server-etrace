@@ -23,10 +23,11 @@ def get_data(path):
     data = []
     key_lines = [4, 5, 6, 7, 8, 9, 10]
     for i in key_lines:
-        if i == 6:
-            data.append(cast(text[i + offset].split(), 3))
-        else:
-            data.append(cast(text[i + offset].split(), 0))
+#         if i == 6:
+#             data.append(cast(text[i + offset].split(), 3))
+#         else:
+#             data.append(cast(text[i + offset].split(), 0))
+        data.append(cast(text[i + offset].split(), 0))
 
     return energy, data 
 

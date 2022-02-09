@@ -23,4 +23,5 @@ int get_input(char name[20], double inputs[INPUT_SIZE]);
 void print_stats(double inputs[INPUT_SIZE]);
 
 int print_graphing_info(char* graph_fname, char name[20], double
-                                         inputs[INPUT_SIZE], double rel_error);
+                                         inputs[INPUT_SIZE], double rel_error,
+                                         double output);

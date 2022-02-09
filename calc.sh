@@ -38,4 +38,11 @@ python3 ${a[0]}/linear_solver2.py ${a[4]}
 
 ./${a[0]}/fifth -${a[3]} < ./${a[4]}/temp > ${a[2]}
 
-rm -rf ${a[4]}
+if [[ ${a[3]} =~ "g" ]]
+then 
+    python3 ${a[0]}/graph_relative_error.py graph_out_one
+fi
+
+rm graph_out_one
+
+# rm -rf ${a[4]}
