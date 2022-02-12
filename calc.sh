@@ -45,4 +45,4 @@ fi
 
 rm graph_out_one
 
-# rm -rf ${a[4]}
+rm -rf ${a[4]}
