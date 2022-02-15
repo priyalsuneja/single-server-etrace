@@ -5,34 +5,45 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('inputfolder', type=str, default="")
 parser.add_argument('tempfolder', type=str, default=".sse_temp")
+parser.add_argument('data_labels_file', type=str, default=".data_labels")
+
 args = parser.parse_args()
 def get_data(path):
     f = open(path)
     lines = f.readlines()
 
-    offset = 0
-    
+    data_needed = []
+    with open(args.data_labels_file, "r") as f_labels:
+        for data_line in f_labels:
+            data_needed.append(data_line[:-1])
+        
     if lines[1].startswith('energy'):
-        offset = 1
         energy = lines[1].split()
         energy = float(energy[2][0:-1])
     else:
         energy = lines[0].split()
         energy = float(energy[4])
 
+    j = 0
     data = []
-    key_lines = [4, 5, 6, 7, 8, 9, 10,11]
-    for i in key_lines:
-        if i == 6:
-            ipc_text = lines[i+offset].split()[3]
-            ipc = cast(ipc_text)
+    ipc = 0
 
-        text = lines[i+offset].split()[0]
-        if(text == "<not"):
-            text = "0"
+    for i in range(4, len(lines)):
+        if j == len(data_needed):
+            break
+        if data_needed[j] in lines[i]:
+            if data_needed[j] == 'instructions':
+                ipc_text = lines[i].split()[3]
+                ipc = cast(ipc_text)
+            text = lines[i].split()[0]
+            if(text == "<not"):
+                text = "0"
 
-        data.append(cast(text))
-
+            data.append(cast(text))
+            j += 1
+        
+#     if (len(data) != len(data_needed) + 1):
+#         print("something went wrong")
     return ipc, energy, data 
 
 def cast(input):

@@ -1,0 +1,8 @@
+L1-icache-load-misses
+cycles
+instructions
+l2_rqsts.miss
+dTLB-load-misses
+L1-dcache-load-misses
+iTLB-load-misses
+LLC-load-misses

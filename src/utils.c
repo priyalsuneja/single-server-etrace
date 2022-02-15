@@ -83,7 +83,12 @@ void print_stats(double inputs[INPUT_SIZE]) {
 int get_input(char name[20], double inputs[INPUT_SIZE]) {   // TODO: make this
                                                             // into a loop that
                                                             // depends on
-                                                            // input_size
+                                                            // input_size and
+                                                            // make it so that
+                                                            // input_size is
+                                                            // user defined, not
+                                                            // a constant name
+                                                            // by us
     char input[20];
     fgets(input, 20, stdin);
     

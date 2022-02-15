@@ -24,7 +24,7 @@ do
     a+=($var)
 done < $file
 
-if [ ${#a[@]} -ne 5 ]
+if [ ${#a[@]} -ne 6 ]
 then
     echo "Please give correctly formatted .sse_config file. Look at README for details"
     exit
@@ -32,7 +32,7 @@ fi
 
 mkdir ${a[4]}
 
-python3 ${a[0]}/generate_csv.py ${a[1]} ${a[4]}
+python3 ${a[0]}/generate_csv.py ${a[1]} ${a[4]} ${a[5]}
 
 python3 ${a[0]}/linear_solver.py ${a[4]}
 
