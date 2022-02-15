@@ -18,7 +18,7 @@ bm_input = bm_data.read()
 
 B_data = open(filepath + 'b_data.csv')
 B_reader = csv.reader(B_data)
-x = cp.Variable(7)
+x = cp.Variable(8)
 
 A = np.matrix(A_input)
 b = []
@@ -31,8 +31,7 @@ for i in range(len(b)):
     b_temp.append(1)
 
 
-b_m = np.matrix(bm_input)   # TODO: automate this input generation
-# obj = cp.Minimize(cp.sum(cp.abs(A@ x - b)))
+b_m = np.matrix(bm_input)
 obj = cp.Minimize(cp.sum(cp.square((A/b_m)@ x - b_temp)))
 # con = [x>=0]
 # con = [0<=x]
@@ -45,13 +44,9 @@ prob.solve(solver=cp.SCS)
 # prob.solve(solver=CPLEX, verbose=True)
 
 
-print(x.value)
+# print(x.value)
 
 with open(filepath + 'coefficients.csv', 'w') as f:
     writer = csv.writer(f)
 
     writer.writerow(x.value)
-
-# p = cp.sum(cp.abs(A @ x.value - b))
-
-# print (A@x.value -b)

@@ -1,15 +1,16 @@
 ********* pr_spmv *********
-energy consumed: 80.265686 
+energy consumed: 80.483215 
 
- Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/gapbs/pr_spmv -g 20 -n 1':
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/pr_spmv -g 20 -n 1':
 
-         1184361      L1-icache-load-misses                                         (56.78%)
-    47035081243      cycles                                                        (71.31%)
-    28324990311      instructions              #    0.60  insn per cycle           (85.68%)
-       401461195      l2_rqsts.miss                                                 (85.80%)
-       170084950      dTLB-load-misses                                              (85.84%)
-       512314105      L1-dcache-load-misses                                         (85.89%)
-           225532      iTLB-load-misses                                              (85.69%)
+         1,168,559      L1-icache-load-misses                                         (49.51%)
+    47,122,837,319      cycles                                                        (62.24%)
+    28,338,013,421      instructions              #    0.60  insn per cycle           (74.90%)
+       395,677,534      l2_rqsts.miss                                                 (75.10%)
+       167,508,018      dTLB-load-misses                                              (75.11%)
+       510,023,190      L1-dcache-load-misses                                         (75.17%)
+           232,319      iTLB-load-misses                                              (75.38%)
+        25,251,122      LLC-load-misses                                               (49.73%)
 
-       0.856156952 seconds time elapsed
+       0.815441869 seconds time elapsed
 

@@ -5,48 +5,66 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('inputfolder', type=str, default="")
 parser.add_argument('tempfolder', type=str, default=".sse_temp")
+parser.add_argument('data_labels_file', type=str, default=".data_labels")
+
 args = parser.parse_args()
 def get_data(path):
     f = open(path)
-    text = f.readlines()
+    lines = f.readlines()
 
-    offset = 0
-    
-    if text[1].startswith('energy'):
-        offset = 1
-        energy = text[1].split()
+    data_needed = []
+    with open(args.data_labels_file, "r") as f_labels:
+        for data_line in f_labels:
+            data_needed.append(data_line[:-1])
+        
+    if lines[1].startswith('energy'):
+        energy = lines[1].split()
         energy = float(energy[2][0:-1])
     else:
-        energy = text[0].split()
+        energy = lines[0].split()
         energy = float(energy[4])
 
+    j = 0
     data = []
-    key_lines = [4, 5, 6, 7, 8, 9, 10]
-    for i in key_lines:
-        if i == 6:
-            data.append(cast(text[i + offset].split(), 3))
-        else:
-            data.append(cast(text[i + offset].split(), 0))
+    ipc = 0
 
-    return energy, data 
+    for i in range(4, len(lines)):
+        if j == len(data_needed):
+            break
+        if data_needed[j] in lines[i]:
+            if data_needed[j] == 'instructions':
+                ipc_text = lines[i].split()[3]
+                ipc = cast(ipc_text)
+            text = lines[i].split()[0]
+            if(text == "<not"):
+                text = "0"
 
-def cast(input, index):
-    return float(input[index].replace(',', ''))
+            data.append(cast(text))
+            j += 1
+        
+#     if (len(data) != len(data_needed) + 1):
+#         print("something went wrong")
+    return ipc, energy, data 
+
+def cast(input):
+    return float(input.replace(',', ''))
 
 all_data = []
 energy_list = []
 files = []
+ipc_list = []
 
 # CREATES CSV FILE OF ENERGIES
 with open(args.tempfolder + "/" + 'b_data.csv', 'w') as f:
     writer = csv.writer(f)
     
     for filename in os.scandir(args.inputfolder):
-        energy, data = get_data(filename.path)
+        ipc, energy, data = get_data(filename.path)
         files.append(filename.name)
 
         all_data.append(data)
         energy_list.append(energy)
+        ipc_list.append(ipc)
 
         writer.writerow([energy])
 
@@ -59,6 +77,16 @@ for i in range(len(energy_list) -1):
 b_line += str(energy_list[len(energy_list) -1])
 
 f.write(b_line)
+
+ipc_line = ""
+f_ipc = open(args.tempfolder + "/" + "ipc_input", "w")
+for i in range(len(ipc_list) -1):
+    ipc_line += str(ipc_list[i])
+    ipc_line += ","
+
+ipc_line += str(ipc_list[len(ipc_list) -1])
+
+f_ipc.write(ipc_line)
     
 
 # CREATES INPUT FOR MATRIX A
