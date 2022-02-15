@@ -18,7 +18,7 @@ bm_input = bm_data.read()
 
 B_data = open(filepath + 'b_data.csv')
 B_reader = csv.reader(B_data)
-x = cp.Variable(7)
+x = cp.Variable(8)
 
 A = np.matrix(A_input)
 b = []

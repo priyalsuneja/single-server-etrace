@@ -11,8 +11,7 @@ int main(int argc, char** argv) {
     errno = 0;
 
     FILE* fp = 
-             fopen("/homes/sys/suneja/treehouse/single-server-etrace/.sse_temp/coefficients.csv",
-             "r");    // TODO: make this an argument please!
+             fopen("weights","r");
     if(fp == NULL) {
         printf("file not opened, errno: %d!\n", errno);
         return -1;
@@ -46,10 +45,10 @@ int main(int argc, char** argv) {
 
 
     // argv[1] contains flags
-    if(argc >= 2) {
-        return calc_error_main(weights, argv[1], argv[2]);
-    } else if (argc == 2) {
-        return calc_error_main(weights, argv[1], "graph_out_one");
+    if(argc == 2) {
+        if(argv[1][0] == '-') {
+            return calc_error_main(weights, argv[1], "graph_out_one");
+        }
     }
 
     return calc_error_main(weights, "", "graph_out_one");

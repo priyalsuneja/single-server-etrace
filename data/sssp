@@ -1,15 +1,16 @@
 ********* sssp *********
-energy consumed: 84.155579 
+energy consumed: 83.330017 
 
- Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/gapbs/sssp -g 20 -n 1':
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/sssp -g 20 -n 1':
 
-         2967299      L1-icache-load-misses                                         (56.64%)
-    49056400125      cycles                                                        (71.17%)
-    31148337438      instructions              #    0.63  insn per cycle           (85.72%)
-       241156551      l2_rqsts.miss                                                 (85.72%)
-        95894554      dTLB-load-misses                                              (85.83%)
-       304069459      L1-dcache-load-misses                                         (85.94%)
-           503069      iTLB-load-misses                                              (85.87%)
+         3,256,567      L1-icache-load-misses                                         (49.60%)
+    47,401,739,054      cycles                                                        (62.30%)
+    30,532,576,778      instructions              #    0.64  insn per cycle           (74.94%)
+       242,634,435      l2_rqsts.miss                                                 (74.94%)
+        95,397,587      dTLB-load-misses                                              (75.08%)
+       297,628,804      L1-dcache-load-misses                                         (75.42%)
+           472,395      iTLB-load-misses                                              (75.32%)
+        17,393,502      LLC-load-misses                                               (49.64%)
 
-       0.939247292 seconds time elapsed
+       0.858641075 seconds time elapsed
 

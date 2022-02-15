@@ -1,0 +1,167 @@
+Weights for each field: 
+l1_icache: -6.532825e-06
+cycles: 7.779516e-09
+ins: -1.035556e-08
+l2: 1.127032e-06
+tlb_data: 5.761089e-08
+l1_dcache: -7.951720e-07
+tlb_ins: 9.771911e-05
+l3: -2.102973e-06
+
+******* File: pr_spmv *********
+ 	Answer: 80.483, Output: 85.138
+	Error: 4.654, error % : 5.783%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.0041
+	% L2: 1.3963
+	% TLB_data: 0.5911
+	% L1_dcache: 1.7998
+	% TLB_ins: 0.0008
+	% L3: 0.0891
+
+******* File: bc *********
+ 	Answer: 75.180, Output: 69.729
+	Error: -5.450, error % : 7.250%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.0041
+	% L2: 0.8527
+	% TLB_data: 0.3965
+	% L1_dcache: 1.0657
+	% TLB_ins: 0.0005
+	% L3: 0.0495
+
+******* File: cc *********
+ 	Answer: 70.109, Output: 76.755
+	Error: 6.646, error % : 9.480%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.0041
+	% L2: 0.6562
+	% TLB_data: 0.2999
+	% L1_dcache: 0.8376
+	% TLB_ins: 0.0012
+	% L3: 0.0334
+
+******* File: tc *********
+ 	Answer: 184.227, Output: 186.430
+	Error: 2.203, error % : 1.196%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.0039
+	% L2: 0.8214
+	% TLB_data: 0.1273
+	% L1_dcache: 0.7126
+	% TLB_ins: 0.0005
+	% L3: 0.0471
+
+******* File: l1_msr *********
+ 	Answer: 147.548, Output: 150.144
+	Error: 2.596, error % : 1.760%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.0029
+	% L2: 9.5746
+	% TLB_data: 0.0017
+	% L1_dcache: 9.5328
+	% TLB_ins: 0.0003
+	% L3: 0.1364
+
+******* File: pr *********
+ 	Answer: 82.304, Output: 85.179
+	Error: 2.875, error % : 3.493%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.0043
+	% L2: 1.5676
+	% TLB_data: 0.6496
+	% L1_dcache: 2.0032
+	% TLB_ins: 0.0008
+	% L3: 0.1039
+
+******* File: err_bfs *********
+ 	Answer: 0.863, Output: 0.866
+	Error: 0.003, error % : 0.335%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.6503
+	% L2: 1.7780
+	% TLB_data: 0.0907
+	% L1_dcache: 1.7509
+	% TLB_ins: 0.0404
+	% L3: 0.0359
+
+******* File: err_sssp *********
+ 	Answer: 1.979, Output: 1.965
+	Error: -0.014, error % : 0.701%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.5385
+	% L2: 1.2747
+	% TLB_data: 0.0687
+	% L1_dcache: 1.4176
+	% TLB_ins: 0.0362
+	% L3: 0.0289
+
+******* File: l2_msr *********
+ 	Answer: 257.848, Output: 245.206
+	Error: -12.642, error % : 4.903%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.0049
+	% L2: 10.1919
+	% TLB_data: 0.0016
+	% L1_dcache: 9.5684
+	% TLB_ins: 0.0004
+	% L3: 0.4830
+
+******* File: cc_sv *********
+ 	Answer: 74.012, Output: 63.135
+	Error: -10.878, error % : 14.697%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.0040
+	% L2: 0.9245
+	% TLB_data: 0.4145
+	% L1_dcache: 1.1921
+	% TLB_ins: 0.0008
+	% L3: 0.0543
+
+******* File: bfs *********
+ 	Answer: 70.359, Output: 72.227
+	Error: 1.867, error % : 2.654%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.0041
+	% L2: 0.6607
+	% TLB_data: 0.2987
+	% L1_dcache: 0.8097
+	% TLB_ins: 0.0010
+	% L3: 0.0339
+
+******* File: sssp *********
+ 	Answer: 83.330, Output: 83.176
+	Error: -0.154, error % : 0.184%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.0107
+	% L2: 0.7947
+	% TLB_data: 0.3124
+	% L1_dcache: 0.9748
+	% TLB_ins: 0.0015
+	% L3: 0.0570
+
+******* File: tlb_msr *********
+ 	Answer: 28.653, Output: 28.255
+	Error: -0.398, error % : 1.390%
+
+	 Normalized by instructions: 
+	%L1_icache: 0.0302
+	% L2: 19.5918
+	% TLB_data: 12.3329
+	% L1_dcache: 19.6793
+	% TLB_ins: 0.0284
+	% L3: 0.0374
+
+Mean error: 4.140
