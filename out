@@ -1,16 +1,55 @@
 Weights for each field: 
-L1-icache-load-misses: 4.682699e-05
+L1-icache-load-misses: -1.228779e-05
+cycle_activity.cycles_no_execute: 9.852646e-09
+instructions: -3.750461e-09
+l2_rqsts.miss: 1.819784e-06
+dTLB-load-misses: 4.984900e-07
+L1-dcache-load-misses: -1.167586e-06
+iTLB-load-misses: 1.132124e-04
+LLC-load-misses: -5.297595e-06
+
+******* File: tc *********
+ 	Answer: 294.395, Output: 312.768
+	Error: 18.373, error % : 6.241%
+
+******* File: pr *********
+ 	Answer: 140.842, Output: 179.748
+	Error: 38.906, error % : 27.624%
+
+******* File: bfs *********
+ 	Answer: 127.821, Output: 121.899
+	Error: -5.923, error % : 4.634%
+
+******* File: cc *********
+ 	Answer: 122.167, Output: 131.745
+	Error: 9.577, error % : 7.840%
+
+******* File: l2_msr *********
+ 	Answer: 455.688, Output: 378.520
+	Error: -77.168, error % : 16.934%
 
 ******* File: cc_sv *********
- 	Answer: 0.000, Output: -1168507.406
-	Error: -1168507.406, error % : inf%
+ 	Answer: 131.090, Output: 117.172
+	Error: -13.917, error % : 10.617%
 
-******* File: 80.48321 *********
- 	Answer: 82.304, Output: 82.304
-	Error: 0.000, error % : 0.000%
+******* File: sssp *********
+ 	Answer: 357.738, Output: 381.467
+	Error: 23.728, error % : 6.633%
 
-******* File: 1083864.0 *********
- 	Answer: 337735.000, Output: 337477.156
-	Error: -257.844, error % : 0.076%
+******* File: bc *********
+ 	Answer: 147.942, Output: 127.729
+	Error: -20.213, error % : 13.663%
 
-Mean error: inf
+******* File: pr_spmv *********
+ 	Answer: 141.253, Output: 114.248
+	Error: -27.004, error % : 19.118%
+
+******* File: tlb_msr *********
+ 	Answer: 49.293, Output: 48.890
+	Error: -0.403, error % : 0.817%
+
+******* File: l1_msr *********
+ 	Answer: 259.992, Output: 269.629
+	Error: 9.637, error % : 3.707%
+
+Mean error: 10.711

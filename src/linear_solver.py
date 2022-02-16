@@ -46,9 +46,8 @@ prob.solve(solver=cp.SCS)
 # prob.solve(solver=CPLEX, verbose=True)
 
 
-# print(x.value)
+print(x.value)
 
 with open(filepath + 'coefficients.csv', 'w') as f:
     writer = csv.writer(f)
-
     writer.writerow(x.value)

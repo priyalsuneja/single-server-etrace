@@ -27,14 +27,6 @@ double calc_error (char name[20], double* weights, double* inputs, char* print,
 
 
     double output = 0;
-//     double l1i = 0;
-//     double cycles = 0;
-//     double ipc = 0;
-//     double l2 = 0;
-//     double tlbd = 0;
-//     double l1d = 0;
-//     double tlbi = 0;
-//     double l3 = 0;
     double ind_out[input_size];
     int i; 
 
@@ -42,29 +34,20 @@ double calc_error (char name[20], double* weights, double* inputs, char* print,
          ind_out[i] = weights[i]*inputs[i];
      }
 
-//     l1i = weights[L1_ICACHE]*inputs[L1_ICACHE];
-//     cycles = weights[CYCLES]*inputs[CYCLES];
-//     ipc = weights[IPC]*inputs[IPC];
-//     l2 = weights[L2]*inputs[L2];
-//     tlbd = weights[TLB_DATA]*inputs[TLB_DATA];
-//     l1d = weights[L1_DCACHE]*inputs[L1_DCACHE];
-//     tlbi = weights[TLB_INS]*inputs[TLB_INS];
-//     l3 = weights[L3]*inputs[L3];
-    
     for(i = 0; i < input_size; i++) {
         output+= ind_out[i];
     }
 
-//     output = l1i + cycles + ipc + l2 + tlbd + l1d + tlbi + l3;
-
     double error = output - inputs[input_size-1];
     
-//     if(print) {             // TODO: fix this 
-//         fprintf(fptr, "%s\t\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n",
-//         name,  inputs[ANS], output, error, (fabs(error) * 100/inputs[ANS]),
-//         l1i*100/output, cycles*100/output, ipc*100/output, l2*100/output,
-//         tlbd*100/output, l1d*100/output, tlbi*100/output, l3*100/output);
-//     }
+    if(print) {             // TODO: fix this 
+        fprintf(fptr, "%s\t\t%.2f\t%.2f\t%.2f\t%.2f\t",name,inputs[input_size-1], output, error, (fabs(error)*100/inputs[input_size-1]));
+        for(i = 0; i < input_size; i++) {
+            fprintf(fptr,"%.2f\t",ind_out[i]*100/output);
+
+        }
+        fprintf(fptr, "\n");
+    }
 //     printf("%s\t\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n",
 //     name,  inputs[ANS], output, error, (fabs(error) * 100/inputs[ANS]),
 //     l1i, cycles, ipc, l2, tlbd, l1d, tlbi);
@@ -166,7 +149,7 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
           "----------------------------------------------------------------------------------------\n"
           );
         fprintf(fptr, 
-          "File\t\tAnswer\tOutput\tError\tError%%\tL1_I%%\tCycles%%\tIns%%\tL2%%\tTLB_Data%%\tL1_D%%\tTLB_Ins%%i\tL3%%\n"
+          "File\t\tAnswer\tOutput\tError\tError%%\tL1_I%%\tStalls%%\tIns%%\tL2%%\tTLB_D%%\tL1_D%%\tTLB_I%%i\tL3%%\n"
           );
           fprintf(fptr, 
           "----------------------------------------------------------------------------------------\n"
