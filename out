@@ -1,12 +1,12 @@
 Weights for each field: 
-l1_icache: 9.798820e-07
+L1-icache-load-misses: 9.798820e-07
 cycles: 9.259515e-09
-ins: -1.208964e-08
-l2: 1.226871e-06
-tlb_data: 1.030521e-07
-l1_dcache: -9.032400e-07
-tlb_ins: 2.573710e-05
-l3: -2.335022e-06
+instructions: -1.208964e-08
+l2_rqsts.miss: 1.226871e-06
+dTLB-load-misses: 1.030521e-07
+L1-dcache-load-misses: -9.032400e-07
+iTLB-load-misses: 2.573710e-05
+LLC-load-misses: -2.335022e-06
 
 ******* File: cc_sv *********
  	Answer: 74.012, Output: 63.227

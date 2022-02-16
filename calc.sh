@@ -15,8 +15,6 @@
 # read -p 'Temp folder: ' temp_folder
 file=".sse_config"
 
-# readarray -t a < $file 
-
 declare -a a
 
 while IFS= read -r var 
@@ -36,11 +34,12 @@ python3 ${a[0]}/generate_csv.py ${a[1]} ${a[4]} ${a[5]}
 
 python3 ${a[0]}/linear_solver.py ${a[4]}
 
-./${a[0]}/fifth -${a[3]} ./${a[4]}/graph_out_one < ./${a[4]}/temp > ${a[2]}
+./${a[0]}/fifth -${a[3]} ./${a[5]} ./${a[4]}/coefficients.csv ./${a[4]}/graph_out_one < ./${a[4]}/temp > ${a[2]}
+# ./${a[0]}/fifth -${a[3]} ./${a[5]} ./${a[4]}/coeffecients.csv ./${a[4]}/graph_out_one < ./${a[4]}/temp 
 
 if [[ ${a[3]} =~ "g" ]]
 then 
     python3 ${a[0]}/graph_relative_error.py ${a[4]}/graph_out_one ${a[4]}/ipc_input
 fi
 
-rm -rf ${a[4]}
+# rm -rf ${a[4]}

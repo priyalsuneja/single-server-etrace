@@ -18,7 +18,6 @@ bm_input = bm_data.read()
 
 B_data = open(filepath + 'b_data.csv')
 B_reader = csv.reader(B_data)
-x = cp.Variable(8)
 
 A = np.matrix(A_input)
 b = []
@@ -29,6 +28,9 @@ b_temp = []
 
 for i in range(len(b)):
     b_temp.append(1)
+
+# x = cp.Variable(8)
+x = cp.Variable(A.shape[1])
 
 
 b_m = np.matrix(bm_input)
