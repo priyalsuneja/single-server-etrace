@@ -42,4 +42,4 @@ then
     python3 ${a[0]}/graph_relative_error.py ${a[4]}/graph_out_one ${a[4]}/ipc_input
 fi
 
-# rm -rf ${a[4]}
+rm -rf ${a[4]}

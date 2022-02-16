@@ -31,7 +31,9 @@ def get_data(path):
     for i in range(4, len(lines)):
         if j == len(data_needed):
             break
-        if data_needed[j] in lines[i]:
+        if data_needed[j] == 'cycles':
+            j+=1
+        elif data_needed[j] in lines[i]:
             if data_needed[j] == 'instructions':
                 ipc_text = lines[i].split()[3]
                 ipc = cast(ipc_text)
