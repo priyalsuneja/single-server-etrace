@@ -91,7 +91,7 @@ def main():
     with open(sys.argv[len(sys.argv) - 1]) as f:
         for line in f:
             str_list = line.split(",")
-            for i in range(1,len(str_list)):
+            for i in range(0,len(str_list)):
                 ipc.append(float(str_list[i]))
             
 
