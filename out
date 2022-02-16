@@ -1,28 +1,44 @@
 Weights for each field: 
-L1-icache-load-misses: -6.532804e-06
-cycles: 7.779491e-09
-instructions: -1.035553e-08
-l2_rqsts.miss: 1.127034e-06
-dTLB-load-misses: 5.761284e-08
-L1-dcache-load-misses: -7.951739e-07
-iTLB-load-misses: 9.771873e-05
-LLC-load-misses: -2.102979e-06
-
-******* File: cc *********
- 	Answer: 70.109, Output: 76.755
-	Error: 6.646, error % : 9.480%
+L1-icache-load-misses: -6.532803e-06
+cycles: 7.779669e-09
+instructions: -1.035571e-08
+l2_rqsts.miss: 1.127036e-06
+dTLB-load-misses: 5.760103e-08
+L1-dcache-load-misses: -7.951777e-07
+iTLB-load-misses: 9.771880e-05
+LLC-load-misses: -2.102982e-06
 
 ******* File: tc *********
- 	Answer: 184.227, Output: 186.431
+ 	Answer: 184.227, Output: 186.432
 	Error: 2.205, error % : 1.197%
 
 ******* File: pr *********
  	Answer: 82.304, Output: 85.179
-	Error: 2.875, error % : 3.493%
+	Error: 2.874, error % : 3.492%
 
 ******* File: bfs *********
- 	Answer: 70.359, Output: 72.227
-	Error: 1.867, error % : 2.654%
+ 	Answer: 70.359, Output: 72.228
+	Error: 1.868, error % : 2.655%
+
+******* File: cc *********
+ 	Answer: 70.109, Output: 76.756
+	Error: 6.647, error % : 9.481%
+
+******* File: l2_msr *********
+ 	Answer: 257.848, Output: 245.206
+	Error: -12.641, error % : 4.903%
+
+******* File: cc_sv *********
+ 	Answer: 74.012, Output: 63.135
+	Error: -10.877, error % : 14.696%
+
+******* File: sssp *********
+ 	Answer: 83.330, Output: 83.177
+	Error: -0.153, error % : 0.183%
+
+******* File: bc *********
+ 	Answer: 75.180, Output: 69.730
+	Error: -5.450, error % : 7.249%
 
 ******* File: err_sssp *********
  	Answer: 1.979, Output: 1.965
@@ -32,17 +48,9 @@ LLC-load-misses: -2.102979e-06
  	Answer: 80.483, Output: 85.138
 	Error: 4.654, error % : 5.783%
 
-******* File: l2_msr *********
- 	Answer: 257.848, Output: 245.206
-	Error: -12.642, error % : 4.903%
-
-******* File: bc *********
- 	Answer: 75.180, Output: 69.730
-	Error: -5.450, error % : 7.250%
-
-******* File: sssp *********
- 	Answer: 83.330, Output: 83.176
-	Error: -0.154, error % : 0.184%
+******* File: tlb_msr *********
+ 	Answer: 28.653, Output: 28.255
+	Error: -0.398, error % : 1.390%
 
 ******* File: err_bfs *********
  	Answer: 0.863, Output: 0.866
@@ -51,13 +59,5 @@ LLC-load-misses: -2.102979e-06
 ******* File: l1_msr *********
  	Answer: 147.548, Output: 150.144
 	Error: 2.596, error % : 1.760%
-
-******* File: tlb_msr *********
- 	Answer: 28.653, Output: 28.255
-	Error: -0.398, error % : 1.390%
-
-******* File: cc_sv *********
- 	Answer: 74.012, Output: 63.135
-	Error: -10.878, error % : 14.697%
 
 Mean error: 4.141
