@@ -1,17 +1,17 @@
 ********* graph500 *********
-energy consumed: 21.702393 
+energy consumed: 14648.912903 
 
- Performance counter stats for 'mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 /homes/sys/suneja/graph500/src/graph500_reference_bfs_sssp 2':
+ Performance counter stats for 'mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 /homes/sys/suneja/treehouse/single-server-etrace/benchmarks/graph500/build/err_sssp 5':
 
-        12,506,765      L1-icache-load-misses                                         (44.37%)
-     6,710,361,138      cycles                                                        (54.89%)
-     3,373,955,348      cycle_activity.cycles_no_execute                                     (53.82%)
-     4,892,969,049      instructions              #    0.73  insn per cycle           (64.72%)
-        27,225,647      l2_rqsts.miss                                                 (65.50%)
-         1,683,060      dTLB-load-misses                                              (66.09%)
-        33,982,693      L1-dcache-load-misses                                         (67.64%)
-           867,340      iTLB-load-misses                                              (57.18%)
-           443,949      LLC-load-misses                                               (45.40%)
+       120,740,879      L1-icache-load-misses                                         (44.44%)
+ 2,941,408,553,097      cycles                                                        (55.55%)
+ 1,458,592,406,511      cycle_activity.cycles_no_execute                                     (55.55%)
+ 2,281,176,706,721      instructions              #    0.78  insn per cycle           (66.66%)
+        82,097,899      l2_rqsts.miss                                                 (66.66%)
+         8,730,437      dTLB-load-misses                                              (66.67%)
+       284,846,320      L1-dcache-load-misses                                         (66.67%)
+         4,363,099      iTLB-load-misses                                              (55.56%)
+           634,159      LLC-load-misses                                               (44.44%)
 
-       0.667834974 seconds time elapsed
+     140.607732311 seconds time elapsed
 

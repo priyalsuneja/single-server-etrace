@@ -47,10 +47,10 @@ int main(int argc, char** argv) {
     while(amt_read != -1) {
         line[strcspn(line, "\n")]=0;
 //         printf("%ld %s", amt_read, line);
-//         if(strcmp("cycles", line) == 0) {
-//             amt_read = getline(&line, &len, fp);
-//             continue;
-//         }
+        if(strcmp("cycles", line) == 0) {
+            amt_read = getline(&line, &len, fp);
+            continue;
+        }
         append(&labels_list, line, amt_read);
         amt_read = getline(&line, &len, fp);
     }

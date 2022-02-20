@@ -1,17 +1,17 @@
 ********* tc *********
-energy consumed: 294.395142 
+energy consumed: 13.837097 
 
- Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/tc -g 20 -n 1':
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/tc -g 10 -n 1':
 
-        27,958,355      L1-icache-load-misses                                         (43.98%)
-   110,569,086,870      cycles                                                        (55.06%)
-    55,136,498,901      cycle_activity.cycles_no_execute                                     (55.24%)
-    91,383,454,899      instructions              #    0.83  insn per cycle           (66.46%)
-       742,540,432      l2_rqsts.miss                                                 (66.65%)
-        99,674,790      dTLB-load-misses                                              (67.00%)
-       687,021,038      L1-dcache-load-misses                                         (67.06%)
-           733,056      iTLB-load-misses                                              (55.81%)
-        42,657,238      LLC-load-misses                                               (44.25%)
+         1,508,655      L1-icache-load-misses                                         (40.64%)
+     4,838,618,554      cycles                                                        (54.91%)
+     3,189,780,142      cycle_activity.cycles_no_execute                                     (57.80%)
+     1,924,991,038      instructions              #    0.40  insn per cycle           (68.72%)
+         1,044,430      l2_rqsts.miss                                                 (70.18%)
+           203,654      dTLB-load-misses                                              (71.13%)
+         1,857,586      L1-dcache-load-misses                                         (69.57%)
+            25,281      iTLB-load-misses                                              (51.66%)
+             1,125      LLC-load-misses                                               (39.02%)
 
-       2.587256687 seconds time elapsed
+       0.131057372 seconds time elapsed
 
