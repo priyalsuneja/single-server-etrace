@@ -1,6 +1,5 @@
 L1-icache-load-misses
 cycles
-cycle_activity.cycles_no_execute
 instructions
 l2_rqsts.miss
 dTLB-load-misses
