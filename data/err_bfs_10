@@ -1,17 +1,17 @@
 ********* graph500 *********
-energy consumed: 11575.269043 
+energy consumed: 5306.928711 
 
  Performance counter stats for 'mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 /homes/sys/suneja/treehouse/single-server-etrace/benchmarks/graph500/build/err_bfs 10':
 
-        98,666,254      L1-icache-load-misses                                         (44.44%)
- 2,320,945,457,295      cycles                                                        (55.55%)
- 1,142,012,641,939      cycle_activity.cycles_no_execute                                     (55.55%)
- 1,876,424,531,047      instructions              #    0.81  insn per cycle           (66.66%)
-        87,450,917      l2_rqsts.miss                                                 (66.66%)
-         5,392,632      dTLB-load-misses                                              (66.67%)
-       247,265,265      L1-dcache-load-misses                                         (66.67%)
-         6,272,431      iTLB-load-misses                                              (55.56%)
-           719,363      LLC-load-misses                                               (44.45%)
+        57,505,330      L1-icache-load-misses                                         (44.47%)
+ 1,066,815,891,182      cycles                                                        (55.58%)
+   525,134,753,425      cycle_activity.cycles_no_execute                                     (55.56%)
+   867,362,244,260      instructions              #    0.81  insn per cycle           (66.66%)
+        62,625,297      l2_rqsts.miss                                                 (66.64%)
+         3,464,834      dTLB-load-misses                                              (66.64%)
+       141,176,835      L1-dcache-load-misses                                         (66.66%)
+         2,595,349      iTLB-load-misses                                              (55.56%)
+           663,912      LLC-load-misses                                               (44.47%)
 
-     111.015690884 seconds time elapsed
+      51.242779156 seconds time elapsed
 
