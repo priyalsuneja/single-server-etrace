@@ -1,17 +1,17 @@
 ********* pr_spmv *********
-energy consumed: 18.532654 
+energy consumed: 18.406006 
 
  Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/pr_spmv -g 10 -n 1':
 
-         1,453,262      L1-icache-load-misses                                         (41.33%)
-     6,446,406,604      cycles                                                        (52.24%)
-     4,227,673,783      cycle_activity.cycles_no_execute                                     (53.83%)
-     2,536,598,488      instructions              #    0.39  insn per cycle           (66.02%)
-         1,036,442      l2_rqsts.miss                                                 (66.81%)
-           232,819      dTLB-load-misses                                              (67.99%)
-         2,315,517      L1-dcache-load-misses                                         (69.63%)
-            29,560      iTLB-load-misses                                              (56.99%)
-               589      LLC-load-misses                                               (43.43%)
+         1,752,087      L1-icache-load-misses                                         (42.05%)
+     6,378,785,299      cycles                                                        (53.44%)
+     4,182,694,300      cycle_activity.cycles_no_execute                                     (53.47%)
+     2,542,531,304      instructions              #    0.40  insn per cycle           (66.14%)
+         1,079,295      l2_rqsts.miss                                                 (67.91%)
+           284,016      dTLB-load-misses                                              (68.31%)
+         2,354,887      L1-dcache-load-misses                                         (68.73%)
+            29,977      iTLB-load-misses                                              (56.90%)
+               152      LLC-load-misses                                               (42.64%)
 
-       0.187261949 seconds time elapsed
+       0.184585834 seconds time elapsed
 

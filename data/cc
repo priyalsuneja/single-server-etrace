@@ -1,17 +1,17 @@
 ********* cc *********
-energy consumed: 11.524170 
+energy consumed: 11.022949 
 
  Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/cc -g 10 -n 1':
 
-           984,677      L1-icache-load-misses                                         (38.89%)
-     3,978,383,759      cycles                                                        (52.35%)
-     2,619,276,257      cycle_activity.cycles_no_execute                                     (56.22%)
-     1,583,012,337      instructions              #    0.40  insn per cycle           (68.09%)
-           834,581      l2_rqsts.miss                                                 (69.93%)
-           206,097      dTLB-load-misses                                              (72.90%)
-         1,420,844      L1-dcache-load-misses                                         (70.71%)
-            21,337      iTLB-load-misses                                              (53.53%)
-               836      LLC-load-misses                                               (37.82%)
+           909,717      L1-icache-load-misses                                         (40.80%)
+     3,856,195,035      cycles                                                        (55.12%)
+     2,553,085,065      cycle_activity.cycles_no_execute                                     (58.00%)
+     1,532,073,329      instructions              #    0.40  insn per cycle           (69.45%)
+           807,706      l2_rqsts.miss                                                 (71.50%)
+           212,713      dTLB-load-misses                                              (72.39%)
+         1,334,790      L1-dcache-load-misses                                         (68.82%)
+            23,843      iTLB-load-misses                                              (50.64%)
+               824      LLC-load-misses                                               (37.85%)
 
-       0.117569055 seconds time elapsed
+       0.111448614 seconds time elapsed
 

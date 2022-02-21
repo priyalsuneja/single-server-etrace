@@ -1,0 +1,79 @@
+Weights for each field: 
+L1-icache-load-misses: -6.263515e-09
+cycle_activity.cycles_no_execute: 1.320743e-09
+instructions: 4.666793e-09
+l2_rqsts.miss: 4.335590e-07
+dTLB-load-misses: 1.421486e-06
+L1-dcache-load-misses: -2.115743e-11
+iTLB-load-misses: -4.811381e-09
+LLC-load-misses: 5.251424e-06
+
+******* File: pr *********
+ 	Answer: 16.511, Output: 16.057
+	Error: -0.454, error % : 2.748%
+
+******* File: err_sssp_7 *********
+ 	Answer: 19465.129, Output: 17267.210
+	Error: -2197.919, error % : 11.292%
+
+******* File: tc *********
+ 	Answer: 13.313, Output: 13.762
+	Error: 0.449, error % : 3.372%
+
+******* File: tlb_msr *********
+ 	Answer: 48.491, Output: 46.789
+	Error: -1.702, error % : 3.510%
+
+******* File: err_sssp_10 *********
+ 	Answer: 46545.987, Output: 42031.776
+	Error: -4514.211, error % : 9.698%
+
+******* File: cc *********
+ 	Answer: 11.023, Output: 11.173
+	Error: 0.150, error % : 1.360%
+
+******* File: err_bfs_7 *********
+ 	Answer: 10939.207, Output: 9828.455
+	Error: -1110.752, error % : 10.154%
+
+******* File: l2_msr *********
+ 	Answer: 512.800, Output: 511.140
+	Error: -1.660, error % : 0.324%
+
+******* File: bc *********
+ 	Answer: 17.425, Output: 17.316
+	Error: -0.109, error % : 0.628%
+
+******* File: err_bfs_10 *********
+ 	Answer: 11575.269, Output: 10313.895
+	Error: -1261.374, error % : 10.897%
+
+******* File: bfs *********
+ 	Answer: 12.921, Output: 12.712
+	Error: -0.209, error % : 1.617%
+
+******* File: cc_sv *********
+ 	Answer: 12.459, Output: 12.406
+	Error: -0.053, error % : 0.427%
+
+******* File: sssp *********
+ 	Answer: 109.071, Output: 107.124
+	Error: -1.948, error % : 1.786%
+
+******* File: l1_msr *********
+ 	Answer: 284.670, Output: 240.547
+	Error: -44.123, error % : 15.500%
+
+******* File: err_bfs_5 *********
+ 	Answer: 54.052, Output: 80.811
+	Error: 26.760, error % : 49.508%
+
+******* File: err_sssp_5 *********
+ 	Answer: 1428.119, Output: 1187.633
+	Error: -240.485, error % : 16.839%
+
+******* File: pr_spmv *********
+ 	Answer: 18.406, Output: 18.251
+	Error: -0.155, error % : 0.842%
+
+Mean error: 8.265
