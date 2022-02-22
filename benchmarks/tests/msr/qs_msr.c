@@ -1,10 +1,15 @@
  /*
  * author: Priyal Suneja ; suneja@cs.washington.edu
  * 
- * to run: sudo ./build/l1_msr
+ * to run: sudo ./build/qs_msr
  */
 
 #include "msr.h"
+
+int cmpfunc (const void * a, const void * b) {
+
+       return ( *(int*)a - *(int*)b );
+}
 
 int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2], 
             double *r1, double *r2) {
@@ -13,10 +18,11 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
 	long long result;
 	double package_before,package_after;
 	double dram_before,dram_after;
-    struct ll *head = malloc(sizeof(struct ll));
-    struct ll *curr = head; 
+    int qs_arr[L2_SIZE];    // array that fits into L3 cache
 
-    int retval = populate_list(head, L1_LL_SIZE);
+    for(int i = 0; i < L2_SIZE;i++) {
+        qs_arr[L2_SIZE-i] = i;
+    }
 
 
     fd=open_msr(0); // todo: add package detection + map and stuff
@@ -36,10 +42,7 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
     close(fd);
 
     for(int i = 0; i < ITERATIONS_PER_RUN; i++) {
-        while(curr != NULL) {
-            curr = curr->next; 
-        }
-        curr = head;
+        qsort(qs_arr, L2_SIZE, int(qsort), cmpfnc);
     }
 
     fd = open_msr(0);

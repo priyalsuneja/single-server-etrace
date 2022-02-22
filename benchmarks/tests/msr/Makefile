@@ -1,8 +1,9 @@
 BUILDDIR = build
 
-#all: tlb_msr l2_msr l1_msr ins_msr ins l3_msr l3 branch_msr branch l2
-all: tlb_msr l2_msr l1_msr ins_msr ins l2 tlb l1 l1_populate l2_populate \
-        tlb_populate
+#all: tlb_msr l2_msr l1_msr ins_msr ins l2 tlb l1 l1_populate l2_populate \
+#        tlb_populate
+
+all: tlb_msr l1_msr l2_msr qs_msr
 
 l1_msr: l1_msr.c utils.c msr.c
 	gcc -O0 -Wall -o $(BUILDDIR)/l1_msr l1_msr.c utils.c msr.c -lm
@@ -24,6 +25,9 @@ l2_populate: l2_populate.c utils.c msr.c
 
 ins_msr: ins_msr.c msr.c utils.c
 	gcc -O0 -Wall -o $(BUILDDIR)/ins_msr ins_msr.c utils.c msr.c -lm
+
+qs_msr: qs_msr.c msr.c utils.c
+	gcc -O0 -Wall -o $(BUILDDIR)/qs_msr qs_msr.c utils.c msr.c -lm
 
 ins: ins.c  msr.c utils.c
 	gcc -O0 -Wall -o $(BUILDDIR)/ins ins.c msr.c utils.c -lm
