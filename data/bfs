@@ -1,16 +1,17 @@
 ********* bfs *********
-energy consumed: 70.359497 
+energy consumed: 13.098206 
 
- Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/bfs -g 20 -n 1':
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/bfs -g 10 -n 1':
 
-         1,083,864      L1-icache-load-misses                                         (49.32%)
-    40,785,940,830      cycles                                                        (61.97%)
-    26,681,911,275      instructions              #    0.65  insn per cycle           (74.56%)
-       176,283,590      l2_rqsts.miss                                                 (74.82%)
-        79,703,881      dTLB-load-misses                                              (75.19%)
-       216,044,255      L1-dcache-load-misses                                         (75.34%)
-           264,689      iTLB-load-misses                                              (75.49%)
-         9,045,794      LLC-load-misses                                               (49.83%)
+           986,953      L1-icache-load-misses                                         (40.44%)
+     4,462,342,907      cycles                                                        (51.92%)
+     2,945,300,555      cycle_activity.cycles_no_execute                                     (54.24%)
+     1,765,950,369      instructions              #    0.40  insn per cycle           (65.56%)
+           986,530      l2_rqsts.miss                                                 (67.86%)
+           241,789      dTLB-load-misses                                              (70.71%)
+         1,680,535      L1-dcache-load-misses                                         (70.15%)
+            25,836      iTLB-load-misses                                              (55.53%)
+               728      LLC-load-misses                                               (41.07%)
 
-       0.729889291 seconds time elapsed
+       0.135875754 seconds time elapsed
 

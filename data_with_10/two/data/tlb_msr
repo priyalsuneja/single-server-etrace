@@ -1,0 +1,16 @@
+*******************************Average over 1 runs: 48.388611 *******************************
+
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/tests/msr/build/tlb_msr':
+
+           141,489      L1-icache-load-misses                                         (44.13%)
+     1,759,811,298      cycles                                                        (55.30%)
+     1,569,880,384      cycle_activity.cycles_no_execute                                     (55.30%)
+       180,891,606      instructions              #    0.10  insn per cycle           (66.48%)
+        32,285,531      l2_rqsts.miss                                                 (66.48%)
+        20,602,606      dTLB-load-misses                                              (66.63%)
+        32,734,816      L1-dcache-load-misses                                         (67.05%)
+            39,059      iTLB-load-misses                                              (55.87%)
+           107,075      LLC-load-misses                                               (44.55%)
+
+       0.610694478 seconds time elapsed
+

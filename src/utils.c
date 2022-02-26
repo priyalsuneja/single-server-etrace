@@ -2,14 +2,15 @@
 // other stuff
 #include "utils.h"
 
-int print_graphing_info(char* graph_fname, char name[20], double
-                                         inputs[INPUT_SIZE], double rel_error,
+int print_graphing_info(char* graph_fname, char name[20], double* inputs, double rel_error,
                                          double output) {
 
     FILE* fptr = fopen(graph_fname, "a+");
     if(!fptr) {
         return -1;
     }
+
+    // TODO: turn this into a loop
 
     fprintf(fptr,"%s,%.0f,%.0f,%.2f,%.0f,%.0f,%.0f,%.0f,%.0f,%.3f,%.3f,%.3f\n",name, inputs[L1_ICACHE],
         inputs[CYCLES], inputs[IPC], inputs[L2], inputs[TLB_DATA],
@@ -21,37 +22,37 @@ int print_graphing_info(char* graph_fname, char name[20], double
 
 }
 
-double calc_error (char name[20], double weights[INPUT_SIZE], double inputs[INPUT_SIZE], char* print, FILE *fptr) {
+double calc_error (char name[20], double* weights, double* inputs, char* print, 
+                                                        FILE *fptr, int input_size ) {
 
 
     double output = 0;
-    double l1i = 0;
-    double cycles = 0;
-    double ipc = 0;
-    double l2 = 0;
-    double tlbd = 0;
-    double l1d = 0;
-    double tlbi = 0;
-    double l3 = 0;
+    double ind_out[input_size];
+    int i; 
 
-    l1i = weights[L1_ICACHE]*inputs[L1_ICACHE];
-    cycles = weights[CYCLES]*inputs[CYCLES];
-    ipc = weights[IPC]*inputs[IPC];
-    l2 = weights[L2]*inputs[L2];
-    tlbd = weights[TLB_DATA]*inputs[TLB_DATA];
-    l1d = weights[L1_DCACHE]*inputs[L1_DCACHE];
-    tlbi = weights[TLB_INS]*inputs[TLB_INS];
-    l3 = weights[L3]*inputs[L3];
 
-    output = l1i + cycles + ipc + l2 + tlbd + l1d + tlbi + l3;
+    // input_size includes "answer"
 
-    double error = output - inputs[ANS];
+     for(i = 0; i <input_size-1; i++) {
+         ind_out[i] = weights[i]*inputs[i];
+     }
+
+    for(i = 0; i < input_size -1; i++) {
+        output+= ind_out[i];
+    }
+
+    double error = output - inputs[input_size-1];
     
-    if(print) {
-        fprintf(fptr, "%s\t\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n",
-        name,  inputs[ANS], output, error, (fabs(error) * 100/inputs[ANS]),
-        l1i*100/output, cycles*100/output, ipc*100/output, l2*100/output,
-        tlbd*100/output, l1d*100/output, tlbi*100/output, l3*100/output);
+    if(print) {             // TODO: fix this 
+        fprintf(fptr,
+        "%*s | %*.2f | %*.2f | %*.2f | %*.2f |",-12,name,-12,inputs[input_size-1],-12,
+        output,-12, error,-12,(fabs(error)*100/inputs[input_size-1]));
+
+        for(i = 0; i < input_size - 1; i++) {
+            fprintf(fptr," %*.2f |",-12,ind_out[i]*100/output);
+
+        }
+        fprintf(fptr, "\n");
     }
 //     printf("%s\t\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n",
 //     name,  inputs[ANS], output, error, (fabs(error) * 100/inputs[ANS]),
@@ -60,7 +61,7 @@ double calc_error (char name[20], double weights[INPUT_SIZE], double inputs[INPU
     return error;
 }
 
-void print_stats(double inputs[INPUT_SIZE]) {
+void print_stats(double* inputs) {
 
 //     double total_inputs = 0;
 //     for(int i = 0; i < INPUT_SIZE - 1; i++) {
@@ -80,16 +81,10 @@ void print_stats(double inputs[INPUT_SIZE]) {
 
 }
 
-int get_input(char name[20], double inputs[INPUT_SIZE]) {   // TODO: make this
-                                                            // into a loop that
-                                                            // depends on
-                                                            // input_size and
-                                                            // make it so that
-                                                            // input_size is
-                                                            // user defined, not
-                                                            // a constant name
-                                                            // by us
-    char input[20];
+int get_input(char name[20], double* inputs, int input_size) {   
+
+    char input[20];    
+
     fgets(input, 20, stdin);
     
     if(input[0] == ';') {
@@ -100,48 +95,18 @@ int get_input(char name[20], double inputs[INPUT_SIZE]) {   // TODO: make this
 
     name[strlen(input)-1]='\0';
 
-    fgets(input, 20, stdin);
-
-    inputs[L1_ICACHE] = atof(input);
-
-    fgets(input, 20, stdin);
-
-    inputs[CYCLES] = atof(input);
-
-    fgets(input, 20, stdin);
-
-    inputs[IPC] = atof(input);
-
-    fgets(input, 20, stdin);
-
-    inputs[L2] = atof(input);
-    
-    fgets(input, 20, stdin);
-
-    inputs[TLB_DATA] = atof(input);
-
-    fgets(input, 20, stdin);
-
-    inputs[L1_DCACHE] = atof(input);
-
-    fgets(input, 20, stdin);
-
-    inputs[TLB_INS] = atof(input);
-
-    fgets(input, 20, stdin);
-
-    inputs[L3] = atof(input);
-
-    fgets(input, 20, stdin);
-
-    inputs[ANS] = atof(input);
+    for( int i = 0; i < input_size; i++) {
+        fgets(input, 20, stdin);
+        inputs[i] = atof(input);
+    }
 
     return 1;
 }
 
-int calc_error_main (double weights[INPUT_SIZE], char* flags, char* graph_fname) {
+int calc_error_main (double* weights, char* flags, char* graph_fname, 
+                                                        int input_size) {
 
-    double inputs[INPUT_SIZE];
+    double inputs[input_size];
 
     double total_inputs = 0;
     char name[20];
@@ -150,31 +115,46 @@ int calc_error_main (double weights[INPUT_SIZE], char* flags, char* graph_fname)
 
     FILE* fptr = fopen(TABLE_OUT_FILE, "w+");
 
+    // Answer
+    // output
+    // Error 
+    // Error%
+    // L1_I%
+    // Stalls%
+    // Ins%
+    // L2%
+    // TLB_D%
+    // L1_D%
+    // TLB_I%
+    // L3%
+
     if(strstr(flags, "t")) {
-        fprintf(fptr,
-          "----------------------------------------------------------------------------------------\n"
+        fprintf(fptr,       // make it so that it is 13* num of columns 
+          "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
           );
+        fprintf(fptr, "%*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s |\n", 
+        -12, "File", -12, "Answer", -12, "Output", -12, "Error",
+        -12, "Error%", -12, "L1_I%", -12, "Stalls%", -12, "Ins%", -12,
+        "L2%", -12, "TLB_D%", -12, "L1_D%", -12, "TLB_I%", -12, "L3");
         fprintf(fptr, 
-          "File\t\tAnswer\tOutput\tError\tError%%\tL1_I%%\tCycles%%\tIns%%\tL2%%\tTLB_Data%%\tL1_D%%\tTLB_Ins%%i\tL3%%\n"
-          );
-          fprintf(fptr, 
-          "----------------------------------------------------------------------------------------\n"
+          "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
           );
     }
     while(1) {
 
         total_inputs = 0;
 
-        if(!get_input(name, inputs)) {
+        if(!get_input(name, inputs, input_size)) {
             break;
         }
 
-        double error = calc_error(name, weights, inputs, strstr(flags, "t"), fptr);
+        double error = calc_error(name, weights, inputs, strstr(flags, "t"),
+        fptr, input_size);
 
         error_sum += (fabs(error)*100/inputs[ANS]) ;
         num_data++;
 
-        for(int i = 0; i < INPUT_SIZE - 1; i++) {
+        for(int i = 0; i < input_size - 1; i++) {
             total_inputs += inputs[i];
         }
         total_inputs -= inputs[CYCLES];
@@ -191,6 +171,12 @@ int calc_error_main (double weights[INPUT_SIZE], char* flags, char* graph_fname)
             print_graphing_info(graph_fname, name, inputs, error/inputs[ANS],
             inputs[ANS] + error);
         }
+    }
+    
+    if(strstr(flags, "t")) {
+        fprintf(fptr,       // make it so that it is 13* num of columns 
+          "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
+          );
     }
 
     if(strstr(flags, "m")) {

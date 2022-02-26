@@ -91,23 +91,26 @@ def main():
     with open(sys.argv[len(sys.argv) - 1]) as f:
         for line in f:
             str_list = line.split(",")
-            for i in range(1,len(str_list)):
+            for i in range(0,len(str_list)):
                 ipc.append(float(str_list[i]))
             
 
     fig, ax = plt.subplots(nrows=2, ncols=4)
-    graph_relative_error("l1_icache",error, l1_icache,names)
-    graph_relative_error("cycles",error, cycles,names)
-    graph_relative_error("ins",error, ins,names)
-    graph_relative_error("l2",error, l2,names )
-    graph_relative_error("tlb_data",error, tlb_data,names)
-    graph_relative_error("l1_dcache",error, l1_dcache,names)
-    graph_relative_error("tlb_ins",error, tlb_ins,names)
-    graph_relative_error("l3",error, l3,names)
+#     graph_relative_error("l1_icache",error, l1_icache,names)
+#     graph_relative_error("cycles",error, cycles,names)
+#     graph_relative_error("ins",error, ins,names)
+#     graph_relative_error("l2",error, l2,names )
+#     graph_relative_error("tlb_data",error, tlb_data,names)
+#     graph_relative_error("l1_dcache",error, l1_dcache,names)
+#     graph_relative_error("tlb_ins",error, tlb_ins,names)
+#     graph_relative_error("l3",error, l3,names)
 
     graph_relative_error("ipc",error, ipc,names)
 
-    graph_ans_output(names, ans, outputs)
+#     for i in range(0, len(error)):
+#         print("error: " + str(error[i]) + "ipc: " + str(ipc[i]))
+
+#     graph_ans_output(names, ans, outputs)
 
 main()
 

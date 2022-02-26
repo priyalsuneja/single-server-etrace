@@ -1,15 +1,16 @@
-*******************************Average over 1 runs: 257.847534 *******************************
+*******************************Average over 1 runs: 5737.374817 *******************************
 
  Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/tests/msr/build/l2_msr':
 
-           337,735      L1-icache-load-misses                                         (49.96%)
-    15,328,204,854      cycles                                                        (62.47%)
-     6,871,281,904      instructions              #    0.45  insn per cycle           (74.98%)
-       700,312,231      l2_rqsts.miss                                                 (74.98%)
-           109,043      dTLB-load-misses                                              (74.98%)
-       657,469,185      L1-dcache-load-misses                                         (75.04%)
-            26,955      iTLB-load-misses                                              (75.06%)
-        33,186,805      LLC-load-misses                                               (49.98%)
+         2,267,406      L1-icache-load-misses                                         (44.44%)
+   184,695,460,339      cycles                                                        (55.55%)
+   106,928,906,141      cycle_activity.cycles_no_execute                                     (55.56%)
+    67,805,751,188      instructions              #    0.37  insn per cycle           (66.67%)
+       523,641,593      l2_rqsts.miss                                                 (66.67%)
+     6,571,844,479      dTLB-load-misses                                              (66.67%)
+    12,844,584,636      L1-dcache-load-misses                                         (66.67%)
+            34,886      iTLB-load-misses                                              (55.56%)
+         3,948,803      LLC-load-misses                                               (44.45%)
 
-       5.244800355 seconds time elapsed
+      63.904396715 seconds time elapsed
 

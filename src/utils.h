@@ -13,20 +13,18 @@
 #define TLB_INS 6
 #define L3 7
 #define ANS 8
-#define INPUT_SIZE 9
 
 #define TABLE_OUT_FILE "output_table"
 
 
-int calc_error_main(double weights[INPUT_SIZE], char* flags, char* graph_fname);
+int calc_error_main(double* weights, char* flags, char* graph_fname, int input_size);
 
-double calc_error(char name[20], double weights[INPUT_SIZE], 
-                    double inputs[INPUT_SIZE], char* print, FILE* fptr);
+double calc_error(char name[20], double* weights, 
+                    double* inputs, char* print, FILE* fptr, int input_size);
 
-int get_input(char name[20], double inputs[INPUT_SIZE]);
+int get_input(char name[20], double* input, int input_size);
 
-void print_stats(double inputs[INPUT_SIZE]);
+void print_stats(double* inputs);
 
-int print_graphing_info(char* graph_fname, char name[20], double
-                                         inputs[INPUT_SIZE], double rel_error,
-                                         double output);
+int print_graphing_info(char* graph_fname, char name[20], 
+                                    double* inputs, double rel_error, double output);
