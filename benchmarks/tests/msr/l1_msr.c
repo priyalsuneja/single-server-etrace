@@ -13,10 +13,16 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
 	long long result;
 	double package_before,package_after;
 	double dram_before,dram_after;
-    struct ll *head = malloc(sizeof(struct ll));
-    struct ll *curr = head; 
-
-    int retval = populate_list(head, L1_LL_SIZE);
+//     struct ll *head = malloc(sizeof(struct ll));
+//     struct ll *curr = head; 
+// 
+//     int retval = populate_list(head, L1_LL_SIZE);
+    int retval;
+    int arr[L1_LL_SIZE];
+    
+    for(int i = 0; i < L1_LL_SIZE; i++) {
+        arr[i] = L1_LL_SIZE - i;
+    }
 
 
     fd=open_msr(0); // todo: add package detection + map and stuff
@@ -36,10 +42,16 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
     close(fd);
 
     for(int i = 0; i < ITERATIONS_PER_RUN; i++) {
-        while(curr != NULL) {
-            curr = curr->next; 
+        int index = 0; 
+
+        while(index < L1_SIZE) {
+            int j = index;
+            for(j; j < L1_LL_SIZE; ) {
+                retval += arr[j];
+                j += L1_SIZE;
+            }
+            index++;
         }
-        curr = head;
     }
 
     fd = open_msr(0);

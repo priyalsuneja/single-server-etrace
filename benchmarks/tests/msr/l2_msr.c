@@ -5,17 +5,19 @@
  */
 #include "msr.h"
 
-int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2], 
-            double *r1, double *r2) {
+int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2], double *r1, double *r2) {
     int dram_avail = 2;
 	int fd;
 	long long result;
 	double package_before,package_after;
 	double dram_before,dram_after;
-    struct ll *head = malloc(sizeof(struct ll));
-    struct ll *curr = head; 
+    int retval = 0;
 
-    int retval = populate_list(head, L2_LL_SIZE);
+    int *arr = malloc(L2_LL_SIZE*sizeof(int));
+
+    for(int i = 0; i < L2_LL_SIZE; i++) {
+        arr[i] = L2_LL_SIZE - i;
+    }
 
 
     fd=open_msr(0); // todo: add package detection + map and stuff
@@ -35,10 +37,16 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
     close(fd);
 
     for(int i = 0; i < ITERATIONS_PER_RUN; i++) {
-        while(curr != NULL) {
-            curr = curr->next; 
+        int index = 0;
+
+        while(index < L2_SIZE) {
+            int j = index;
+            for (j; j < L2_LL_SIZE;) {
+                retval += arr[j];
+                j += L2_SIZE;
+            }
+            index++;
         }
-        curr = head;
     }
 
     fd = open_msr(0);

@@ -1,0 +1,17 @@
+********* graph500 *********
+energy consumed: 1.686890 
+
+ Performance counter stats for 'mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 /homes/sys/suneja/graph500/src/graph500_reference_bfs 2':
+
+         9,990,183      L1-icache-load-misses                                         (41.91%)
+     2,329,363,911      cycles                                                        (51.46%)
+     1,199,405,204      cycle_activity.cycles_no_execute                                     (49.07%)
+     1,773,866,376      instructions              #    0.76  insn per cycle           (60.47%)
+        26,000,249      l2_rqsts.miss                                                 (63.18%)
+         1,636,653      dTLB-load-misses                                              (68.50%)
+        31,467,101      L1-dcache-load-misses                                         (69.23%)
+           863,464      iTLB-load-misses                                              (61.64%)
+           514,771      LLC-load-misses                                               (46.48%)
+
+       0.460470394 seconds time elapsed
+

@@ -1,16 +1,17 @@
 ********* cc_sv *********
-energy consumed: 74.012146 
+energy consumed: 12.536682 
 
- Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/cc_sv -g 20 -n 1':
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/cc_sv -g 10 -n 1':
 
-         1,101,811      L1-icache-load-misses                                         (49.32%)
-    43,030,570,883      cycles                                                        (62.09%)
-    27,667,513,302      instructions              #    0.64  insn per cycle           (74.73%)
-       255,783,930      l2_rqsts.miss                                                 (74.81%)
-       114,684,308      dTLB-load-misses                                              (75.04%)
-       329,812,121      L1-dcache-load-misses                                         (75.43%)
-           215,511      iTLB-load-misses                                              (75.64%)
-        15,025,205      LLC-load-misses                                               (49.77%)
+           822,402      L1-icache-load-misses                                         (40.98%)
+     4,297,061,655      cycles                                                        (53.90%)
+     2,844,930,438      cycle_activity.cycles_no_execute                                     (55.68%)
+     1,712,174,504      instructions              #    0.40  insn per cycle           (68.32%)
+           872,453      l2_rqsts.miss                                                 (69.21%)
+           168,385      dTLB-load-misses                                              (70.41%)
+         1,247,252      L1-dcache-load-misses                                         (69.08%)
+            17,790      iTLB-load-misses                                              (54.15%)
+             1,500      LLC-load-misses                                               (40.48%)
 
-       0.759559643 seconds time elapsed
+       0.128010521 seconds time elapsed
 

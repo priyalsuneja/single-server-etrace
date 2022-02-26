@@ -1,0 +1,83 @@
+Weights for each field: 
+L1-icache-load-misses: -1.233490e-06
+cycle_activity.cycles_no_execute: -1.782096e-09
+instructions: 7.429357e-09
+l2_rqsts.miss: 4.249933e-06
+dTLB-load-misses: 1.318127e-06
+L1-dcache-load-misses: -1.593760e-07
+iTLB-load-misses: 1.646060e-04
+LLC-load-misses: -8.797566e-04
+
+******* File: err_bfs_10 *********
+ 	Answer: 11592.146, Output: 12226.071
+	Error: 633.925, error % : 5.469%
+
+******* File: pr_spmv *********
+ 	Answer: 17.410, Output: 18.984
+	Error: 1.575, error % : 9.044%
+
+******* File: cc_sv *********
+ 	Answer: 12.537, Output: 11.976
+	Error: -0.561, error % : 4.474%
+
+******* File: l1_msr *********
+ 	Answer: 208.769, Output: 211.062
+	Error: 2.293, error % : 1.099%
+
+******* File: err_sssp_10 *********
+ 	Answer: 55534.384, Output: 60155.612
+	Error: 4621.229, error % : 8.321%
+
+******* File: err_sssp_7 *********
+ 	Answer: 25180.205, Output: 26553.119
+	Error: 1372.914, error % : 5.452%
+
+******* File: err_bfs_7 *********
+ 	Answer: 6912.886, Output: 7096.508
+	Error: 183.622, error % : 2.656%
+
+******* File: sssp *********
+ 	Answer: 138.958, Output: 129.449
+	Error: -9.509, error % : 6.843%
+
+******* File: err_bfs_5 *********
+ 	Answer: 6648.644, Output: 6764.281
+	Error: 115.637, error % : 1.739%
+
+******* File: qs_msr *********
+ 	Answer: 1301.269, Output: 1016.256
+	Error: -285.014, error % : 21.903%
+
+******* File: err_sssp_5 *********
+ 	Answer: 1392.513, Output: 1228.657
+	Error: -163.857, error % : 11.767%
+
+******* File: bc *********
+ 	Answer: 16.270, Output: 16.917
+	Error: 0.647, error % : 3.974%
+
+******* File: cc *********
+ 	Answer: 10.852, Output: 9.669
+	Error: -1.182, error % : 10.893%
+
+******* File: tlb_msr *********
+ 	Answer: 50.688, Output: 52.067
+	Error: 1.379, error % : 2.721%
+
+******* File: tc *********
+ 	Answer: 13.379, Output: 12.859
+	Error: -0.520, error % : 3.886%
+
+******* File: bfs *********
+ 	Answer: 13.098, Output: 14.510
+	Error: 1.411, error % : 10.775%
+
+******* File: pr *********
+ 	Answer: 16.752, Output: 16.375
+	Error: -0.377, error % : 2.252%
+
+******* File: l2_msr *********
+ 	Answer: 5737.375, Output: 5683.006
+	Error: -54.369, error % : 0.948%
+
+Mean error: 6.345

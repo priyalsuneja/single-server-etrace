@@ -1,16 +1,17 @@
 ********* pr_spmv *********
-energy consumed: 80.483215 
+energy consumed: 17.409912 
 
- Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/pr_spmv -g 20 -n 1':
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/pr_spmv -g 10 -n 1':
 
-         1,168,559      L1-icache-load-misses                                         (49.51%)
-    47,122,837,319      cycles                                                        (62.24%)
-    28,338,013,421      instructions              #    0.60  insn per cycle           (74.90%)
-       395,677,534      l2_rqsts.miss                                                 (75.10%)
-       167,508,018      dTLB-load-misses                                              (75.11%)
-       510,023,190      L1-dcache-load-misses                                         (75.17%)
-           232,319      iTLB-load-misses                                              (75.38%)
-        25,251,122      LLC-load-misses                                               (49.73%)
+         1,662,878      L1-icache-load-misses                                         (40.94%)
+     6,222,077,060      cycles                                                        (51.88%)
+     4,114,856,455      cycle_activity.cycles_no_execute                                     (53.36%)
+     2,464,891,859      instructions              #    0.40  insn per cycle           (65.03%)
+         1,148,324      l2_rqsts.miss                                                 (67.45%)
+           290,065      dTLB-load-misses                                              (68.57%)
+         2,733,681      L1-dcache-load-misses                                         (70.38%)
+            33,745      iTLB-load-misses                                              (56.35%)
+               370      LLC-load-misses                                               (42.96%)
 
-       0.815441869 seconds time elapsed
+       0.174253511 seconds time elapsed
 

@@ -28,14 +28,6 @@ int main(int argc, char** argv) {
     }
 
 
-    // argv[1] contains flags
-//     if(argc >= 2) {
-//         return calc_error_main(weights, argv[1], argv[2]);
-//     } else if (argc == 2) {
-//         return calc_error_main(weights, argv[1], "graph_out_one");
-//     }
-
-//     int input_size = 0;
     ch_al labels_list;
     init_list(&labels_list);
 
@@ -55,11 +47,16 @@ int main(int argc, char** argv) {
     while(amt_read != -1) {
         line[strcspn(line, "\n")]=0;
 //         printf("%ld %s", amt_read, line);
+        if(strcmp("cycles", line) == 0) {
+            amt_read = getline(&line, &len, fp);
+            continue;
+        }
         append(&labels_list, line, amt_read);
         amt_read = getline(&line, &len, fp);
     }
 
 //     print_list(&labels_list);
+//     printf("%d\n", labels_list.size);
 
 
     double weights[labels_list.size];

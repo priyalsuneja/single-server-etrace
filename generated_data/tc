@@ -1,0 +1,17 @@
+********* tc *********
+energy consumed: 13.837097 
+
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/tc -g 10 -n 1':
+
+         1,508,655      L1-icache-load-misses                                         (40.64%)
+     4,838,618,554      cycles                                                        (54.91%)
+     3,189,780,142      cycle_activity.cycles_no_execute                                     (57.80%)
+     1,924,991,038      instructions              #    0.40  insn per cycle           (68.72%)
+         1,044,430      l2_rqsts.miss                                                 (70.18%)
+           203,654      dTLB-load-misses                                              (71.13%)
+         1,857,586      L1-dcache-load-misses                                         (69.57%)
+            25,281      iTLB-load-misses                                              (51.66%)
+             1,125      LLC-load-misses                                               (39.02%)
+
+       0.131057372 seconds time elapsed
+

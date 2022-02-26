@@ -1,15 +1,16 @@
-*******************************Average over 1 runs: 28.653015 *******************************
+*******************************Average over 1 runs: 50.687744 *******************************
 
  Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/tests/msr/build/tlb_msr':
 
-            49,877      L1-icache-load-misses                                         (49.28%)
-     1,803,903,277      cycles                                                        (62.22%)
-       165,233,354      instructions              #    0.09  insn per cycle           (75.15%)
-        32,372,226      l2_rqsts.miss                                                 (75.37%)
-        20,378,133      dTLB-load-misses                                              (75.37%)
-        32,516,847      L1-dcache-load-misses                                         (75.37%)
-            46,931      iTLB-load-misses                                              (75.35%)
-            61,810      LLC-load-misses                                               (49.27%)
+           126,482      L1-icache-load-misses                                         (43.57%)
+     1,844,789,080      cycles                                                        (54.86%)
+     1,661,474,103      cycle_activity.cycles_no_execute                                     (54.85%)
+       166,335,667      instructions              #    0.09  insn per cycle           (66.14%)
+        32,417,460      l2_rqsts.miss                                                 (66.53%)
+        20,608,717      dTLB-load-misses                                              (67.15%)
+        32,661,314      L1-dcache-load-misses                                         (67.72%)
+            39,259      iTLB-load-misses                                              (56.05%)
+           127,587      LLC-load-misses                                               (44.13%)
 
-       0.653126588 seconds time elapsed
+       0.639287345 seconds time elapsed
 

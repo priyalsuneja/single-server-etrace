@@ -1,0 +1,17 @@
+********* graph500 *********
+energy consumed: 20439.016235 
+
+ Performance counter stats for 'mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 /homes/sys/suneja/treehouse/single-server-etrace/benchmarks/graph500/build/err_sssp 5':
+
+       161,432,147      L1-icache-load-misses                                         (44.45%)
+ 4,102,076,012,197      cycles                                                        (55.56%)
+ 2,033,646,718,011      cycle_activity.cycles_no_execute                                     (55.56%)
+ 3,286,222,080,194      instructions              #    0.80  insn per cycle           (66.67%)
+       109,911,856      l2_rqsts.miss                                                 (66.67%)
+         9,921,626      dTLB-load-misses                                              (66.67%)
+       363,552,209      L1-dcache-load-misses                                         (66.66%)
+         6,136,496      iTLB-load-misses                                              (55.55%)
+           703,011      LLC-load-misses                                               (44.44%)
+
+     195.930481060 seconds time elapsed
+
