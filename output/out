@@ -1,79 +1,83 @@
 Weights for each field: 
-L1-icache-load-misses: 1.405586e-06
-cycle_activity.cycles_no_execute: -7.345255e-11
-instructions: 6.157597e-09
-l2_rqsts.miss: 8.387917e-07
-dTLB-load-misses: 1.333436e-06
-L1-dcache-load-misses: -2.324688e-07
-iTLB-load-misses: 3.572532e-06
-LLC-load-misses: 9.213068e-07
-
-******* File: tlb_msr *********
- 	Answer: 48.354, Output: 48.345
-	Error: -0.009, error % : 0.019%
-
-******* File: err_bfs_5 *********
- 	Answer: 2396.366, Output: 2363.191
-	Error: -33.176, error % : 1.384%
-
-******* File: err_bfs_10 *********
- 	Answer: 5306.929, Output: 5417.338
-	Error: 110.409, error % : 2.080%
-
-******* File: l2_msr *********
- 	Answer: 502.402, Output: 502.401
-	Error: -0.000, error % : 0.000%
-
-******* File: err_sssp_10 *********
- 	Answer: 10954.715, Output: 11076.629
-	Error: 121.914, error % : 1.113%
-
-******* File: err_sssp_7 *********
- 	Answer: 9471.069, Output: 9232.860
-	Error: -238.209, error % : 2.515%
-
-******* File: bfs *********
- 	Answer: 12.492, Output: 12.665
-	Error: 0.173, error % : 1.385%
-
-******* File: cc_sv *********
- 	Answer: 12.259, Output: 12.086
-	Error: -0.173, error % : 1.410%
-
-******* File: err_sssp_5 *********
- 	Answer: 1929.779, Output: 1848.139
-	Error: -81.640, error % : 4.231%
-
-******* File: bc *********
- 	Answer: 17.105, Output: 17.064
-	Error: -0.041, error % : 0.239%
-
-******* File: l1_msr *********
- 	Answer: 282.700, Output: 282.853
-	Error: 0.154, error % : 0.054%
-
-******* File: sssp *********
- 	Answer: 129.674, Output: 131.500
-	Error: 1.826, error % : 1.408%
-
-******* File: cc *********
- 	Answer: 11.870, Output: 11.792
-	Error: -0.078, error % : 0.657%
-
-******* File: err_bfs_7 *********
- 	Answer: 3501.399, Output: 3643.464
-	Error: 142.065, error % : 4.057%
-
-******* File: pr *********
- 	Answer: 15.134, Output: 15.190
-	Error: 0.056, error % : 0.373%
+L1-icache-load-misses: -1.870241e-06
+cycle_activity.cycles_no_execute: -1.702027e-09
+instructions: 6.698749e-09
+l2_rqsts.miss: 2.597302e-06
+dTLB-load-misses: 7.067204e-07
+L1-dcache-load-misses: 5.376483e-08
+iTLB-load-misses: 2.448311e-04
+LLC-load-misses: -3.208991e-04
 
 ******* File: tc *********
- 	Answer: 14.244, Output: 14.126
-	Error: -0.118, error % : 0.831%
+ 	Answer: 13.885, Output: 13.905
+	Error: 0.020, error % : 0.141%
+
+******* File: err_bfs_5 *********
+ 	Answer: 1210.031, Output: 1181.220
+	Error: -28.811, error % : 2.381%
+
+******* File: pr *********
+ 	Answer: 16.670, Output: 16.893
+	Error: 0.223, error % : 1.338%
+
+******* File: cc *********
+ 	Answer: 11.676, Output: 11.912
+	Error: 0.236, error % : 2.020%
+
+******* File: err_sssp_5 *********
+ 	Answer: 9752.157, Output: 9729.753
+	Error: -22.404, error % : 0.230%
 
 ******* File: pr_spmv *********
- 	Answer: 17.864, Output: 17.910
-	Error: 0.046, error % : 0.259%
+ 	Answer: 18.449, Output: 18.164
+	Error: -0.285, error % : 1.542%
 
-Mean error: 1.295
+******* File: sssp *********
+ 	Answer: 138.410, Output: 119.264
+	Error: -19.146, error % : 13.833%
+
+******* File: l1_msr *********
+ 	Answer: 230.499, Output: 231.365
+	Error: 0.866, error % : 0.376%
+
+******* File: bc *********
+ 	Answer: 18.268, Output: 18.202
+	Error: -0.066, error % : 0.364%
+
+******* File: err_bfs_10 *********
+ 	Answer: 9446.554, Output: 9687.831
+	Error: 241.277, error % : 2.554%
+
+******* File: l2_msr *********
+ 	Answer: 5756.149, Output: 5754.411
+	Error: -1.738, error % : 0.030%
+
+******* File: cc_sv *********
+ 	Answer: 11.398, Output: 12.226
+	Error: 0.829, error % : 7.270%
+
+******* File: tlb_msr *********
+ 	Answer: 58.173, Output: 58.221
+	Error: 0.049, error % : 0.084%
+
+******* File: bfs *********
+ 	Answer: 12.519, Output: 13.051
+	Error: 0.532, error % : 4.253%
+
+******* File: err_sssp_10 *********
+ 	Answer: 41314.369, Output: 44129.927
+	Error: 2815.558, error % : 6.815%
+
+******* File: err_sssp_7 *********
+ 	Answer: 48786.454, Output: 48122.331
+	Error: -664.123, error % : 1.361%
+
+******* File: qs_msr *********
+ 	Answer: 1212.720, Output: 1135.026
+	Error: -77.694, error % : 6.407%
+
+******* File: err_bfs_7 *********
+ 	Answer: 7163.584, Output: 6985.271
+	Error: -178.313, error % : 2.489%
+
+Mean error: 2.972

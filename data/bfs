@@ -1,17 +1,17 @@
 ********* bfs *********
-energy consumed: 12.492126 
+energy consumed: 12.518921 
 
  Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/bfs -g 10 -n 1':
 
-         1,108,723      L1-icache-load-misses                                         (38.58%)
-     4,256,090,064      cycles                                                        (51.79%)
-     2,820,788,119      cycle_activity.cycles_no_execute                                     (55.06%)
-     1,699,870,430      instructions              #    0.40  insn per cycle           (66.50%)
-           973,942      l2_rqsts.miss                                                 (70.49%)
-           225,176      dTLB-load-misses                                              (72.08%)
-         1,691,443      L1-dcache-load-misses                                         (71.50%)
-            34,146      iTLB-load-misses                                              (53.37%)
-               889      LLC-load-misses                                               (38.93%)
+         1,071,280      L1-icache-load-misses                                         (38.65%)
+     4,307,324,594      cycles                                                        (50.40%)
+     2,868,864,012      cycle_activity.cycles_no_execute                                     (54.08%)
+     1,713,426,262      instructions              #    0.40  insn per cycle           (66.44%)
+         1,043,593      l2_rqsts.miss                                                 (67.20%)
+           236,834      dTLB-load-misses                                              (69.27%)
+         1,838,491      L1-dcache-load-misses                                         (71.62%)
+            25,868      iTLB-load-misses                                              (56.30%)
+             2,649      LLC-load-misses                                               (42.88%)
 
-       0.127026523 seconds time elapsed
+       0.128726234 seconds time elapsed
 

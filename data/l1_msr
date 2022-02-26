@@ -1,16 +1,16 @@
-*******************************Average over 1 runs: 282.699524 *******************************
+*******************************Average over 1 runs: 230.498840 *******************************
 
  Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/tests/msr/build/l1_msr':
 
-           155,445      L1-icache-load-misses                                         (44.43%)
-     9,466,742,448      cycles                                                        (55.54%)
-     5,697,630,124      cycle_activity.cycles_no_execute                                     (55.54%)
-     4,325,713,563      instructions              #    0.46  insn per cycle           (66.66%)
-       411,713,622      l2_rqsts.miss                                                 (66.66%)
-         1,168,240      dTLB-load-misses                                              (66.66%)
-       411,066,232      L1-dcache-load-misses                                         (66.69%)
-            12,298      iTLB-load-misses                                              (55.57%)
-         5,463,661      LLC-load-misses                                               (44.46%)
+           107,334      L1-icache-load-misses                                         (44.29%)
+     7,579,229,967      cycles                                                        (55.43%)
+     1,823,722,236      cycle_activity.cycles_no_execute                                     (55.43%)
+     6,009,649,218      instructions              #    0.79  insn per cycle           (66.57%)
+        58,027,348      l2_rqsts.miss                                                 (66.67%)
+           485,903      dTLB-load-misses                                              (66.83%)
+       820,881,850      L1-dcache-load-misses                                         (66.85%)
+               290      iTLB-load-misses                                              (55.61%)
+             2,651      LLC-load-misses                                               (44.32%)
 
-       3.276609512 seconds time elapsed
+       2.623254813 seconds time elapsed
 

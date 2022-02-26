@@ -24,7 +24,6 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
         qs_arr[L2_SIZE-i] = i;
     }
 
-
     fd=open_msr(0); // todo: add package detection + map and stuff
 
     /* Package Energy */
@@ -42,7 +41,7 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
     close(fd);
 
     for(int i = 0; i < ITERATIONS_PER_RUN; i++) {
-        qsort(qs_arr, L2_SIZE, int(qsort), cmpfnc);
+        qsort(qs_arr, L2_SIZE, sizeof(int), cmpfunc);
     }
 
     fd = open_msr(0);
@@ -59,7 +58,8 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
     }
 
     close(fd);
-	return retval;
+// 	return retval;
+    return 1;
 
 }
 

@@ -15,7 +15,7 @@ l1_populate: l1_populate.c utils.c msr.c
 	gcc -O0 -Wall -o $(BUILDDIR)/l1_populate l1_populate.c utils.c msr.c -lm
 
 l2_msr: l2_msr.c utils.c msr.c
-	gcc -O0 -Wall -o $(BUILDDIR)/l2_msr l2_msr.c utils.c msr.c -lm
+	gcc -O0 -g -Wall -o $(BUILDDIR)/l2_msr l2_msr.c utils.c msr.c -lm
 
 l2: l2.c utils.c msr.c
 	gcc -O0 -Wall -o $(BUILDDIR)/l2 l2.c utils.c msr.c -lm
@@ -28,6 +28,9 @@ ins_msr: ins_msr.c msr.c utils.c
 
 qs_msr: qs_msr.c msr.c utils.c
 	gcc -O0 -Wall -o $(BUILDDIR)/qs_msr qs_msr.c utils.c msr.c -lm
+
+mm_msr: mm_msr.c msr.c utils.c
+	gcc -O0 -g -Wall -o $(BUILDDIR)/mm_msr mm_msr.c utils.c msr.c -lm
 
 ins: ins.c  msr.c utils.c
 	gcc -O0 -Wall -o $(BUILDDIR)/ins ins.c msr.c utils.c -lm

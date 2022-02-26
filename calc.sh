@@ -43,7 +43,7 @@ then
     python3 ${a[0]}/graph_relative_error.py ${a[4]}/graph_out_one ${a[4]}/ipc_input
 fi
 
-mkdir ${a[6]}
+mkdir ${a[6]} > /dev/null
 mv ${a[2]} output_table *.png ${a[6]}
 
 rm -rf ${a[4]}
