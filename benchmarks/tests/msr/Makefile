@@ -3,7 +3,9 @@ BUILDDIR = build
 #all: tlb_msr l2_msr l1_msr ins_msr ins l2 tlb l1 l1_populate l2_populate \
 #        tlb_populate
 
-all: tlb_msr l1_msr l2_msr qs_msr
+#all: tlb_msr l1_msr l2_msr qs_msr mm_msr mm_signal
+
+all: mm_signal
 
 l1_msr: l1_msr.c utils.c msr.c
 	gcc -O0 -Wall -o $(BUILDDIR)/l1_msr l1_msr.c utils.c msr.c -lm
@@ -31,6 +33,9 @@ qs_msr: qs_msr.c msr.c utils.c
 
 mm_msr: mm_msr.c msr.c utils.c
 	gcc -O0 -g -Wall -o $(BUILDDIR)/mm_msr mm_msr.c utils.c msr.c -lm
+
+mm_signal: mm_signal.c msr.c utils.c
+	gcc -O0 -g -Wall -o $(BUILDDIR)/mm_signal mm_signal.c utils.c msr.c -lm
 
 ins: ins.c  msr.c utils.c
 	gcc -O0 -Wall -o $(BUILDDIR)/ins ins.c msr.c utils.c -lm

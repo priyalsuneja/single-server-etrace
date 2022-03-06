@@ -32,14 +32,7 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
 	long long result;
 	double package_before,package_after;
 	double dram_before,dram_after;
-    int one[MM_SIZE][MM_SIZE], two[MM_SIZE][MM_SIZE], res[MM_SIZE][MM_SIZE];
-
-    for(int i = 0; i < MM_SIZE; i++) {
-        for(int j = 0; j < MM_SIZE; j++) {
-            one[i][j] = i*j;
-            two[i][j] = i+j;
-        }
-    }
+//     int one[MM_SIZE][MM_SIZE], two[MM_SIZE][MM_SIZE], res[MM_SIZE][MM_SIZE];
 
 
     fd=open_msr(0); // todo: add package detection + map and stuff
@@ -58,7 +51,23 @@ int measure_msr(int cpu_model, int cpu_info[3], double energy_units[2],
 
     close(fd);
 
-    for(int i = 0; i < ITERATIONS_PER_RUN; i++) {
+    int **one = malloc(MM_SIZE*sizeof(int*));
+    int **two = malloc(MM_SIZE*sizeof(int*));
+    int **res = malloc(MM_SIZE*sizeof(int*));
+    for(int i = 0; i < MM_SIZE; i++) {
+        one[i] = malloc(MM_SIZE*sizeof(int));
+        two[i] = malloc(MM_SIZE*sizeof(int));
+        res[i] = malloc(MM_SIZE*sizeof(int));
+    }
+
+    for(int i = 0; i < MM_SIZE; i++) {
+        for(int j = 0; j < MM_SIZE; j++) {
+            one[i][j] = i*j;
+            two[i][j] = i+j;
+        }
+    }
+
+    for(int i = 0; i < ITERATIONS_PER_RUN2; i++) {
         matrix_multiply(one, two, res);
     }
 

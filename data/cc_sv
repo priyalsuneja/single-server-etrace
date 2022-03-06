@@ -1,17 +1,17 @@
 ********* cc_sv *********
-energy consumed: 12.536682 
+energy consumed: 12.314270 
 
  Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/cc_sv -g 10 -n 1':
 
-           822,402      L1-icache-load-misses                                         (40.98%)
-     4,297,061,655      cycles                                                        (53.90%)
-     2,844,930,438      cycle_activity.cycles_no_execute                                     (55.68%)
-     1,712,174,504      instructions              #    0.40  insn per cycle           (68.32%)
-           872,453      l2_rqsts.miss                                                 (69.21%)
-           168,385      dTLB-load-misses                                              (70.41%)
-         1,247,252      L1-dcache-load-misses                                         (69.08%)
-            17,790      iTLB-load-misses                                              (54.15%)
-             1,500      LLC-load-misses                                               (40.48%)
+         1,033,315      L1-icache-load-misses                                         (41.40%)
+     4,290,480,362      cycles                                                        (53.54%)
+     2,815,212,359      cycle_activity.cycles_no_execute                                     (55.04%)
+     1,697,645,725      instructions              #    0.40  insn per cycle           (65.90%)
+           962,305      l2_rqsts.miss                                                 (66.54%)
+           220,918      dTLB-load-misses                                              (67.76%)
+         1,669,248      L1-dcache-load-misses                                         (70.57%)
+            25,839      iTLB-load-misses                                              (55.69%)
+               449      LLC-load-misses                                               (43.00%)
 
-       0.128010521 seconds time elapsed
+       0.126721249 seconds time elapsed
 
