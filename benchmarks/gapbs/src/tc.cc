@@ -16,7 +16,7 @@
 #include "command_line.h"
 #include "graph.h"
 #include "pvector.h"
-#include "msr.h"
+#include "../msr.h"
 
 
 /*
@@ -128,36 +128,28 @@ bool TCVerifier(const Graph &g, size_t test_total) {
   return total == test_total;
 }
 
-
-int main(int argc, char* argv[]) {
-  int cpu_info[3];
-  double energy_units[2];
-  get_cpu_info(CPU_HASWELL_EP, cpu_info, energy_units);  
-
-  CLApp cli(argc, argv, "triangle count");
+void tc_measure() {
+  CLApp cli(gargc, gargv, "triangle count");
   if (!cli.ParseArgs())
-    return -1;
-
-  int fd = open_msr(0);  
-  long long result; 
-  double package_before, package_after;
-  result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
-  package_before = (double) result*energy_units[0];
-  close(fd);
+    return;
 
   Builder b(cli);
   Graph g = b.MakeGraph();
   if (g.directed()) {
     cout << "Input graph is directed but tc requires undirected" << endl;
-    return -2;
+    return;
   }
   BenchmarkKernel(cli, g, Hybrid, PrintTriangleStats, TCVerifier);
 
-  fd = open_msr(0);
-  result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
-  package_after = (double)result*energy_units[0];
-  fprintf(stderr, "********* tc *********\n");
-  fprintf(stderr,"energy consumed: %fJ\n", package_after - package_before);
+}
+
+
+int main(int argc, char* argv[]) {
+
+  gargc = argc; 
+  gargv = argv; 
+
+  measure_msr("tc_out", &tc_measure);
 
   return 0;
 }

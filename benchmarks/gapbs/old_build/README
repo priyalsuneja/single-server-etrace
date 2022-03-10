@@ -1,0 +1,2 @@
+this folder contains the binaries WITHOUT the use of SIGALRM, but instead uses
+taking energy stamps at the beginning and end of the program to get energy usage

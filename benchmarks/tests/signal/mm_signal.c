@@ -4,30 +4,7 @@
  * to run: sudo ./build/mm_msr
  */
 
-#include "msr.h"
-
-// int cpu_info[3]; // 0 -> pp0, 1-> pp1, 2-> dram
-// double energy_units[2]; // 0 -> cpu, 1 -> dram
-
-// extern int errno;
-
-// double readings[1000000];
-// double reading;
-// FILE *fptr;
-// unsigned int count = 0;
-
-// void sig_handler(int signum) {
-//     int fd=open_msr(0); // todo: add package detection + map and stuff
-// 
-//     /* Package Energy */
-//     long long result = read_msr(fd,MSR_PKG_ENERGY_STATUS);
-// 
-//     close(fd);
-// 
-//     reading = (double)result*energy_units[0];
-//     fprintf(fptr, "%f\n", reading);
-//     
-// }
+#include "signal.h"
 
 void matrix_multiply(int **one, int **two, int **result) {
     int rows1 = MM_SIZE;
@@ -85,27 +62,6 @@ void matrix_multiply_measure() {
 
 int main (int argc, char* argv[]) {
 
-//     fptr = fopen("mm_signal_out", "w+");
-// 
-//     if(!fptr) {
-//         printf("errno: %d ", errno);
-//         printf("err string: %s\n", strerror(errno));
-//         return 0;
-//     }
-// 
-//     signal(SIGALRM, sig_handler);
-// 
-//     ualarm(500*1000,500*1000);  // 1000 us = 1 ms; 0.5s = 500 ms
-// //     ualarm(500,500);
-// 
-//     get_cpu_info(CPU_HASWELL_EP, cpu_info, energy_units);
-//     
-//     measure_msr();
-// 
-// //     fclose(fptr);
-
-    printf("%s\n", strcat(argv[0], "_out"));
-    
     measure_msr("mm_signal_out", &matrix_multiply_measure);
 
     return 0;

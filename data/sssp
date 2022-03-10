@@ -1,17 +1,15 @@
-********* sssp *********
-energy consumed: 130.378540 
 
- Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/sssp -g 10 -n 1':
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/sssp -g 20 -n 2':
 
-        15,181,529      L1-icache-load-misses                                         (44.55%)
-    45,713,236,315      cycles                                                        (55.45%)
-    30,221,182,534      cycle_activity.cycles_no_execute                                     (55.65%)
-    18,009,213,311      instructions              #    0.39  insn per cycle           (66.55%)
-         6,191,353      l2_rqsts.miss                                                 (67.15%)
-         1,332,777      dTLB-load-misses                                              (66.71%)
-        21,908,141      L1-dcache-load-misses                                         (66.53%)
-           157,026      iTLB-load-misses                                              (55.57%)
-             2,463      LLC-load-misses                                               (43.84%)
+            14,049      L1-icache-load-misses                                       
+         2,796,019      cycles                                                      
+         1,023,203      cycle_activity.cycles_no_execute                                   
+         3,626,616      instructions              #    1.30  insn per cycle         
+            55,320      l2_rqsts.miss                                               
+             2,805      dTLB-load-misses                                            
+     <not counted>      L1-dcache-load-misses                                         (0.00%)
+     <not counted>      iTLB-load-misses                                              (0.00%)
+     <not counted>      LLC-load-misses                                               (0.00%)
 
-       1.223941162 seconds time elapsed
+       0.003689033 seconds time elapsed
 

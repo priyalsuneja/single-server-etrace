@@ -1,12 +1,14 @@
 #!/bin/bash
-file=".data_labels"
+file="/homes/sys/suneja/treehouse/single-server-etrace/.data_labels"
 gapbs_dir="/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build"
-msr_dir="/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/tests/msr/build"
+signal_dir="/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/tests/signal/build"
 graph500_dir="/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/graph500/build"
 output_folder="./data"
+rapl_folder="./data/rapl"
 
 rm -rf $output_folder
 mkdir $output_folder
+mkdir $rapl_folder
 
 cmd_starter="sudo perf stat "
 
@@ -17,20 +19,22 @@ done < $file
 
 for entry in `ls $gapbs_dir`
  do
-     $cmd_starter $gapbs_dir/$entry -g 10 -n 1 1> /dev/null 2> $output_folder/$entry
+     $cmd_starter $gapbs_dir/$entry -g 20 -n 2 1> /dev/null 2> $output_folder/$entry
 done
 
-for entry in `ls $msr_dir`
+for entry in `ls $signal_dir`
  do
-     $cmd_starter $msr_dir/$entry 1> /dev/null 2> $output_folder/$entry
+     $cmd_starter $signal_dir/$entry 1> /dev/null 2> $output_folder/$entry
 done
 
-for entry in `ls $graph500_dir`
- do
-     $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 5 1> /dev/null 2> $output_folder/${entry}_5
-     $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 7 1> /dev/null 2> $output_folder/${entry}_7
-     $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 10 1> /dev/null 2> $output_folder/${entry}_10
-done
+# for entry in `ls $graph500_dir`
+#  do
+#      $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 5 1> /dev/null 2> $output_folder/${entry}_5
+#      $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 7 1> /dev/null 2> $output_folder/${entry}_7
+#      $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 10 1> /dev/null 2> $output_folder/${entry}_10
+# done
+
+mv *_out $rapl_folder
 
 sed -i "s/J/ /g" $output_folder/*
 sed -i "3,24d" $output_folder/err_*

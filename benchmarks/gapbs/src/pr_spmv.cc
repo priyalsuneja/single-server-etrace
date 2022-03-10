@@ -10,7 +10,7 @@
 #include "command_line.h"
 #include "graph.h"
 #include "pvector.h"
-#include "msr.h"
+#include "../msr.h"
 
 
 /*
@@ -94,22 +94,11 @@ bool PRVerifier(const Graph &g, const pvector<ScoreT> &scores,
   return error < target_error;
 }
 
-
-int main(int argc, char* argv[]) {
-  int cpu_info[3];
-  double energy_units[2];
-  get_cpu_info(CPU_HASWELL_EP, cpu_info, energy_units);  
-
-  CLPageRank cli(argc, argv, "pagerank", 1e-4, 20);
+void pr_measure() {
+  CLPageRank cli(gargc, gargv, "pagerank", 1e-4, 20);
   if (!cli.ParseArgs())
-    return -1;
+    return;
 
-  int fd = open_msr(0);  
-  long long result; 
-  double package_before, package_after;
-  result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
-  package_before = (double) result*energy_units[0];
-  close(fd);
 
   Builder b(cli);
   Graph g = b.MakeGraph();
@@ -120,12 +109,15 @@ int main(int argc, char* argv[]) {
     return PRVerifier(g, scores, cli.tolerance());
   };
   BenchmarkKernel(cli, g, PRBound, PrintTopScores, VerifierBound);
+}
 
-  fd = open_msr(0);
-  result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
-  package_after = (double)result*energy_units[0];
-  fprintf(stderr, "********* pr_spmv *********\n");
-  fprintf(stderr,"energy consumed: %fJ\n", package_after - package_before);
+
+int main(int argc, char* argv[]) {
+
+  gargc = argc;
+  gargv = argv;
+
+  measure_msr("pr_spmv_out", &pr_measure);
 
   return 0;
 }

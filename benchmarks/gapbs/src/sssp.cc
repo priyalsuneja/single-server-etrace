@@ -14,7 +14,7 @@
 #include "platform_atomics.h"
 #include "pvector.h"
 #include "timer.h"
-#include "msr.h"
+#include "../msr.h"
 
 
 /*
@@ -191,22 +191,10 @@ bool SSSPVerifier(const WGraph &g, NodeID source,
   return all_ok;
 }
 
-
-int main(int argc, char* argv[]) {
-  int cpu_info[3];
-  double energy_units[2];
-  get_cpu_info(CPU_HASWELL_EP, cpu_info, energy_units);  
-
-  CLDelta<WeightT> cli(argc, argv, "single-source shortest-path");
+void sssp_measure() {
+  CLDelta<WeightT> cli(gargc, gargv, "single-source shortest-path");
   if (!cli.ParseArgs())
-    return -1;
-
-  int fd = open_msr(0);  
-  long long result; 
-  double package_before, package_after;
-  result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
-  package_before = (double) result*energy_units[0];
-  close(fd);
+    return;
 
   WeightedBuilder b(cli);
   WGraph g = b.MakeGraph();
@@ -220,11 +208,15 @@ int main(int argc, char* argv[]) {
   };
   BenchmarkKernel(cli, g, SSSPBound, PrintSSSPStats, VerifierBound);
 
-  fd = open_msr(0);
-  result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
-  package_after = (double)result*energy_units[0];
-  fprintf(stderr, "********* sssp *********\n");
-  fprintf(stderr,"energy consumed: %fJ\n", package_after - package_before);
+}
+
+int main(int argc, char* argv[]) {
+
+  gargc = argc;
+  gargv = argv;
+
+  measure_msr("sssp_out", &sssp_measure);
+
 
   return 0;
 }

@@ -1,10 +1,8 @@
  /*
  * author: Priyal Suneja ; suneja@cs.washington.edu
- * 
- * to compile: gcc -O0 -Wall -o rapl_sleep_msr rapl_sleep_msr.c -lpapi
- * to run: sudo ./rapl_sleep_msr
  */
 #include <stdio.h>
+#include <signal.h>
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -15,17 +13,21 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <math.h>
+// #include "../../includes/utils.h"
 
 #define RUNS 1
-#define ITERATIONS_PER_RUN 1000
-#define L1_SIZE 5*32*1024
-#define L2_SIZE 5*256*1024
+// #define ITERATIONS_PER_RUN 1000
+#define ITERATIONS_PER_RUN  1000
+#define L1_SIZE 32*1024
+#define L2_SIZE 256*1024
 #define PAGE_SIZE 4*1024
 #define TLB_ASSOC 4
 #define TLB_ENTRIES 64
-#define L1_LL_SIZE 10*L1_SIZE
-#define L2_LL_SIZE 1*L2_SIZE
-#define TLB_LL_SIZE TLB_ASSOC*TLB_ENTRIES*8
+#define L1_LL_SIZE 5*5*L1_SIZE
+#define L2_LL_SIZE 5*5*L2_SIZE
+#define TLB_LL_SIZE TLB_ASSOC*TLB_ENTRIES*8*10
+// #define MM_SIZE L1_SIZE/4
+#define MM_SIZE 1024
 
 #define MSR_RAPL_POWER_UNIT	0x606
 
@@ -99,4 +101,12 @@
 
 int open_msr(int core);
 long long read_msr(int fd, int which);
+void sig_handler(int signum);
 int get_cpu_info(int cpu_model, int cpu_info[3], double energy_units[2]);
+void measure_msr(char* filename, void (*funcptr)());
+
+int cpu_info[3];
+double energy_units[2];
+double reading; 
+FILE *fptr;
+int sig_triggered;

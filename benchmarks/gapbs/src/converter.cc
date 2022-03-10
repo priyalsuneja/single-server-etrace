@@ -9,7 +9,7 @@
 #include "graph.h"
 #include "reader.h"
 #include "writer.h"
-#include "msr.h"
+#include "../msr.h"
 
 using namespace std;
 

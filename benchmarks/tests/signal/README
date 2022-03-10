@@ -1,0 +1,2 @@
+this folder has the same tests as msr but uses SIGALRM to collect samples rather
+than taking energy readings at the beginning and end of the program

@@ -1,17 +1,15 @@
-********* bfs *********
-energy consumed: 12.690674 
 
- Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/bfs -g 10 -n 1':
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/bfs -g 20 -n 2':
 
-         1,107,304      L1-icache-load-misses                                         (37.56%)
-     4,348,369,194      cycles                                                        (51.31%)
-     2,854,498,298      cycle_activity.cycles_no_execute                                     (53.85%)
-     1,724,011,274      instructions              #    0.40  insn per cycle           (66.89%)
-           961,015      l2_rqsts.miss                                                 (67.71%)
-           157,857      dTLB-load-misses                                              (70.31%)
-         1,537,067      L1-dcache-load-misses                                         (72.64%)
-            19,757      iTLB-load-misses                                              (56.62%)
-             1,692      LLC-load-misses                                               (41.31%)
+            12,110      L1-icache-load-misses                                         (84.50%)
+         2,823,078      cycles                                                      
+         1,055,775      cycle_activity.cycles_no_execute                                   
+         3,604,090      instructions              #    1.28  insn per cycle         
+            56,587      l2_rqsts.miss                                               
+             2,899      dTLB-load-misses                                            
+            55,787      L1-dcache-load-misses                                         (15.50%)
+     <not counted>      iTLB-load-misses                                              (0.00%)
+     <not counted>      LLC-load-misses                                               (0.00%)
 
-       0.130066105 seconds time elapsed
+       0.003641648 seconds time elapsed
 

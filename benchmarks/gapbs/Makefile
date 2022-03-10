@@ -1,5 +1,6 @@
 # See LICENSE.txt for license details.
 
+#CXX_FLAGS += -std=c++11 -O0 -Wall
 CXX_FLAGS += -std=c++11 -O3 -Wall
 PAR_FLAG = -fopenmp
 
@@ -8,7 +9,7 @@ ifneq (,$(findstring icpc,$(CXX)))
 endif
 
 ifneq (,$(findstring sunCC,$(CXX)))
-	CXX_FLAGS = -std=c++11 -xO3 -m64 -xtarget=native
+    CXX_FLAGS = -std=c++11 -xO3 -m64 -xtarget=native
 	PAR_FLAG = -xopenmp
 endif
 
@@ -17,13 +18,15 @@ ifneq ($(SERIAL), 1)
 endif
 
 KERNELS = bc bfs cc cc_sv pr pr_spmv sssp tc
-SUITE = $(KERNELS) converter
+#KERNELS = bfs 
+#SUITE = $(KERNELS) converter
+SUITE = $(KERNELS) 
 
 .PHONY: all
 all: $(SUITE)
 
-% : src/%.cc src/*.h src/msr.h
-	$(CXX) $(CXX_FLAGS) $< -o $@ src/msr.cc -lm
+% : src/%.cc src/*.h msr.h
+	$(CXX) $(CXX_FLAGS) $< -o build/$@ msr.cc -lm
 
 # Testing
 include test/test.mk

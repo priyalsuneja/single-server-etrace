@@ -13,8 +13,7 @@
 #include "pvector.h"
 #include "sliding_queue.h"
 #include "timer.h"
-#include "msr.h"
-
+#include "../msr.h"
 
 /*
 GAP Benchmark Suite
@@ -241,22 +240,10 @@ bool BFSVerifier(const Graph &g, NodeID source,
   return true;
 }
 
-
-int main(int argc, char* argv[]) {
-  int cpu_info[3];
-  double energy_units[2];
-  get_cpu_info(CPU_HASWELL_EP, cpu_info, energy_units);  
-
-  CLApp cli(argc, argv, "breadth-first search");
+void bfs_measure() {
+  CLApp cli(gargc, gargv, "breadth-first search");
   if (!cli.ParseArgs())
-    return -1;
-
-  int fd = open_msr(0);  
-  long long result; 
-  double package_before, package_after;
-  result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
-  package_before = (double) result*energy_units[0];
-  close(fd);
+    return;
 
   Builder b(cli);
   Graph g = b.MakeGraph();
@@ -268,11 +255,14 @@ int main(int argc, char* argv[]) {
   };
   BenchmarkKernel(cli, g, BFSBound, PrintBFSStats, VerifierBound);
 
-  fd = open_msr(0);
-  result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
-  package_after = (double)result*energy_units[0];
-  fprintf(stderr, "********* bfs *********\n");
-  fprintf(stderr,"energy consumed: %fJ\n", package_after - package_before);
+}
 
+
+int main(int argc, char* argv[]) {
+
+  gargc = argc;
+  gargv = argv;
+
+  measure_msr("bfs_out", &bfs_measure);
   return 0;
 }

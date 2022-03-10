@@ -5,6 +5,15 @@
  * to run: sudo ./rapl_sleep_msr
  */
 #include "msr.h"
+int cpu_info[3];
+double energy_units[2];
+double reading; 
+FILE *fptr;
+int sig_triggered;
+int gargc;
+char** gargv;
+
+extern int errno;
 
  int open_msr(int core) {
 
@@ -113,32 +122,56 @@ int get_cpu_info(int cpu_model, int cpu_info[3], double energy_units[2]) {
 
 	}
 
-// 		printf("\tListing paramaters for package #0\n");
-
     fd=open_msr(0); // todo: add package detection + map and stuff
 
     /* Calculate the units used */
     result=read_msr(fd,MSR_RAPL_POWER_UNIT);
 
-//     power_units=pow(0.5,(double)(result&0xf));
     cpu_energy_units=pow(0.5,(double)((result>>8)&0x1f));
-//     time_units=pow(0.5,(double)((result>>16)&0xf));
 
     /* On Haswell EP and Knights Landing */
     /* The DRAM units differ from the CPU ones */
         dram_energy_units=pow(0.5,(double)16);   // we know we're on haswell
                                                     // so this is ok
-//         printf("DRAM: Using %lf instead of %lf\n",
-//             dram_energy_units,cpu_energy_units);
-// 
-//     printf("\t\tPower units = %.3fW\n",power_units);
-//     printf("\t\tCPU Energy units = %.8fJ\n",cpu_energy_units);
-//     printf("\t\tDRAM Energy units = %.8fJ\n",dram_energy_units);
-//     printf("\t\tTime units = %.8fs\n",time_units);
-
     energy_units[0] = cpu_energy_units;
     energy_units[1] = dram_energy_units;
-//     printf("\n");
 
     return 0;
+}
+
+void sig_handler(int signum) {
+    int fd = open_msr(0);
+
+    long long result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
+
+    close(fd);
+
+    reading = (double)result*energy_units[0];
+    fprintf(fptr, "%f\n", reading);
+
+//     sig_triggered = 1;
+}
+
+void measure_msr(char* filename, void (*func_ptr)()) {
+
+    fptr = fopen(filename, "w+");
+
+    if(!fptr) {
+        printf("errno: %d, err_string: %s\n", errno, strerror(errno));
+        return;
+    }
+
+    signal(SIGALRM, sig_handler);
+
+    ualarm(50*1000, 50*1000); // 1000 us = 1ms,; 0.5s = 500 ms
+//     sig_handler(SIGALRM);
+//     sig_triggered = 0;
+
+    get_cpu_info(CPU_HASWELL_EP, cpu_info, energy_units);
+
+    func_ptr();
+
+//     if(sig_triggered == 0) {
+//         sig_handler(SIGALRM);
+//     }
 }

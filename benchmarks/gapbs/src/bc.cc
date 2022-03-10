@@ -15,9 +15,7 @@
 #include "sliding_queue.h"
 #include "timer.h"
 #include "util.h"
-#include "msr.h"
-
-
+#include "../msr.h"
 
 /*
 GAP Benchmark Suite
@@ -227,26 +225,17 @@ bool BCVerifier(const Graph &g, SourcePicker<Graph> &sp, NodeID num_iters,
   return all_ok;
 }
 
+void bc_measure() {
 
-int main(int argc, char* argv[]) {
-  int cpu_info[3];
-  double energy_units[2];
-  get_cpu_info(CPU_HASWELL_EP, cpu_info, energy_units);  
+  CLIterApp cli(gargc, gargv, "betweenness-centrality", 1);
+  if (!cli.ParseArgs()) {
+    cerr << "error!\n" << endl;
+    return;
 
-  CLIterApp cli(argc, argv, "betweenness-centrality", 1);
-  if (!cli.ParseArgs())
-    return -1;
+  }
+
   if (cli.num_iters() > 1 && cli.start_vertex() != -1)
     cout << "Warning: iterating from same source (-r & -i)" << endl;
-
-
-  int fd = open_msr(0);  
-  long long result; 
-  double package_before, package_after;
-  result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
-  package_before = (double) result*energy_units[0];
-  close(fd);
-
 
   Builder b(cli);
   Graph g = b.MakeGraph();
@@ -259,12 +248,14 @@ int main(int argc, char* argv[]) {
     return BCVerifier(g, vsp, cli.num_iters(), scores);
   };
   BenchmarkKernel(cli, g, BCBound, PrintTopScores, VerifierBound);
+}
 
-  fd = open_msr(0);
-  result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
-  package_after = (double)result*energy_units[0];
-  fprintf(stderr, "********* bc *********\n");
-  fprintf(stderr,"energy consumed: %fJ\n", package_after - package_before);
+
+int main(int argc, char* argv[]) {
+
+  gargc = argc; 
+  gargv = argv;
+  measure_msr("bc_out", &bc_measure);
 
   return 0;
 }
