@@ -1,6 +1,8 @@
 import csv
 import os
 import argparse
+
+# FIRST_LINE = 3
 parser = argparse.ArgumentParser()
 
 parser.add_argument('inputfolder', type=str, default="")
@@ -8,7 +10,21 @@ parser.add_argument('tempfolder', type=str, default=".sse_temp")
 parser.add_argument('data_labels_file', type=str, default=".data_labels")
 
 args = parser.parse_args()
-def get_data(path):
+
+def get_energy_data(path):
+    f = open(path)
+    lines = f.readlines()
+
+    energyTotal = 0
+
+    for i in range(1, len(lines)):
+        diff = float(lines[i]) - float(lines[i-1])
+        if(diff < 0):
+            continue
+        energyTotal += diff
+    return energyTotal
+
+def get_perf_data(path):
     f = open(path)
     lines = f.readlines()
 
@@ -17,18 +33,19 @@ def get_data(path):
         for data_line in f_labels:
             data_needed.append(data_line[:-1])
 
-    if lines[1].startswith('energy'):
-        energy = lines[1].split()
-        energy = float(energy[2][0:-1])
-    else:
-        energy = lines[0].split()
-        energy = float(energy[4])
+#     energy = None
+#     if lines[0].startswith('energy'):
+#         energy = lines[0].split()
+#         energy = float(energy[1][0:-1])
+#     else:
+#         energy = lines[-1].split()
+#         energy = float(energy[3])
 
     j = 0
     data = []
     ipc = 0
 
-    for i in range(4, len(lines)):
+    for i in range(3, len(lines)):
         if j == len(data_needed):
             break
         if data_needed[j] == 'cycles':
@@ -46,10 +63,12 @@ def get_data(path):
         
 #     if (len(data) != len(data_needed) + 1):
 #         print("something went wrong")
-    return ipc, energy, data 
+#     return ipc, energy, data 
+    return ipc, data
 
 def cast(input):
     return float(input.replace(',', ''))
+
 
 all_data = []
 energy_list = []
@@ -60,15 +79,24 @@ ipc_list = []
 with open(args.tempfolder + "/" + 'b_data.csv', 'w') as f:
     writer = csv.writer(f)
     
-    for filename in os.scandir(args.inputfolder):
-        ipc, energy, data = get_data(filename.path)
+    for filename in os.scandir(args.inputfolder + "/data"):
+#         ipc, energy, data = get_perf_data(filename.path)
+        ipc, data = get_perf_data(filename.path)
         files.append(filename.name)
 
         all_data.append(data)
-        energy_list.append(energy)
         ipc_list.append(ipc)
 
+        energy = get_energy_data(args.inputfolder + "/rapl/" + filename.name +
+        "_out")
+        energy_list.append(energy)
         writer.writerow([energy])
+
+#     for filename in os.scandir(args.inputfolder + "/rapl"):
+#         energy = get_energy_data(filename.path)
+#         energy_list.append(energy)
+#         writer.writerow([energy])
+
 
 b_line = ""
 f = open(args.tempfolder + "/" + "bm_input", "w")
