@@ -46,4 +46,4 @@ fi
 mkdir ${a[6]} 
 mv ${a[2]} output_table *.png ${a[6]}
 
-rm -rf ${a[4]}
+# rm -rf ${a[4]}

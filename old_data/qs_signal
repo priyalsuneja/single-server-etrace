@@ -1,0 +1,15 @@
+
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/tests/signal/build/qs_signal':
+
+             8,616      L1-icache-load-misses                                       
+           977,535      cycles                                                      
+           481,253      cycle_activity.cycles_no_execute                                   
+           846,355      instructions              #    0.87  insn per cycle         
+            26,368      l2_rqsts.miss                                               
+             1,412      dTLB-load-misses                                            
+     <not counted>      L1-dcache-load-misses                                         (0.00%)
+     <not counted>      iTLB-load-misses                                              (0.00%)
+     <not counted>      LLC-load-misses                                               (0.00%)
+
+       0.002112777 seconds time elapsed
+

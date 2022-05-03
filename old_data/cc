@@ -1,0 +1,15 @@
+
+ Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build/cc -g 20 -n 2':
+
+            14,227      L1-icache-load-misses                                       
+         2,758,216      cycles                                                      
+         1,012,375      cycle_activity.cycles_no_execute                                   
+         3,592,226      instructions              #    1.30  insn per cycle         
+            56,021      l2_rqsts.miss                                               
+             2,840      dTLB-load-misses                                            
+     <not counted>      L1-dcache-load-misses                                         (0.00%)
+     <not counted>      iTLB-load-misses                                              (0.00%)
+     <not counted>      LLC-load-misses                                               (0.00%)
+
+       0.003639595 seconds time elapsed
+

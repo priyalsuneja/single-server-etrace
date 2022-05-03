@@ -96,14 +96,14 @@ def main():
             
 
     fig, ax = plt.subplots(nrows=2, ncols=4)
-#     graph_relative_error("l1_icache",error, l1_icache,names)
-#     graph_relative_error("cycles",error, cycles,names)
-#     graph_relative_error("ins",error, ins,names)
-#     graph_relative_error("l2",error, l2,names )
-#     graph_relative_error("tlb_data",error, tlb_data,names)
-#     graph_relative_error("l1_dcache",error, l1_dcache,names)
-#     graph_relative_error("tlb_ins",error, tlb_ins,names)
-#     graph_relative_error("l3",error, l3,names)
+    graph_relative_error("l1_icache",error, l1_icache,names)
+    graph_relative_error("cycles",error, cycles,names)
+    graph_relative_error("ins",error, ins,names)
+    graph_relative_error("l2",error, l2,names )
+    graph_relative_error("tlb_data",error, tlb_data,names)
+    graph_relative_error("l1_dcache",error, l1_dcache,names)
+    graph_relative_error("tlb_ins",error, tlb_ins,names)
+    graph_relative_error("l3",error, l3,names)
 
     graph_relative_error("ipc",error, ipc,names)
 

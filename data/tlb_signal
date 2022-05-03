@@ -1,15 +1,19 @@
 
  Performance counter stats for '/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/tests/signal/build/tlb_signal':
 
-             8,213      L1-icache-load-misses                                       
-           973,959      cycles                                                      
-           480,771      cycle_activity.cycles_no_execute                                   
-           838,640      instructions              #    0.86  insn per cycle         
-            26,296      l2_rqsts.miss                                               
-             1,438      dTLB-load-misses                                            
+            35,148      L1-icache-load-misses                                       
+         1,082,712      cycles                                                      
+           524,843      cycle_activity.stalls_total                                   
+           937,886      instructions              #    0.87  insn per cycle         
+            23,058      l2_rqsts.miss                                               
+               983      dTLB-load-misses                                            
      <not counted>      L1-dcache-load-misses                                         (0.00%)
      <not counted>      iTLB-load-misses                                              (0.00%)
      <not counted>      LLC-load-misses                                               (0.00%)
 
-       0.002112810 seconds time elapsed
+       0.003219616 seconds time elapsed
+
+       0.000000000 seconds user
+       0.001939000 seconds sys
+
 
