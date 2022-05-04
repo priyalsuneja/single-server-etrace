@@ -1,0 +1,43 @@
+Weights for each field: 
+L1-icache-load-misses: -3.431410e-07
+cycle_activity.stalls_total: 3.005812e-08
+instructions: 5.935030e-09
+l2_rqsts.miss: -4.430818e-08
+dTLB-load-misses: -1.487009e-06
+L1-dcache-load-misses: -3.225174e-08
+iTLB-load-misses: 3.125497e-05
+LLC-load-misses: 3.549886e-07
+
+******* File: graph_bfs_err *********
+ 	Answer: 28353.549, Output: 3021.266
+	Error: -25332.283, error % : 89.344%
+
+******* File: cc_sv_err *********
+ 	Answer: 8719.260, Output: 3090.368
+	Error: -5628.892, error % : 64.557%
+
+******* File: pr_spmv_err *********
+ 	Answer: 8740.439, Output: 457.708
+	Error: -8282.730, error % : 94.763%
+
+******* File: tc_err *********
+ 	Answer: 74206.464, Output: 47442.506
+	Error: -26763.958, error % : 36.067%
+
+******* File: graph_sssp_err *********
+ 	Answer: 62848.841, Output: 12002.300
+	Error: -50846.541, error % : 80.903%
+
+******* File: pr_err *********
+ 	Answer: 8743.199, Output: 1656.689
+	Error: -7086.510, error % : 81.052%
+
+******* File: bc_err *********
+ 	Answer: 8667.399, Output: 4324.511
+	Error: -4342.888, error % : 50.106%
+
+******* File: sssp_err *********
+ 	Answer: 8729.116, Output: 5056.993
+	Error: -3672.123, error % : 42.068%
+
+Mean error: 67.357

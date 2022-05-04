@@ -25,7 +25,6 @@ int print_graphing_info(char* graph_fname, char name[20], double* inputs, double
 double calc_error (char name[20], double* weights, double* inputs, char* print, 
                                                         FILE *fptr, int input_size ) {
 
-
     double output = 0;
     double ind_out[input_size];
     int i; 
@@ -106,6 +105,10 @@ int get_input(char name[20], double* inputs, int input_size) {
 int calc_error_main (double* weights, char* flags, char* graph_fname, 
                                                         int input_size) {
 
+    if(strstr(flags, "d")) {
+        fprintf(stderr, "in calc_err_main\n");
+    }
+
     double inputs[input_size];
 
     double total_inputs = 0;
@@ -144,12 +147,22 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
 
         total_inputs = 0;
 
+        if(strstr(flags, "d")) {
+            fprintf(stderr, "calling get input\n");
+        }
+
         if(!get_input(name, inputs, input_size)) {
             break;
+        }
+        if(strstr(flags, "d")) {
+            fprintf(stderr, "back from get input, claling clac error\n");
         }
 
         double error = calc_error(name, weights, inputs, strstr(flags, "t"),
         fptr, input_size);
+        if(strstr(flags, "d")) {
+            fprintf(stderr, "back from  clac error\n");
+        }
 
         error_sum += (fabs(error)*100/inputs[ANS]) ;
         num_data++;
