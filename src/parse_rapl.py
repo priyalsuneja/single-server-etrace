@@ -79,10 +79,8 @@ with open(args.tempfolder + "/" + 'b_data.csv', 'w') as f:
         ipc_list.append(ipc)
 
 
-#         energy = get_energy_data(args.inputfolder + "/rapl/" +
-#         filename.name[:-3])
         energy = get_energy_data(args.inputfolder + "/rapl/" +
-        filename.name + "_out")
+        filename.name[:-4])
         energy_list.append(energy)
         writer.writerow([energy])
 

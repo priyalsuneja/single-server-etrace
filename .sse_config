@@ -1,7 +1,8 @@
 src
-./spec_data
+/scratch/suneja/benchmarks
 out
 mt
 .sse_temp
 .data_labels
 output
+coefficients.csv
