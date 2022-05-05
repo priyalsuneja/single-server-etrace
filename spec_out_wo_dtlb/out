@@ -1,0 +1,180 @@
+Printing list start ---------- 
+L1-icache-load-misses
+cycle_activity.stalls_total
+instructions
+l2_rqsts.miss
+L1-dcache-load-misses
+iTLB-load-misses
+LLC-load-misses
+Printing list end ---------- 
+7
+Weights for each field: 
+L1-icache-load-misses: -3.003992e-07
+cycle_activity.stalls_total: 2.364855e-08
+instructions: 6.208924e-09
+l2_rqsts.miss: -2.012936e-08
+L1-dcache-load-misses: -2.527296e-08
+iTLB-load-misses: 2.413630e-05
+LLC-load-misses: 4.050861e-07
+
+******* File: 520_err *********
+ 	Answer: 20708.882, Output: 22842.921
+	Error: 2134.038, error % : 10.305%
+
+******* File: 527_err *********
+ 	Answer: 21011.939, Output: 22490.318
+	Error: 1478.378, error % : 7.036%
+
+******* File: 605_err *********
+ 	Answer: 45465.349, Output: 43320.870
+	Error: -2144.479, error % : 4.717%
+
+******* File: 602_err *********
+ 	Answer: 52113.295, Output: 40977.631
+	Error: -11135.664, error % : 21.368%
+
+******* File: 503_err *********
+ 	Answer: 45717.635, Output: 37049.517
+	Error: -8668.117, error % : 18.960%
+
+******* File: 621_err *********
+ 	Answer: 341802.689, Output: 271566.670
+	Error: -70236.019, error % : 20.549%
+
+******* File: 531_err *********
+ 	Answer: 20664.096, Output: 19437.978
+	Error: -1226.118, error % : 5.934%
+
+******* File: 628_err *********
+ 	Answer: 248613.117, Output: 192842.693
+	Error: -55770.425, error % : 22.433%
+
+******* File: 538_err *********
+ 	Answer: 31256.540, Output: 29963.608
+	Error: -1292.932, error % : 4.137%
+
+******* File: 544_err *********
+ 	Answer: 21514.194, Output: 20308.538
+	Error: -1205.656, error % : 5.604%
+
+******* File: 603_err *********
+ 	Answer: 575692.073, Output: 479868.193
+	Error: -95823.880, error % : 16.645%
+
+******* File: 631_err *********
+ 	Answer: 22891.743, Output: 24469.580
+	Error: 1577.838, error % : 6.893%
+
+******* File: 526_err *********
+ 	Answer: 20946.047, Output: 16453.409
+	Error: -4492.638, error % : 21.449%
+
+******* File: 521_err *********
+ 	Answer: 45519.701, Output: 34214.402
+	Error: -11305.298, error % : 24.836%
+
+******* File: 644_err *********
+ 	Answer: 267143.733, Output: 181446.960
+	Error: -85696.773, error % : 32.079%
+
+******* File: 638_err *********
+ 	Answer: 463081.492, Output: 462351.368
+	Error: -730.124, error % : 0.158%
+
+******* File: 554_err *********
+ 	Answer: 23514.282, Output: 21354.505
+	Error: -2159.777, error % : 9.185%
+
+******* File: 627_err *********
+ 	Answer: 272333.578, Output: 10156.390
+	Error: -262177.188, error % : 96.271%
+
+******* File: 620_err *********
+ 	Answer: 21985.910, Output: 22390.708
+	Error: 404.798, error % : 1.841%
+
+******* File: 502_err *********
+ 	Answer: 11158.203, Output: 14198.589
+	Error: 3040.386, error % : 27.248%
+
+******* File: 505_err *********
+ 	Answer: 21369.798, Output: 20371.174
+	Error: -998.623, error % : 4.673%
+
+******* File: 541_err *********
+ 	Answer: 31075.239, Output: 26470.073
+	Error: -4605.166, error % : 14.819%
+
+******* File: 623_err *********
+ 	Answer: 31070.521, Output: 26646.625
+	Error: -4423.897, error % : 14.238%
+
+******* File: 548_err *********
+ 	Answer: 26523.010, Output: 17999.782
+	Error: -8523.228, error % : 32.135%
+
+******* File: 508_err *********
+ 	Answer: 10582.200, Output: 11440.296
+	Error: 858.096, error % : 8.109%
+
+******* File: 519_err *********
+ 	Answer: 10804.367, Output: 13560.039
+	Error: 2755.671, error % : 25.505%
+
+******* File: 510_err *********
+ 	Answer: 32248.154, Output: 26317.850
+	Error: -5930.305, error % : 18.390%
+
+******* File: 607_err *********
+ 	Answer: 181414.008, Output: 137537.534
+	Error: -43876.474, error % : 24.186%
+
+******* File: 600_err *********
+ 	Answer: 21047.682, Output: 16589.350
+	Error: -4458.332, error % : 21.182%
+
+******* File: 525_err *********
+ 	Answer: 22355.125, Output: 30477.708
+	Error: 8122.583, error % : 36.334%
+
+******* File: 557_err *********
+ 	Answer: 20531.681, Output: 23691.236
+	Error: 3159.554, error % : 15.389%
+
+******* File: 619_err *********
+ 	Answer: 103151.902, Output: 83451.391
+	Error: -19700.511, error % : 19.099%
+
+******* File: 500_err *********
+ 	Answer: 11988.447, Output: 17322.369
+	Error: 5333.922, error % : 44.492%
+
+******* File: 507_err *********
+ 	Answer: 10499.623, Output: 12039.450
+	Error: 1539.827, error % : 14.666%
+
+******* File: 625_err *********
+ 	Answer: 31191.160, Output: 32149.267
+	Error: 958.108, error % : 3.072%
+
+******* File: 549_err *********
+ 	Answer: 23737.807, Output: 27697.147
+	Error: 3959.339, error % : 16.679%
+
+******* File: 641_err *********
+ 	Answer: 265786.979, Output: 27262.567
+	Error: -238524.412, error % : 89.743%
+
+******* File: 648_err *********
+ 	Answer: 11162.983, Output: 18179.572
+	Error: 7016.589, error % : 62.856%
+
+******* File: 523_err *********
+ 	Answer: 11123.137, Output: 16070.332
+	Error: 4947.196, error % : 44.477%
+
+******* File: 511_err *********
+ 	Answer: 21594.057, Output: 15499.502
+	Error: -6094.555, error % : 28.223%
+
+Mean error: 22.398

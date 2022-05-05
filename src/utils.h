@@ -8,11 +8,15 @@
 #define IPC 2
 #define INS 2
 #define L2 3
-#define TLB_DATA 4
-#define L1_DCACHE 5
-#define TLB_INS 6
-#define L3 7
-#define ANS 8
+// #define TLB_DATA 4
+// #define L1_DCACHE 5
+// #define TLB_INS 6
+// #define L3 7
+// #define ANS 8
+#define L1_DCACHE 4
+#define TLB_INS 5
+#define L3 6
+#define ANS 7
 
 #define TABLE_OUT_FILE "output_table"
 

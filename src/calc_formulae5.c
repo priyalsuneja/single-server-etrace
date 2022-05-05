@@ -55,8 +55,8 @@ int main(int argc, char** argv) {
         amt_read = getline(&line, &len, fp);
     }
 
-//     print_list(&labels_list);
-//     printf("%d\n", labels_list.size);
+    print_list(&labels_list);
+    printf("%d\n", labels_list.size);
 
 
     double weights[labels_list.size];

@@ -1,0 +1,18 @@
+
+ Performance counter stats for 'taskset -c 0 nice -n -20 runcpu --config=priyal.cfg --action=run 554':
+
+         670265580      L1-icache-load-misses                                         (44.44%)
+     1288916489613      cycles                                                        (44.44%)
+      327879303296      cycle_activity.stalls_total                                     (44.42%)
+     2619757031639      instructions              #    2.03  insn per cycle           (55.54%)
+       57616781184      l2_rqsts.miss                                                 (55.57%)
+       78737859769      L1-dcache-load-misses                                         (55.56%)
+           7762163      iTLB-load-misses                                              (55.58%)
+        1230571908      LLC-load-misses                                               (44.43%)
+
+     375.030532925 seconds time elapsed
+
+     369.100738000 seconds user
+       3.983721000 seconds sys
+
+

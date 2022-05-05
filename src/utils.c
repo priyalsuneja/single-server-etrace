@@ -4,20 +4,20 @@
 
 int print_graphing_info(char* graph_fname, char name[20], double* inputs, double rel_error,
                                          double output) {
-
-    FILE* fptr = fopen(graph_fname, "a+");
-    if(!fptr) {
-        return -1;
-    }
-
-    // TODO: turn this into a loop
-
-    fprintf(fptr,"%s,%.0f,%.0f,%.2f,%.0f,%.0f,%.0f,%.0f,%.0f,%.3f,%.3f,%.3f\n",name, inputs[L1_ICACHE],
-        inputs[CYCLES], inputs[IPC], inputs[L2], inputs[TLB_DATA],
-        inputs[L1_DCACHE], inputs[TLB_INS], inputs[L3], rel_error, inputs[ANS], output);
-
-    fclose(fptr);
-
+// 
+//     FILE* fptr = fopen(graph_fname, "a+");
+//     if(!fptr) {
+//         return -1;
+//     }
+// 
+//     // TODO: turn this into a loop
+// 
+//     fprintf(fptr,"%s,%.0f,%.0f,%.2f,%.0f,%.0f,%.0f,%.0f,%.0f,%.3f,%.3f,%.3f\n",name, inputs[L1_ICACHE],
+//         inputs[CYCLES], inputs[IPC], inputs[L2], inputs[TLB_DATA],
+//         inputs[L1_DCACHE], inputs[TLB_INS], inputs[L3], rel_error, inputs[ANS], output);
+// 
+//     fclose(fptr);
+// 
     return 0;
 
 }
@@ -71,7 +71,7 @@ void print_stats(double* inputs) {
 
     printf("\t%%L1_icache: %.4f\n", inputs[L1_ICACHE]*100/inputs[INS]);
     printf("\t%% L2: %.4f\n", inputs[L2]*100/inputs[INS]);
-    printf("\t%% TLB_data: %.4f\n", inputs[TLB_DATA]*100/inputs[INS]);
+//     printf("\t%% TLB_data: %.4f\n", inputs[TLB_DATA]*100/inputs[INS]);
     printf("\t%% L1_dcache: %.4f\n", inputs[L1_DCACHE]*100/inputs[INS]);
     printf("\t%% TLB_ins: %.4f\n", inputs[TLB_INS]*100/inputs[INS]);
     printf("\t%% L3: %.4f\n", inputs[L3]*100/inputs[INS]);

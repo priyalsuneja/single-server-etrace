@@ -1,5 +1,5 @@
 
-Performance counter stats for 'taskset -c 0 nice -n -20 /scratch/suneja/graph500/build//graph500_reference_bfs 20 32':
+ Performance counter stats for 'taskset -c 0 nice -n -20 /scratch/suneja/graph500/build//graph500_reference_bfs 20 32':
 
         85,013,063      L1-icache-load-misses                                         (44.45%)
  1,024,994,748,254      cycles                                                        (55.56%)

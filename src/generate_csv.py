@@ -82,7 +82,7 @@ with open(args.tempfolder + "/" + 'b_data.csv', 'w') as f:
         energy = get_energy_data(args.inputfolder + "/rapl/" +
         filename.name[:-3] + "rapl")
 #         energy = get_energy_data(args.inputfolder + "/rapl/" +
-#         filename.name[:-3])
+#         filename.name[:-4])
 #         energy = get_energy_data(args.inputfolder + "/rapl/" +
 #         filename.name + "_out")
         energy_list.append(energy)
