@@ -1,0 +1,80 @@
+Printing list start ---------- 
+L1-icache-load-misses
+cycle_activity.stalls_total
+instructions
+l2_rqsts.miss
+L1-dcache-load-misses
+iTLB-load-misses
+LLC-load-misses
+Printing list end ---------- 
+7
+Weights for each field: 
+L1-icache-load-misses: -5.772718e-07
+cycle_activity.stalls_total: 2.438873e-08
+instructions: 6.144763e-09
+l2_rqsts.miss: -5.615289e-09
+L1-dcache-load-misses: -3.026889e-08
+iTLB-load-misses: 7.611759e-05
+LLC-load-misses: 2.730942e-07
+
+******* File: 510_err *********
+ 	Answer: 32248.154, Output: 27158.577
+	Error: -5089.577, error % : 15.783%
+
+******* File: pr_spmv_err *********
+ 	Answer: 8740.439, Output: 6336.002
+	Error: -2404.436, error % : 27.509%
+
+******* File: 519_err *********
+ 	Answer: 10804.367, Output: 14053.739
+	Error: 3249.372, error % : 30.075%
+
+******* File: sssp_err *********
+ 	Answer: 8729.116, Output: 6095.898
+	Error: -2633.218, error % : 30.166%
+
+******* File: tc_err *********
+ 	Answer: 74206.464, Output: 45674.293
+	Error: -28532.171, error % : 38.450%
+
+******* File: 511_err *********
+ 	Answer: 21594.057, Output: 10382.169
+	Error: -11211.888, error % : 51.921%
+
+******* File: 657_err *********
+ 	Answer: 226111.641, Output: 145314.280
+	Error: -80797.362, error % : 35.733%
+
+******* File: cc_sv_err *********
+ 	Answer: 8719.260, Output: 5691.972
+	Error: -3027.288, error % : 34.720%
+
+******* File: bfs_err *********
+ 	Answer: 34743.145, Output: 24057.173
+	Error: -10685.972, error % : 30.757%
+
+******* File: 654_err *********
+ 	Answer: 318320.033, Output: 185713.326
+	Error: -132606.707, error % : 41.658%
+
+******* File: pr_err *********
+ 	Answer: 8743.199, Output: 5908.549
+	Error: -2834.649, error % : 32.421%
+
+******* File: cc_err *********
+ 	Answer: 34700.786, Output: 24809.356
+	Error: -9891.430, error % : 28.505%
+
+******* File: bc_err *********
+ 	Answer: 8667.399, Output: 5731.965
+	Error: -2935.434, error % : 33.868%
+
+******* File: 638_err *********
+ 	Answer: 463081.492, Output: 457557.500
+	Error: -5523.992, error % : 1.193%
+
+******* File: 631_err *********
+ 	Answer: 22891.743, Output: 24290.543
+	Error: 1398.800, error % : 6.110%
+
+Mean error: 29.258

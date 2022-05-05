@@ -1,8 +1,8 @@
 src
-./data_temp
+./spec_temp
 out
 mt
 .sse_temp
 .data_labels
 output
-coefficients.csv
+coefficients_wo_tlbd

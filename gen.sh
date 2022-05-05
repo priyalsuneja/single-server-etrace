@@ -16,7 +16,7 @@
 # file that holds labels to read
 # output folde
 # location of coeffs file
-file=".sse_config"
+file=".sse_config_spec"
 
 declare -a a
 
@@ -33,13 +33,15 @@ fi
 
 mkdir ${a[4]}
 
-python3 ${a[0]}/generate_csv.py ${a[1]} ${a[4]} ${a[5]}
+python3 ${a[0]}/generate_spec_csv.py ${a[1]} ${a[4]} ${a[5]}
 
-# python3 ${a[0]}/linear_solver.py ${a[4]}
-# 
-# ./${a[0]}/fifth -${a[3]} ./${a[5]} ${a[4]}/${a[7]} ./${a[4]}/graph_out_one < ./${a[4]}/temp > ${a[2]}
+python3 ${a[0]}/linear_solver.py ${a[4]}
 
-./${a[0]}/fifth -${a[3]} ./${a[5]} ./${a[7]} ./${a[4]}/graph_out_one < ./${a[4]}/temp > ${a[2]}
+./${a[0]}/fifth -${a[3]} ./${a[5]} ${a[4]}/coefficients.csv ./${a[4]}/graph_out_one < ./${a[4]}/temp > ${a[2]}
+
+cp ${a[4]}/coefficients.csv .
+
+# ./${a[0]}/fifth -${a[3]} ./${a[5]} ./${a[7]} ./${a[4]}/graph_out_one < ./${a[4]}/temp > ${a[2]}
 
 if [[ ${a[3]} =~ "g" ]]
 then 
