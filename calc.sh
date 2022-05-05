@@ -41,11 +41,13 @@ python3 ${a[0]}/generate_csv.py ${a[1]} ${a[4]} ${a[5]}
 
 ./${a[0]}/fifth -${a[3]} ./${a[5]} ./${a[7]} ./${a[4]}/graph_out_one < ./${a[4]}/temp > ${a[2]}
 
+mkdir ${a[6]} 
+mv ${a[2]} output_table ${a[6]}
+
 if [[ ${a[3]} =~ "g" ]]
 then 
     python3 ${a[0]}/graph_relative_error.py ${a[4]}/graph_out_one ${a[4]}/ipc_input
-    mkdir ${a[6]} 
-    mv ${a[2]} output_table *.png ${a[6]}
+    mv *.png ${a[6]}
 fi
 
 
