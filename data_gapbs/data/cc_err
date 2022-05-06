@@ -1,0 +1,18 @@
+
+ Performance counter stats for 'taskset -c 0 nice -n -20 /homes/sys/suneja/gapbs/build/lol//cc -g 25 -n 3':
+
+       161,156,334      L1-icache-load-misses                                         (44.45%)
+ 1,349,978,785,268      cycles                                                        (55.56%)
+   745,559,996,095      cycle_activity.stalls_total                                     (55.55%)
+ 1,039,650,062,393      instructions              #    0.77  insn per cycle           (66.66%)
+     7,030,673,272      l2_rqsts.miss                                                 (66.66%)
+    10,249,045,947      L1-dcache-load-misses                                         (66.67%)
+         7,700,112      iTLB-load-misses                                              (55.56%)
+       516,806,470      LLC-load-misses                                               (44.44%)
+
+     677.356724079 seconds time elapsed
+
+     664.772260000 seconds user
+      11.850022000 seconds sys
+
+

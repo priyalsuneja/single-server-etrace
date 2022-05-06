@@ -1,8 +1,8 @@
 src
-./data_temp
+./data_gapbs
 out
 mt
 .sse_temp
 .data_labels
-output
+output_gapbs
 coefficients.csv
