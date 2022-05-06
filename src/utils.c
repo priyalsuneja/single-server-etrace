@@ -2,7 +2,7 @@
 // other stuff
 #include "utils.h"
 
-int print_graphing_info(char* graph_fname, char name[20], double* inputs, double rel_error,
+int print_graphing_info(char* graph_fname, char name[FILENAME_SIZE], double* inputs, double rel_error,
                                          double output) {
 // 
 //     FILE* fptr = fopen(graph_fname, "a+");
@@ -22,7 +22,7 @@ int print_graphing_info(char* graph_fname, char name[20], double* inputs, double
 
 }
 
-double calc_error (char name[20], double* weights, double* inputs, char* print, 
+double calc_error (char name[FILENAME_SIZE], double* weights, double* inputs, char* print, 
                                                         FILE *fptr, int input_size ) {
 
     double output = 0;
@@ -80,22 +80,24 @@ void print_stats(double* inputs) {
 
 }
 
-int get_input(char name[20], double* inputs, int input_size) {   
+int get_input(char name[FILENAME_SIZE], double* inputs, int input_size) {   
 
-    char input[20];    
+    char input[FILENAME_SIZE];    
 
-    fgets(input, 20, stdin);
+    fgets(input, FILENAME_SIZE, stdin);
+//     printf("%s\n", input);
     
     if(input[0] == ';') {
         return 0;
     }
 
-    strncpy(name, input, 20);
+    strncpy(name, input, FILENAME_SIZE);
 
     name[strlen(input)-1]='\0';
 
     for( int i = 0; i < input_size; i++) {
-        fgets(input, 20, stdin);
+        fgets(input, 40, stdin);
+//     printf("%s\n", input);
         inputs[i] = atof(input);
     }
 
@@ -112,7 +114,7 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
     double inputs[input_size];
 
     double total_inputs = 0;
-    char name[20];
+    char name[FILENAME_SIZE];
     double error_sum = 0;
     int num_data  = 0;
 

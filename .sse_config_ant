@@ -1,0 +1,8 @@
+src
+./ant_data_temp
+out
+mt
+.sse_temp
+.dlabels_ant
+output
+coefficients.csv

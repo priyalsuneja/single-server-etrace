@@ -1,6 +1,6 @@
 Printing list start ---------- 
 L1-icache-load-misses
-cycle_activity.stalls_total
+cycle_activity.cycles_no_execute
 instructions
 l2_rqsts.miss
 L1-dcache-load-misses
@@ -10,51 +10,43 @@ Printing list end ----------
 7
 Weights for each field: 
 L1-icache-load-misses: -4.035213e-07
-cycle_activity.stalls_total: 2.223979e-08
+cycle_activity.cycles_no_execute: 2.223979e-08
 instructions: 6.415409e-09
 l2_rqsts.miss: -3.916207e-09
 L1-dcache-load-misses: -2.755928e-08
 iTLB-load-misses: 5.099780e-05
 LLC-load-misses: 5.416902e-07
 
-******* File: pr_spmv_err *********
- 	Answer: 8740.439, Output: 6084.161
-	Error: -2656.278, error % : 30.391%
+******* File: ant_sssp_err *********
+ 	Answer: 26769.360, Output: 31442.761
+	Error: 4673.400, error % : 17.458%
 
-******* File: sssp_err *********
- 	Answer: 8729.116, Output: 5772.794
-	Error: -2956.322, error % : 33.867%
+******* File: ant_tc_err *********
+ 	Answer: 241915.850, Output: 266376.279
+	Error: 24460.429, error % : 10.111%
 
-******* File: tc_err *********
- 	Answer: 74206.464, Output: 44501.290
-	Error: -29705.174, error % : 40.030%
+******* File: ant_cc_err *********
+ 	Answer: 20998.359, Output: 23594.346
+	Error: 2595.986, error % : 12.363%
 
-******* File: cc_sv_err *********
- 	Answer: 8719.260, Output: 5430.777
-	Error: -3288.483, error % : 37.715%
+******* File: ant_pr_err *********
+ 	Answer: 31917.034, Output: 39961.596
+	Error: 8044.563, error % : 25.205%
 
-******* File: bfs_err *********
- 	Answer: 34743.145, Output: 22776.621
-	Error: -11966.524, error % : 34.443%
+******* File: ant_pr_spmv_err *********
+ 	Answer: 36290.324, Output: 46560.870
+	Error: 10270.545, error % : 28.301%
 
-******* File: graph_sssp_err *********
- 	Answer: 62848.841, Output: 25625.466
-	Error: -37223.375, error % : 59.227%
+******* File: ant_cc_sv_err *********
+ 	Answer: 26979.408, Output: 31943.378
+	Error: 4963.970, error % : 18.399%
 
-******* File: pr_err *********
- 	Answer: 8743.199, Output: 5658.651
-	Error: -3084.547, error % : 35.279%
+******* File: ant_bfs_err *********
+ 	Answer: 20945.290, Output: 23254.913
+	Error: 2309.623, error % : 11.027%
 
-******* File: cc_err *********
- 	Answer: 34700.786, Output: 23497.048
-	Error: -11203.739, error % : 32.287%
+******* File: ant_bc_err *********
+ 	Answer: 24584.425, Output: 29583.572
+	Error: 4999.147, error % : 20.335%
 
-******* File: graph_bfs_err *********
- 	Answer: 28353.549, Output: 10688.992
-	Error: -17664.557, error % : 62.301%
-
-******* File: bc_err *********
- 	Answer: 8667.399, Output: 5515.352
-	Error: -3152.046, error % : 36.367%
-
-Mean error: 40.191
+Mean error: 17.900

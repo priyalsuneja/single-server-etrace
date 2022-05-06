@@ -17,6 +17,7 @@
 #define TLB_INS 5
 #define L3 6
 #define ANS 7
+#define FILENAME_SIZE 50
 
 #define TABLE_OUT_FILE "output_table"
 
