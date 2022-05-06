@@ -1,0 +1,52 @@
+Printing list start ---------- 
+L1-icache-load-misses
+cycle_activity.stalls_total
+instructions
+l2_rqsts.miss
+L1-dcache-load-misses
+iTLB-load-misses
+LLC-load-misses
+Printing list end ---------- 
+7
+Weights for each field: 
+L1-icache-load-misses: -4.035213e-07
+cycle_activity.stalls_total: 2.223979e-08
+instructions: 6.415409e-09
+l2_rqsts.miss: -3.916207e-09
+L1-dcache-load-misses: -2.755928e-08
+iTLB-load-misses: 5.099780e-05
+LLC-load-misses: 5.416902e-07
+
+******* File: pr_spmv_err *********
+ 	Answer: 8714.183, Output: 6172.328
+	Error: -2541.855, error % : 29.169%
+
+******* File: sssp_err *********
+ 	Answer: 8716.527, Output: 5789.203
+	Error: -2927.324, error % : 33.584%
+
+******* File: bc_err *********
+ 	Answer: 8723.342, Output: 5534.926
+	Error: -3188.416, error % : 36.550%
+
+******* File: pr_err *********
+ 	Answer: 8719.547, Output: 5661.302
+	Error: -3058.246, error % : 35.073%
+
+******* File: cc_err *********
+ 	Answer: 35890.418, Output: 23548.498
+	Error: -12341.920, error % : 34.388%
+
+******* File: cc_sv_err *********
+ 	Answer: 8716.528, Output: 5454.260
+	Error: -3262.267, error % : 37.426%
+
+******* File: tc_err *********
+ 	Answer: 70139.868, Output: 44479.930
+	Error: -25659.937, error % : 36.584%
+
+******* File: bfs_err *********
+ 	Answer: 37573.191, Output: 22893.681
+	Error: -14679.510, error % : 39.069%
+
+Mean error: 35.230
