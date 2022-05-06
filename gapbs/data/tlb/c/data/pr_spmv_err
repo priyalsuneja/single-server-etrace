@@ -1,0 +1,19 @@
+
+ Performance counter stats for 'taskset -c 0 nice -n -20 /homes/sys/suneja/gapbs/build/nolol//pr_spmv -g 23 -n 3':
+
+        40,118,882      L1-icache-load-misses                                         (44.45%)
+   355,779,228,515      cycles                                                        (55.56%)
+   196,865,502,744      cycle_activity.stalls_total                                     (55.56%)
+   270,477,383,563      instructions              #    0.76  insn per cycle           (66.68%)
+     6,279,940,742      l2_rqsts.miss                                                 (66.67%)
+     4,451,823,859      dTLB-load-misses                                              (66.66%)
+    10,481,630,671      L1-dcache-load-misses                                         (66.67%)
+         2,019,131      iTLB-load-misses                                              (55.55%)
+       387,742,736      LLC-load-misses                                               (44.44%)
+
+     178.543960273 seconds time elapsed
+
+     175.811305000 seconds user
+       2.539456000 seconds sys
+
+

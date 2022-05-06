@@ -4,20 +4,20 @@
 
 int print_graphing_info(char* graph_fname, char name[FILENAME_SIZE], double* inputs, double rel_error,
                                          double output) {
-// 
-//     FILE* fptr = fopen(graph_fname, "a+");
-//     if(!fptr) {
-//         return -1;
-//     }
-// 
-//     // TODO: turn this into a loop
-// 
-//     fprintf(fptr,"%s,%.0f,%.0f,%.2f,%.0f,%.0f,%.0f,%.0f,%.0f,%.3f,%.3f,%.3f\n",name, inputs[L1_ICACHE],
-//         inputs[CYCLES], inputs[IPC], inputs[L2], inputs[TLB_DATA],
-//         inputs[L1_DCACHE], inputs[TLB_INS], inputs[L3], rel_error, inputs[ANS], output);
-// 
-//     fclose(fptr);
-// 
+
+    FILE* fptr = fopen(graph_fname, "a+");
+    if(!fptr) {
+        return -1;
+    }
+
+    // TODO: turn this into a loop
+
+    fprintf(fptr,"%s,%.0f,%.0f,%.2f,%.0f,%.0f,%.0f,%.0f,%.3f,%.3f,%.3f\n",name, inputs[L1_ICACHE],
+        inputs[CYCLES], inputs[IPC], inputs[L2], 
+        inputs[L1_DCACHE], inputs[TLB_INS], inputs[L3], rel_error, inputs[ANS], output);
+
+    fclose(fptr);
+
     return 0;
 
 }
@@ -120,8 +120,8 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
 
     FILE* fptr = fopen(TABLE_OUT_FILE, "w+");
 
-    // Answer
-    // output
+    // Answer - Reading
+    // output - prediction
     // Error 
     // Error%
     // L1_I%
@@ -137,10 +137,10 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
         fprintf(fptr,       // make it so that it is 13* num of columns 
           "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
           );
-        fprintf(fptr, "%*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s |\n", 
-        -12, "File", -12, "Answer", -12, "Output", -12, "Error",
+        fprintf(fptr, "%*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s |\n", 
+        -12, "File", -12, "Reading", -12, "Prediction", -12, "Error",
         -12, "Error%", -12, "L1_I%", -12, "Stalls%", -12, "Ins%", -12,
-        "L2%", -12, "TLB_D%", -12, "L1_D%", -12, "TLB_I%", -12, "L3");
+        "L2%", -12, "L1_D%", -12, "TLB_I%", -12, "L3");
         fprintf(fptr, 
           "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
           );
@@ -174,7 +174,7 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
         }
         total_inputs -= inputs[CYCLES];
 
-        printf("******* File: %s *********\n \tAnswer: %.3f, Output: %.3f\n",
+        printf("******* File: %s *********\n \tReading: %.3f, Prediction: %.3f\n",
         name, inputs[ANS], inputs[ANS]+error);
         printf("\tError: %.3f, error %% : %.3f%%\n\n", error, ((fabs(error) *
         100)/inputs[ANS]));

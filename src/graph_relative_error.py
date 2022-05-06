@@ -57,7 +57,7 @@ def main():
     cycles=[]
     ins=[]
     l2=[]
-    tlb_data=[]
+#     tlb_data=[]
     l1_dcache=[]
     tlb_ins=[]
     error=[]
@@ -73,26 +73,28 @@ def main():
         with open(sys.argv[i]) as f:
             for line in f:
                 str_list = line.split(",")
-                str_list[11] = str_list[11][:-1]
+                str_list[10] = str_list[10][:-1]
 
                 names.append(str_list[0])
                 l1_icache.append(int(str_list[1]))
                 cycles.append(int(str_list[2]))
                 ins.append(float(str_list[3]))
                 l2.append(int(str_list[4]))
-                tlb_data.append(float(str_list[5]))
-                l1_dcache.append(int(str_list[6]))
-                tlb_ins.append(int(str_list[7]))
-                l3.append(int(str_list[8]))
-                error.append(float(str_list[9]))
-                ans.append(float(str_list[10]))
-                outputs.append(float(str_list[11]))
+#                 tlb_data.append(float(str_list[5]))
+                l1_dcache.append(int(str_list[5]))
+                tlb_ins.append(int(str_list[6]))
+                l3.append(int(str_list[7]))
+                error.append(float(str_list[8]))
+                ans.append(float(str_list[9]))
+                outputs.append(float(str_list[10]))
 
     with open(sys.argv[len(sys.argv) - 1]) as f:
         for line in f:
             str_list = line.split(",")
             for i in range(0,len(str_list)):
                 ipc.append(float(str_list[i]))
+
+
             
 
     fig, ax = plt.subplots(nrows=2, ncols=4)
@@ -100,7 +102,7 @@ def main():
     graph_relative_error("cycles",error, cycles,names)
     graph_relative_error("ins",error, ins,names)
     graph_relative_error("l2",error, l2,names )
-    graph_relative_error("tlb_data",error, tlb_data,names)
+#     graph_relative_error("tlb_data",error, tlb_data,names)
     graph_relative_error("l1_dcache",error, l1_dcache,names)
     graph_relative_error("tlb_ins",error, tlb_ins,names)
     graph_relative_error("l3",error, l3,names)
@@ -110,7 +112,7 @@ def main():
 #     for i in range(0, len(error)):
 #         print("error: " + str(error[i]) + "ipc: " + str(ipc[i]))
 
-#     graph_ans_output(names, ans, outputs)
+    graph_ans_output(names, ans, outputs)
 
 main()
 
