@@ -4,5 +4,5 @@ out
 mtg
 .sse_temp
 .data_labels
-gapbs/output/b
+gapbs/output/notlb/b
 coefficients.csv
