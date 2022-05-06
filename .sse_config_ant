@@ -1,5 +1,5 @@
 src
-./ant_data_temp
+./ant/ant_data_temp
 out
 mt
 .sse_temp

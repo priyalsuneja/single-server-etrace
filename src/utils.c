@@ -44,7 +44,8 @@ double calc_error (char name[FILENAME_SIZE], double* weights, double* inputs, ch
     
     if(print) {             // TODO: fix this 
         fprintf(fptr,
-        "%*s | %*.2f | %*.2f | %*.2f | %*.2f |",-12,name,-12,inputs[input_size-1],-12,
+        "%*s | %*.2f | %*.2f | %*.2f | %*.2f |",
+        -20,name,-12,inputs[input_size-1],-12,
         output,-12, error,-12,(fabs(error)*100/inputs[input_size-1]));
 
         for(i = 0; i < input_size - 1; i++) {
@@ -138,7 +139,7 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
           "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
           );
         fprintf(fptr, "%*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s |\n", 
-        -12, "File", -12, "Reading", -12, "Prediction", -12, "Error",
+        -20, "File", -12, "Reading", -12, "Prediction", -12, "Error",
         -12, "Error%", -12, "L1_I%", -12, "Stalls%", -12, "Ins%", -12,
         "L2%", -12, "L1_D%", -12, "TLB_I%", -12, "L3");
         fprintf(fptr, 
