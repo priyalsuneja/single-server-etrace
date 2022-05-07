@@ -1,8 +1,8 @@
 src
-./ant/ant_data_temp
+./ant/data/notlb/b
 out
 mt
 .sse_temp
 .dlabels_ant
-output
+./ant/output/notlb/b
 coefficients.csv

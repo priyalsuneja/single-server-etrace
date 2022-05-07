@@ -9,172 +9,180 @@ LLC-load-misses
 Printing list end ---------- 
 7
 Weights for each field: 
-L1-icache-load-misses: -3.003992e-07
-cycle_activity.stalls_total: 2.364855e-08
-instructions: 6.208924e-09
-l2_rqsts.miss: -2.012936e-08
-L1-dcache-load-misses: -2.527296e-08
-iTLB-load-misses: 2.413630e-05
-LLC-load-misses: 4.050861e-07
+L1-icache-load-misses: -4.035038e-07
+cycle_activity.stalls_total: 2.223983e-08
+instructions: 6.415302e-09
+l2_rqsts.miss: -3.915102e-09
+L1-dcache-load-misses: -2.755881e-08
+iTLB-load-misses: 5.099341e-05
+LLC-load-misses: 5.416866e-07
 
 ******* File: 520_err *********
- 	Reading: 20708.882, Prediction: 22842.921
-	Error: 2134.038, error % : 10.305%
+ 	Reading: 20708.882, Prediction: 23138.004
+	Error: 2429.121, error % : 11.730%
 
 ******* File: 527_err *********
- 	Reading: 21011.939, Prediction: 22490.318
-	Error: 1478.378, error % : 7.036%
+ 	Reading: 21011.939, Prediction: 23893.339
+	Error: 2881.400, error % : 13.713%
 
 ******* File: 605_err *********
- 	Reading: 45465.349, Prediction: 43320.870
-	Error: -2144.479, error % : 4.717%
+ 	Reading: 45465.349, Prediction: 45004.106
+	Error: -461.243, error % : 1.014%
 
 ******* File: 602_err *********
- 	Reading: 52113.295, Prediction: 40977.631
-	Error: -11135.664, error % : 21.368%
+ 	Reading: 52113.295, Prediction: 42195.004
+	Error: -9918.291, error % : 19.032%
 
 ******* File: 503_err *********
- 	Reading: 45717.635, Prediction: 37049.517
-	Error: -8668.117, error % : 18.960%
+ 	Reading: 45717.635, Prediction: 38598.810
+	Error: -7118.825, error % : 15.571%
 
 ******* File: 621_err *********
- 	Reading: 341802.689, Prediction: 271566.670
-	Error: -70236.019, error % : 20.549%
+ 	Reading: 341802.689, Prediction: 276223.210
+	Error: -65579.479, error % : 19.186%
 
 ******* File: 531_err *********
- 	Reading: 20664.096, Prediction: 19437.978
-	Error: -1226.118, error % : 5.934%
+ 	Reading: 20664.096, Prediction: 19369.482
+	Error: -1294.614, error % : 6.265%
+
+******* File: 654_err *********
+ 	Reading: 318320.033, Prediction: 186669.279
+	Error: -131650.755, error % : 41.358%
 
 ******* File: 628_err *********
- 	Reading: 248613.117, Prediction: 192842.693
-	Error: -55770.425, error % : 22.433%
+ 	Reading: 248613.117, Prediction: 198626.729
+	Error: -49986.388, error % : 20.106%
 
 ******* File: 538_err *********
- 	Reading: 31256.540, Prediction: 29963.608
-	Error: -1292.932, error % : 4.137%
+ 	Reading: 31256.540, Prediction: 30714.393
+	Error: -542.146, error % : 1.735%
 
 ******* File: 544_err *********
- 	Reading: 21514.194, Prediction: 20308.538
-	Error: -1205.656, error % : 5.604%
+ 	Reading: 21514.194, Prediction: 20253.816
+	Error: -1260.378, error % : 5.858%
 
 ******* File: 603_err *********
- 	Reading: 575692.073, Prediction: 479868.193
-	Error: -95823.880, error % : 16.645%
+ 	Reading: 575692.073, Prediction: 508998.767
+	Error: -66693.306, error % : 11.585%
 
 ******* File: 631_err *********
- 	Reading: 22891.743, Prediction: 24469.580
-	Error: 1577.838, error % : 6.893%
+ 	Reading: 22891.743, Prediction: 24410.952
+	Error: 1519.209, error % : 6.636%
 
 ******* File: 526_err *********
- 	Reading: 20946.047, Prediction: 16453.409
-	Error: -4492.638, error % : 21.449%
+ 	Reading: 20946.047, Prediction: 16630.892
+	Error: -4315.154, error % : 20.601%
 
 ******* File: 521_err *********
- 	Reading: 45519.701, Prediction: 34214.402
-	Error: -11305.298, error % : 24.836%
+ 	Reading: 45519.701, Prediction: 35295.981
+	Error: -10223.719, error % : 22.460%
 
 ******* File: 644_err *********
- 	Reading: 267143.733, Prediction: 181446.960
-	Error: -85696.773, error % : 32.079%
+ 	Reading: 267143.733, Prediction: 182818.916
+	Error: -84324.817, error % : 31.565%
 
 ******* File: 638_err *********
- 	Reading: 463081.492, Prediction: 462351.368
-	Error: -730.124, error % : 0.158%
+ 	Reading: 463081.492, Prediction: 477081.020
+	Error: 13999.528, error % : 3.023%
 
 ******* File: 554_err *********
- 	Reading: 23514.282, Prediction: 21354.505
-	Error: -2159.777, error % : 9.185%
+ 	Reading: 23514.282, Prediction: 22494.965
+	Error: -1019.317, error % : 4.335%
 
 ******* File: 627_err *********
- 	Reading: 272333.578, Prediction: 10156.390
-	Error: -262177.188, error % : 96.271%
+ 	Reading: 272333.578, Prediction: 10544.484
+	Error: -261789.094, error % : 96.128%
 
 ******* File: 620_err *********
- 	Reading: 21985.910, Prediction: 22390.708
-	Error: 404.798, error % : 1.841%
+ 	Reading: 21985.910, Prediction: 22618.480
+	Error: 632.570, error % : 2.877%
 
 ******* File: 502_err *********
- 	Reading: 11158.203, Prediction: 14198.589
-	Error: 3040.386, error % : 27.248%
+ 	Reading: 11158.203, Prediction: 14217.217
+	Error: 3059.013, error % : 27.415%
 
 ******* File: 505_err *********
- 	Reading: 21369.798, Prediction: 20371.174
-	Error: -998.623, error % : 4.673%
+ 	Reading: 21369.798, Prediction: 21060.010
+	Error: -309.788, error % : 1.450%
 
 ******* File: 541_err *********
- 	Reading: 31075.239, Prediction: 26470.073
-	Error: -4605.166, error % : 14.819%
+ 	Reading: 31075.239, Prediction: 26225.555
+	Error: -4849.684, error % : 15.606%
 
 ******* File: 623_err *********
- 	Reading: 31070.521, Prediction: 26646.625
-	Error: -4423.897, error % : 14.238%
+ 	Reading: 31070.521, Prediction: 27199.993
+	Error: -3870.529, error % : 12.457%
 
 ******* File: 548_err *********
- 	Reading: 26523.010, Prediction: 17999.782
-	Error: -8523.228, error % : 32.135%
+ 	Reading: 26523.010, Prediction: 18358.838
+	Error: -8164.172, error % : 30.781%
 
 ******* File: 508_err *********
- 	Reading: 10582.200, Prediction: 11440.296
-	Error: 858.096, error % : 8.109%
+ 	Reading: 10582.200, Prediction: 11735.558
+	Error: 1153.358, error % : 10.899%
 
 ******* File: 519_err *********
- 	Reading: 10804.367, Prediction: 13560.039
-	Error: 2755.671, error % : 25.505%
+ 	Reading: 10804.367, Prediction: 13920.464
+	Error: 3116.097, error % : 28.841%
 
 ******* File: 510_err *********
- 	Reading: 32248.154, Prediction: 26317.850
-	Error: -5930.305, error % : 18.390%
+ 	Reading: 32248.154, Prediction: 27629.448
+	Error: -4618.706, error % : 14.322%
 
 ******* File: 607_err *********
- 	Reading: 181414.008, Prediction: 137537.534
-	Error: -43876.474, error % : 24.186%
+ 	Reading: 181414.008, Prediction: 140882.737
+	Error: -40531.272, error % : 22.342%
 
 ******* File: 600_err *********
- 	Reading: 21047.682, Prediction: 16589.350
-	Error: -4458.332, error % : 21.182%
+ 	Reading: 21047.682, Prediction: 16238.273
+	Error: -4809.409, error % : 22.850%
 
 ******* File: 525_err *********
- 	Reading: 22355.125, Prediction: 30477.708
-	Error: 8122.583, error % : 36.334%
+ 	Reading: 22355.125, Prediction: 30623.715
+	Error: 8268.590, error % : 36.987%
 
 ******* File: 557_err *********
- 	Reading: 20531.681, Prediction: 23691.236
-	Error: 3159.554, error % : 15.389%
+ 	Reading: 20531.681, Prediction: 23764.452
+	Error: 3232.771, error % : 15.745%
 
 ******* File: 619_err *********
- 	Reading: 103151.902, Prediction: 83451.391
-	Error: -19700.511, error % : 19.099%
+ 	Reading: 103151.902, Prediction: 84120.444
+	Error: -19031.459, error % : 18.450%
 
 ******* File: 500_err *********
- 	Reading: 11988.447, Prediction: 17322.369
-	Error: 5333.922, error % : 44.492%
+ 	Reading: 11988.447, Prediction: 17608.765
+	Error: 5620.318, error % : 46.881%
 
 ******* File: 507_err *********
- 	Reading: 10499.623, Prediction: 12039.450
-	Error: 1539.827, error % : 14.666%
+ 	Reading: 10499.623, Prediction: 11921.989
+	Error: 1422.366, error % : 13.547%
 
 ******* File: 625_err *********
- 	Reading: 31191.160, Prediction: 32149.267
-	Error: 958.108, error % : 3.072%
+ 	Reading: 31191.160, Prediction: 32969.876
+	Error: 1778.716, error % : 5.703%
 
 ******* File: 549_err *********
- 	Reading: 23737.807, Prediction: 27697.147
-	Error: 3959.339, error % : 16.679%
+ 	Reading: 23737.807, Prediction: 29204.050
+	Error: 5466.242, error % : 23.028%
+
+******* File: 657_err *********
+ 	Reading: 226111.641, Prediction: 142826.859
+	Error: -83284.782, error % : 36.833%
 
 ******* File: 641_err *********
- 	Reading: 265786.979, Prediction: 27262.567
-	Error: -238524.412, error % : 89.743%
+ 	Reading: 265786.979, Prediction: 26923.729
+	Error: -238863.250, error % : 89.870%
 
 ******* File: 648_err *********
- 	Reading: 11162.983, Prediction: 18179.572
-	Error: 7016.589, error % : 62.856%
+ 	Reading: 11162.983, Prediction: 18543.483
+	Error: 7380.500, error % : 66.116%
 
 ******* File: 523_err *********
- 	Reading: 11123.137, Prediction: 16070.332
-	Error: 4947.196, error % : 44.477%
+ 	Reading: 11123.137, Prediction: 16218.490
+	Error: 5095.354, error % : 45.809%
 
 ******* File: 511_err *********
- 	Reading: 21594.057, Prediction: 15499.502
-	Error: -6094.555, error % : 28.223%
+ 	Reading: 21594.057, Prediction: 14150.683
+	Error: -7443.374, error % : 34.470%
 
-Mean error: 22.398
+Mean error: 23.219

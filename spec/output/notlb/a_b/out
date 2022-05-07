@@ -1,0 +1,360 @@
+Printing list start ---------- 
+L1-icache-load-misses
+cycle_activity.stalls_total
+instructions
+l2_rqsts.miss
+L1-dcache-load-misses
+iTLB-load-misses
+LLC-load-misses
+Printing list end ---------- 
+7
+Weights for each field: 
+L1-icache-load-misses: -3.376057e-07
+cycle_activity.stalls_total: 1.215840e-08
+instructions: 9.557779e-09
+l2_rqsts.miss: 6.190656e-08
+L1-dcache-load-misses: -3.016889e-08
+iTLB-load-misses: 1.751728e-04
+LLC-load-misses: 1.745795e-06
+
+******* File: tapir_603_err *********
+ 	Reading: 1012916.485, Prediction: 820187.126
+	Error: -192729.358, error % : 19.027%
+
+******* File: 503_err *********
+ 	Reading: 45717.635, Prediction: 54813.055
+	Error: 9095.420, error % : 19.895%
+
+******* File: 621_err *********
+ 	Reading: 341802.689, Prediction: 354629.773
+	Error: 12827.084, error % : 3.753%
+
+******* File: tapir_644_err *********
+ 	Reading: 481561.151, Prediction: 228412.290
+	Error: -253148.861, error % : 52.568%
+
+******* File: tapir_638_err *********
+ 	Reading: 835511.658, Prediction: 864144.634
+	Error: 28632.976, error % : 3.427%
+
+******* File: tapir_554_err *********
+ 	Reading: 47392.319, Prediction: 34946.349
+	Error: -12445.970, error % : 26.262%
+
+******* File: 531_err *********
+ 	Reading: 20664.096, Prediction: 23825.296
+	Error: 3161.199, error % : 15.298%
+
+******* File: tapir_526_err *********
+ 	Reading: 77530.138, Prediction: 63904.212
+	Error: -13625.927, error % : 17.575%
+
+******* File: 654_err *********
+ 	Reading: 318320.033, Prediction: 316670.358
+	Error: -1649.676, error % : 0.518%
+
+******* File: tapir_631_err *********
+ 	Reading: 47350.427, Prediction: 28185.621
+	Error: -19164.806, error % : 40.474%
+
+******* File: 628_err *********
+ 	Reading: 248613.117, Prediction: 281805.829
+	Error: 33192.712, error % : 13.351%
+
+******* File: 538_err *********
+ 	Reading: 31256.540, Prediction: 44091.509
+	Error: 12834.969, error % : 41.063%
+
+******* File: tapir_521_err *********
+ 	Reading: 203537.228, Prediction: 136564.914
+	Error: -66972.314, error % : 32.904%
+
+******* File: 544_err *********
+ 	Reading: 21514.194, Prediction: 23576.123
+	Error: 2061.930, error % : 9.584%
+
+******* File: tapir_627_err *********
+ 	Reading: 22602.503, Prediction: 18933.103
+	Error: -3669.400, error % : 16.234%
+
+******* File: tapir_620_err *********
+ 	Reading: 48351.404, Prediction: 56121.226
+	Error: 7769.822, error % : 16.069%
+
+******* File: 520_err *********
+ 	Reading: 20708.882, Prediction: 26925.322
+	Error: 6216.439, error % : 30.018%
+
+******* File: 527_err *********
+ 	Reading: 21011.939, Prediction: 37686.045
+	Error: 16674.105, error % : 79.355%
+
+******* File: 605_err *********
+ 	Reading: 45465.349, Prediction: 58649.031
+	Error: 13183.682, error % : 28.997%
+
+******* File: 602_err *********
+ 	Reading: 52113.295, Prediction: 71412.908
+	Error: 19299.613, error % : 37.034%
+
+******* File: tapir_502_err *********
+ 	Reading: 62424.382, Prediction: 50893.920
+	Error: -11530.463, error % : 18.471%
+
+******* File: tapir_505_err *********
+ 	Reading: 42453.324, Prediction: 24040.219
+	Error: -18413.105, error % : 43.373%
+
+******* File: tapir_520_err *********
+ 	Reading: 48429.676, Prediction: 31586.342
+	Error: -16843.335, error % : 34.779%
+
+******* File: tapir_527_err *********
+ 	Reading: 70992.672, Prediction: 53154.008
+	Error: -17838.665, error % : 25.127%
+
+******* File: 627_err *********
+ 	Reading: 272333.578, Prediction: 19174.305
+	Error: -253159.273, error % : 92.959%
+
+******* File: 620_err *********
+ 	Reading: 21985.910, Prediction: 26056.832
+	Error: 4070.923, error % : 18.516%
+
+******* File: 502_err *********
+ 	Reading: 11158.203, Prediction: 21840.324
+	Error: 10682.120, error % : 95.733%
+
+******* File: 505_err *********
+ 	Reading: 21369.798, Prediction: 27608.655
+	Error: 6238.857, error % : 29.195%
+
+******* File: tapir_605_err *********
+ 	Reading: 83396.342, Prediction: 50313.206
+	Error: -33083.136, error % : 39.670%
+
+******* File: tapir_602_err *********
+ 	Reading: 88315.393, Prediction: 67623.588
+	Error: -20691.806, error % : 23.429%
+
+******* File: tapir_503_err *********
+ 	Reading: 86990.090, Prediction: 53497.186
+	Error: -33492.904, error % : 38.502%
+
+******* File: 603_err *********
+ 	Reading: 575692.073, Prediction: 780210.106
+	Error: 204518.033, error % : 35.526%
+
+******* File: 526_err *********
+ 	Reading: 20946.047, Prediction: 22427.952
+	Error: 1481.906, error % : 7.075%
+
+******* File: tapir_654_err *********
+ 	Reading: 387657.081, Prediction: 324358.624
+	Error: -63298.457, error % : 16.328%
+
+******* File: 631_err *********
+ 	Reading: 22891.743, Prediction: 29700.546
+	Error: 6808.803, error % : 29.743%
+
+******* File: tapir_628_err *********
+ 	Reading: 428304.115, Prediction: 272147.974
+	Error: -156156.141, error % : 36.459%
+
+******* File: tapir_538_err *********
+ 	Reading: 67951.112, Prediction: 50944.302
+	Error: -17006.810, error % : 25.028%
+
+******* File: 521_err *********
+ 	Reading: 45519.701, Prediction: 46799.888
+	Error: 1280.187, error % : 2.812%
+
+******* File: tapir_544_err *********
+ 	Reading: 53970.720, Prediction: 24319.122
+	Error: -29651.598, error % : 54.940%
+
+******* File: tapir_621_err *********
+ 	Reading: 589227.558, Prediction: 343447.803
+	Error: -245779.755, error % : 41.712%
+
+******* File: 644_err *********
+ 	Reading: 267143.733, Prediction: 226704.190
+	Error: -40439.543, error % : 15.138%
+
+******* File: 638_err *********
+ 	Reading: 463081.492, Prediction: 713492.859
+	Error: 250411.367, error % : 54.075%
+
+******* File: 554_err *********
+ 	Reading: 23514.282, Prediction: 33498.731
+	Error: 9984.449, error % : 42.461%
+
+******* File: tapir_531_err *********
+ 	Reading: 39721.919, Prediction: 23621.309
+	Error: -16100.610, error % : 40.533%
+
+******* File: tapir_500_err *********
+ 	Reading: 37890.086, Prediction: 27982.518
+	Error: -9907.569, error % : 26.148%
+
+******* File: 519_err *********
+ 	Reading: 10804.367, Prediction: 17668.761
+	Error: 6864.394, error % : 63.534%
+
+******* File: tapir_507_err *********
+ 	Reading: 43343.155, Prediction: 25973.049
+	Error: -17370.106, error % : 40.076%
+
+******* File: 607_err *********
+ 	Reading: 181414.008, Prediction: 203281.762
+	Error: 21867.753, error % : 12.054%
+
+******* File: 510_err *********
+ 	Reading: 32248.154, Prediction: 40783.655
+	Error: 8535.501, error % : 26.468%
+
+******* File: tapir_619_err *********
+ 	Reading: 146940.339, Prediction: 72900.309
+	Error: -74040.030, error % : 50.388%
+
+******* File: 600_err *********
+ 	Reading: 21047.682, Prediction: 27450.941
+	Error: 6403.259, error % : 30.423%
+
+******* File: tapir_657_err *********
+ 	Reading: 280700.578, Prediction: 168510.340
+	Error: -112190.238, error % : 39.968%
+
+******* File: 525_err *********
+ 	Reading: 22355.125, Prediction: 45854.944
+	Error: 23499.819, error % : 105.121%
+
+******* File: 557_err *********
+ 	Reading: 20531.681, Prediction: 27727.389
+	Error: 7195.708, error % : 35.047%
+
+******* File: tapir_625_err *********
+ 	Reading: 58009.612, Prediction: 48218.552
+	Error: -9791.061, error % : 16.878%
+
+******* File: tapir_549_err *********
+ 	Reading: 43283.988, Prediction: 38286.924
+	Error: -4997.065, error % : 11.545%
+
+******* File: 541_err *********
+ 	Reading: 31075.239, Prediction: 28207.853
+	Error: -2867.386, error % : 9.227%
+
+******* File: tapir_648_err *********
+ 	Reading: 37603.534, Prediction: 25699.820
+	Error: -11903.713, error % : 31.656%
+
+******* File: tapir_523_err *********
+ 	Reading: 60809.975, Prediction: 46947.632
+	Error: -13862.343, error % : 22.796%
+
+******* File: 623_err *********
+ 	Reading: 31070.521, Prediction: 47545.845
+	Error: 16475.324, error % : 53.026%
+
+******* File: 548_err *********
+ 	Reading: 26523.010, Prediction: 25321.702
+	Error: -1201.308, error % : 4.529%
+
+******* File: tapir_641_err *********
+ 	Reading: 65666.423, Prediction: 29869.481
+	Error: -35796.942, error % : 54.513%
+
+******* File: tapir_511_err *********
+ 	Reading: 52128.559, Prediction: 28101.381
+	Error: -24027.178, error % : 46.092%
+
+******* File: 508_err *********
+ 	Reading: 10582.200, Prediction: 17424.538
+	Error: 6842.338, error % : 64.659%
+
+******* File: tapir_623_err *********
+ 	Reading: 61092.518, Prediction: 47098.428
+	Error: -13994.089, error % : 22.906%
+
+******* File: tapir_548_err *********
+ 	Reading: 37418.009, Prediction: 25646.284
+	Error: -11771.725, error % : 31.460%
+
+******* File: 641_err *********
+ 	Reading: 265786.979, Prediction: 29065.589
+	Error: -236721.389, error % : 89.064%
+
+******* File: tapir_541_err *********
+ 	Reading: 64663.276, Prediction: 29222.086
+	Error: -35441.190, error % : 54.809%
+
+******* File: 648_err *********
+ 	Reading: 11162.983, Prediction: 25652.021
+	Error: 14489.038, error % : 129.795%
+
+******* File: 523_err *********
+ 	Reading: 11123.137, Prediction: 20099.733
+	Error: 8976.596, error % : 80.702%
+
+******* File: 511_err *********
+ 	Reading: 21594.057, Prediction: 24717.246
+	Error: 3123.189, error % : 14.463%
+
+******* File: tapir_508_err *********
+ 	Reading: 28315.682, Prediction: 19472.548
+	Error: -8843.134, error % : 31.231%
+
+******* File: tapir_607_err *********
+ 	Reading: 283531.086, Prediction: 189470.004
+	Error: -94061.082, error % : 33.175%
+
+******* File: tapir_510_err *********
+ 	Reading: 113357.008, Prediction: 87058.446
+	Error: -26298.562, error % : 23.200%
+
+******* File: 619_err *********
+ 	Reading: 103151.902, Prediction: 86884.373
+	Error: -16267.529, error % : 15.770%
+
+******* File: tapir_600_err *********
+ 	Reading: 44702.423, Prediction: 33537.894
+	Error: -11164.528, error % : 24.975%
+
+******* File: 500_err *********
+ 	Reading: 11988.447, Prediction: 32088.401
+	Error: 20099.954, error % : 167.661%
+
+******* File: tapir_519_err *********
+ 	Reading: 28955.903, Prediction: 15670.812
+	Error: -13285.091, error % : 45.880%
+
+******* File: 507_err *********
+ 	Reading: 10499.623, Prediction: 15484.684
+	Error: 4985.061, error % : 47.478%
+
+******* File: tapir_557_err *********
+ 	Reading: 41791.050, Prediction: 26889.933
+	Error: -14901.117, error % : 35.656%
+
+******* File: 625_err *********
+ 	Reading: 31191.160, Prediction: 52618.444
+	Error: 21427.284, error % : 68.697%
+
+******* File: 549_err *********
+ 	Reading: 23737.807, Prediction: 42386.573
+	Error: 18648.765, error % : 78.561%
+
+******* File: tapir_649_err *********
+ 	Reading: 145496.978, Prediction: 116264.387
+	Error: -29232.591, error % : 20.092%
+
+******* File: 657_err *********
+ 	Reading: 226111.641, Prediction: 166069.646
+	Error: -60041.995, error % : 26.554%
+
+******* File: tapir_525_err *********
+ 	Reading: 57542.568, Prediction: 48370.043
+	Error: -9172.525, error % : 15.940%
+
+Mean error: 37.261

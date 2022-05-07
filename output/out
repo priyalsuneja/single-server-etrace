@@ -9,44 +9,44 @@ LLC-load-misses
 Printing list end ---------- 
 7
 Weights for each field: 
-L1-icache-load-misses: -3.003992e-07
-cycle_activity.cycles_no_execute: 2.364855e-08
-instructions: 6.208924e-09
-l2_rqsts.miss: -2.012936e-08
-L1-dcache-load-misses: -2.527296e-08
-iTLB-load-misses: 2.413630e-05
-LLC-load-misses: 4.050861e-07
+L1-icache-load-misses: -3.376057e-07
+cycle_activity.cycles_no_execute: 1.215840e-08
+instructions: 9.557779e-09
+l2_rqsts.miss: 6.190656e-08
+L1-dcache-load-misses: -3.016889e-08
+iTLB-load-misses: 1.751728e-04
+LLC-load-misses: 1.745795e-06
 
-******* File: ant_sssp_err *********
- 	Reading: 26769.360, Prediction: 31641.022
-	Error: 4871.662, error % : 18.199%
+******* File: ant_sssp *********
+ 	Reading: 26769.360, Prediction: 31240.289
+	Error: 4470.928, error % : 16.702%
 
-******* File: ant_tc_err *********
- 	Reading: 241915.850, Prediction: 265522.745
-	Error: 23606.895, error % : 9.758%
+******* File: ant_tc *********
+ 	Reading: 241915.850, Prediction: 302315.898
+	Error: 60400.048, error % : 24.967%
 
-******* File: ant_cc_err *********
- 	Reading: 20998.359, Prediction: 24062.008
-	Error: 3063.648, error % : 14.590%
+******* File: ant_cc *********
+ 	Reading: 20998.359, Prediction: 21480.238
+	Error: 481.879, error % : 2.295%
 
-******* File: ant_pr_err *********
- 	Reading: 31917.034, Prediction: 39999.227
-	Error: 8082.193, error % : 25.323%
+******* File: ant_pr *********
+ 	Reading: 31917.034, Prediction: 41364.432
+	Error: 9447.398, error % : 29.600%
 
-******* File: ant_pr_spmv_err *********
- 	Reading: 36290.324, Prediction: 46440.911
-	Error: 10150.587, error % : 27.971%
+******* File: ant_pr_spmv *********
+ 	Reading: 36290.324, Prediction: 49337.603
+	Error: 13047.279, error % : 35.952%
 
-******* File: ant_cc_sv_err *********
- 	Reading: 26979.408, Prediction: 32007.481
-	Error: 5028.074, error % : 18.637%
+******* File: ant_cc_sv *********
+ 	Reading: 26979.408, Prediction: 33016.484
+	Error: 6037.077, error % : 22.377%
 
-******* File: ant_bfs_err *********
- 	Reading: 20945.290, Prediction: 23707.698
-	Error: 2762.409, error % : 13.189%
+******* File: ant_bfs *********
+ 	Reading: 20945.290, Prediction: 21207.749
+	Error: 262.460, error % : 1.253%
 
-******* File: ant_bc_err *********
- 	Reading: 24584.425, Prediction: 29645.790
-	Error: 5061.365, error % : 20.588%
+******* File: ant_bc *********
+ 	Reading: 24584.425, Prediction: 30673.400
+	Error: 6088.975, error % : 24.768%
 
-Mean error: 18.532
+Mean error: 19.739

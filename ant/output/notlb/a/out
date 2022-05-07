@@ -1,0 +1,52 @@
+Printing list start ---------- 
+L1-icache-load-misses
+cycle_activity.cycles_no_execute
+instructions
+l2_rqsts.miss
+L1-dcache-load-misses
+iTLB-load-misses
+LLC-load-misses
+Printing list end ---------- 
+7
+Weights for each field: 
+L1-icache-load-misses: -4.035038e-07
+cycle_activity.cycles_no_execute: 2.223983e-08
+instructions: 6.415302e-09
+l2_rqsts.miss: -3.915102e-09
+L1-dcache-load-misses: -2.755881e-08
+iTLB-load-misses: 5.099341e-05
+LLC-load-misses: 5.416866e-07
+
+******* File: ant_sssp *********
+ 	Reading: 26769.360, Prediction: 31442.633
+	Error: 4673.273, error % : 17.458%
+
+******* File: ant_tc *********
+ 	Reading: 241915.850, Prediction: 266374.440
+	Error: 24458.590, error % : 10.110%
+
+******* File: ant_cc *********
+ 	Reading: 20998.359, Prediction: 23594.252
+	Error: 2595.893, error % : 12.362%
+
+******* File: ant_pr *********
+ 	Reading: 31917.034, Prediction: 39961.524
+	Error: 8044.491, error % : 25.204%
+
+******* File: ant_pr_spmv *********
+ 	Reading: 36290.324, Prediction: 46560.810
+	Error: 10270.485, error % : 28.301%
+
+******* File: ant_cc_sv *********
+ 	Reading: 26979.408, Prediction: 31943.288
+	Error: 4963.881, error % : 18.399%
+
+******* File: ant_bfs *********
+ 	Reading: 20945.290, Prediction: 23254.818
+	Error: 2309.528, error % : 11.026%
+
+******* File: ant_bc *********
+ 	Reading: 24584.425, Prediction: 29583.462
+	Error: 4999.037, error % : 20.334%
+
+Mean error: 17.899

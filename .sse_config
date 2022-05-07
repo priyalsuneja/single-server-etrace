@@ -1,8 +1,8 @@
 src
-./vicuna/data/no_tlb/a
+./vicuna/data/no_tlb/c
 out
 mtg
 .sse_temp
 .data_labels
-gapbs/output/notlb/a
+vicuna/output/notlb/c
 coefficients.csv

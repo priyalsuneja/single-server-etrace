@@ -9,44 +9,44 @@ LLC-load-misses
 Printing list end ---------- 
 7
 Weights for each field: 
-L1-icache-load-misses: -4.035213e-07
-cycle_activity.stalls_total: 2.223979e-08
-instructions: 6.415409e-09
-l2_rqsts.miss: -3.916207e-09
-L1-dcache-load-misses: -2.755928e-08
-iTLB-load-misses: 5.099780e-05
-LLC-load-misses: 5.416902e-07
+L1-icache-load-misses: -4.035038e-07
+cycle_activity.stalls_total: 2.223983e-08
+instructions: 6.415302e-09
+l2_rqsts.miss: -3.915102e-09
+L1-dcache-load-misses: -2.755881e-08
+iTLB-load-misses: 5.099341e-05
+LLC-load-misses: 5.416866e-07
 
-******* File: pr_err *********
- 	Reading: 8729.839, Prediction: 5661.111
-	Error: -3068.728, error % : 35.152%
+******* File: pr *********
+ 	Reading: 8729.839, Prediction: 5661.091
+	Error: -3068.748, error % : 35.152%
 
-******* File: cc_err *********
- 	Reading: 36313.464, Prediction: 23518.466
-	Error: -12794.999, error % : 35.235%
+******* File: cc *********
+ 	Reading: 36313.464, Prediction: 23518.364
+	Error: -12795.100, error % : 35.235%
 
-******* File: cc_sv_err *********
- 	Reading: 8728.306, Prediction: 5452.947
-	Error: -3275.359, error % : 37.526%
+******* File: cc_sv *********
+ 	Reading: 8728.306, Prediction: 5452.924
+	Error: -3275.382, error % : 37.526%
 
-******* File: bc_err *********
- 	Reading: 8726.092, Prediction: 5517.197
-	Error: -3208.894, error % : 36.774%
+******* File: bc *********
+ 	Reading: 8726.092, Prediction: 5517.170
+	Error: -3208.922, error % : 36.774%
 
-******* File: sssp_err *********
- 	Reading: 8723.742, Prediction: 5785.995
-	Error: -2937.747, error % : 33.675%
+******* File: sssp *********
+ 	Reading: 8723.742, Prediction: 5785.963
+	Error: -2937.780, error % : 33.676%
 
-******* File: pr_spmv_err *********
- 	Reading: 8719.106, Prediction: 6096.830
-	Error: -2622.276, error % : 30.075%
+******* File: pr_spmv *********
+ 	Reading: 8719.106, Prediction: 6096.811
+	Error: -2622.295, error % : 30.075%
 
-******* File: bfs_err *********
- 	Reading: 37572.245, Prediction: 22827.003
-	Error: -14745.242, error % : 39.245%
+******* File: bfs *********
+ 	Reading: 37572.245, Prediction: 22826.898
+	Error: -14745.347, error % : 39.245%
 
-******* File: tc_err *********
- 	Reading: 70175.618, Prediction: 44411.553
-	Error: -25764.065, error % : 36.714%
+******* File: tc *********
+ 	Reading: 70175.618, Prediction: 44411.267
+	Error: -25764.351, error % : 36.714%
 
-Mean error: 35.549
+Mean error: 35.550

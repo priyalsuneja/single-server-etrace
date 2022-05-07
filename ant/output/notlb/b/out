@@ -1,0 +1,52 @@
+Printing list start ---------- 
+L1-icache-load-misses
+cycle_activity.cycles_no_execute
+instructions
+l2_rqsts.miss
+L1-dcache-load-misses
+iTLB-load-misses
+LLC-load-misses
+Printing list end ---------- 
+7
+Weights for each field: 
+L1-icache-load-misses: -4.035038e-07
+cycle_activity.cycles_no_execute: 2.223983e-08
+instructions: 6.415302e-09
+l2_rqsts.miss: -3.915102e-09
+L1-dcache-load-misses: -2.755881e-08
+iTLB-load-misses: 5.099341e-05
+LLC-load-misses: 5.416866e-07
+
+******* File: bc *********
+ 	Reading: 25532.094, Prediction: 29713.943
+	Error: 4181.849, error % : 16.379%
+
+******* File: cc_sv *********
+ 	Reading: 26991.576, Prediction: 31815.395
+	Error: 4823.819, error % : 17.872%
+
+******* File: bfs *********
+ 	Reading: 3613.713, Prediction: 4464.043
+	Error: 850.330, error % : 23.531%
+
+******* File: cc *********
+ 	Reading: 4372.514, Prediction: 4478.831
+	Error: 106.318, error % : 2.431%
+
+******* File: pr *********
+ 	Reading: 31978.999, Prediction: 40121.889
+	Error: 8142.890, error % : 25.463%
+
+******* File: tc *********
+ 	Reading: 242004.063, Prediction: 266649.637
+	Error: 24645.573, error % : 10.184%
+
+******* File: sssp *********
+ 	Reading: 26513.861, Prediction: 31410.655
+	Error: 4896.794, error % : 18.469%
+
+******* File: pr_spmv *********
+ 	Reading: 36345.254, Prediction: 46691.550
+	Error: 10346.296, error % : 28.467%
+
+Mean error: 17.849
