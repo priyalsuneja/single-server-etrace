@@ -73,7 +73,7 @@ with open(args.tempfolder + "/" + 'b_data.csv', 'w') as f:
     
     for filename in os.scandir(args.inputfolder + "/data"):
         ipc, data = get_perf_data(filename.path)
-        files.append(filename.name)
+        files.append(filename.name[:-4])
 
         all_data.append(data)
         ipc_list.append(ipc)
