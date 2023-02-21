@@ -2,6 +2,7 @@
  * author: Priyal Suneja ; suneja@cs.washington.edu
  */
 #include "msr.h"
+#include <inttypes.h>
 
  extern int errno;
 
@@ -137,6 +138,14 @@ void sig_handler(int signum) {
 
     reading = (double)result*energy_units[0];
     fprintf(fptr, "%f\n", reading);
+
+    // rip sampling!
+    // uint64_t rip;
+    // asm volatile("lea (%%rbp), %0;": "=a"(rip));
+    // fprintf(fptr, "%" PRIx64 "\n", rip);
+
+    void* return_address = (void*)((__builtin_frame_address(0))[1]);
+    fprintf(fptr, "%p\n", return_address);
 }
 
 void measure_msr(char* filename, void (*func_ptr)()) {
