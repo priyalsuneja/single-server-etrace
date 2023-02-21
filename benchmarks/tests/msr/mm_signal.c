@@ -83,6 +83,40 @@ void matrix_multiply_measure() {
 
 }
 
+void matrix_multiply_2() {
+    int **one = malloc(MM_SIZE*sizeof(int*));
+    int **two = malloc(MM_SIZE*sizeof(int*));
+    int **res = malloc(MM_SIZE*sizeof(int*));
+    for (int i = 0; i < MM_SIZE; i++) {
+	one[i] = malloc(MM_SIZE*sizeof(int));
+	two[i] = malloc(MM_SIZE*sizeof(int));
+	res[i] = malloc(MM_SIZE*sizeof(int));
+    }
+
+    for (int i = 0; i < MM_SIZE; i++) {
+	for(int j = 0; j < MM_SIZE; j++) {
+	    one[i][j] = i*j;
+	    two[i][j] = i+j;
+	}
+    }
+
+    for (int i = 0; i < 100; i++) {
+	matrix_multiply(one, two, res);
+    }
+
+    for (int i = 0; i < MM_SIZE; i++) {
+	free(one[i]);
+	free(two[i]);
+	free(res[i]);
+    }
+
+    free(one);
+    free(two);
+    free(res);
+
+    return;
+}
+
 int main (int argc, char* argv[]) {
 
 //     fptr = fopen("mm_signal_out", "w+");
@@ -108,5 +142,7 @@ int main (int argc, char* argv[]) {
     
     measure_msr("mm_signal_out", &matrix_multiply_measure);
 
+    printf("next one!\n");
+    measure_msr("mm_signal_out_2", &matrix_multiply_2);
     return 0;
 }

@@ -144,8 +144,14 @@ void sig_handler(int signum) {
     // asm volatile("lea (%%rbp), %0;": "=a"(rip));
     // fprintf(fptr, "%" PRIx64 "\n", rip);
 
-    void* return_address = (void*)((__builtin_frame_address(0))[1]);
-    fprintf(fptr, "%p\n", return_address);
+    void* return_address_0 = (void*)__builtin_return_address(0);
+    void* return_address_1 = (void*)__builtin_return_address(1);
+    void* return_address_2 = (void*)__builtin_return_address(2);
+    
+    uint64_t rip;
+    asm volatile("mov 0x90(%%rbp), %0;": "=a"(rip));
+    // fprintf(fptr, "%p\n", return_address_1);
+    fprintf(fptr, "%" PRIx64 "\n", rip);
 }
 
 void measure_msr(char* filename, void (*func_ptr)()) {
