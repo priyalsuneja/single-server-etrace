@@ -1,8 +1,11 @@
  /*
  * author: Priyal Suneja ; suneja@cs.washington.edu
  */
+#define _GNU_SOURCE
 #include "msr.h"
 #include <inttypes.h>
+#include <stdio.h>
+#include <dlfcn.h>
 
  extern int errno;
 
@@ -140,18 +143,37 @@ void sig_handler(int signum) {
     fprintf(fptr, "%f\n", reading);
 
     // rip sampling!
+    // TRIAL 1 - DOES NOT WORK
     // uint64_t rip;
     // asm volatile("lea (%%rbp), %0;": "=a"(rip));
     // fprintf(fptr, "%" PRIx64 "\n", rip);
 
-    void* return_address_0 = (void*)__builtin_return_address(0);
-    void* return_address_1 = (void*)__builtin_return_address(1);
-    void* return_address_2 = (void*)__builtin_return_address(2);
-    
-    uint64_t rip;
-    asm volatile("mov 0x90(%%rbp), %0;": "=a"(rip));
+    // TRIAL 2 - KINDA WORKS
+    // void* return_address_0 = (void*)__builtin_return_address(0);
+    // void* return_address_1 = (void*)__builtin_return_address(1);
+    // void* return_address_2 = (void*)__builtin_return_address(2);
     // fprintf(fptr, "%p\n", return_address_1);
+
+    // TRIAL 3 - WORKS THE BEST 
+    int64_t rip;
+    asm volatile("mov 0xB8(%%rbp), %0;": "=a"(rip));
     fprintf(fptr, "%" PRIx64 "\n", rip);
+    
+    // TRIAL 4 - DOES NOT WORK
+    // void* bt[10];
+    // int size = backtrace(bt, 10);
+    // char** bt_strings = backtrace_symbols(bt, size);
+    // for(int i = 0; i < size; i++) {
+    // 	fprintf(fptr, "%s\n", bt_strings[i]);
+    // }
+    // free(bt_strings);
+    
+    // TRIAL 5 - uncomment trial 3
+    Dl_info info;
+    int ret = dladdr((void*) rip, &info);
+    if (ret != 0) {
+	fprintf(fptr, "%s\n", info.dli_sname);
+    }
 }
 
 void measure_msr(char* filename, void (*func_ptr)()) {
