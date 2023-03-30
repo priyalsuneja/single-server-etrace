@@ -1,8 +1,6 @@
 L1-icache-load-misses
 cycles
-cycle_activity.stalls_total
 instructions
-l2_rqsts.miss
 L1-dcache-load-misses
 iTLB-load-misses
 LLC-load-misses

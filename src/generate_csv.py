@@ -33,6 +33,8 @@ def get_perf_data(path):
         for data_line in f_labels:
             data_needed.append(data_line[:-1])
 
+    print(data_needed)
+
     j = 0
     data = []
     ipc = 0
@@ -52,6 +54,7 @@ def get_perf_data(path):
 
             data.append(cast(text))
             j += 1
+    print(data)
         
 #     if (len(data) != len(data_needed) + 1):
 #         print("something went wrong")
@@ -73,14 +76,17 @@ with open(args.tempfolder + "/" + 'b_data.csv', 'w') as f:
     
     for filename in os.scandir(args.inputfolder + "/data"):
         ipc, data = get_perf_data(filename.path)
-        files.append(filename.name[:-4])
+        files.append(filename.name)
 
         all_data.append(data)
         ipc_list.append(ipc)
 
+        print(all_data)
+        print(ipc_list)
+
 
         energy = get_energy_data(args.inputfolder + "/rapl/" +
-        filename.name[:-3] + "rapl")
+        filename.name + "_out")
 #         energy = get_energy_data(args.inputfolder + "/rapl/" +
 #         filename.name[:-4])
 #         energy = get_energy_data(args.inputfolder + "/rapl/" +

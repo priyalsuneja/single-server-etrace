@@ -1,6 +1,6 @@
 #!/bin/bash
-file="/homes/sys/suneja/treehouse/single-server-etrace/.data_labels"
-gapbs_dir="/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/gapbs/build"
+file="/home/jonus225/single-server-etrace/.data_labels"
+gapbs_dir="/home/jonus225/single-server-etrace/benchmarks/gapbs/build"
 signal_dir="/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/tests/signal/build"
 graph500_dir="/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/graph500/build"
 # graph500_dir="/homes/sys/suneja/graph500/build"
@@ -21,7 +21,7 @@ done < $file
 cmd_starter+="taskset -c 0 nice -n -20 "
 
 for entry in `ls $gapbs_dir`
- do
+do
      $cmd_starter $gapbs_dir/$entry -g 20 -n 2 1> /dev/null 2> $output_folder/$entry
 done
 
@@ -30,16 +30,16 @@ done
 #      $cmd_starter $signal_dir/$entry 1> /dev/null 2> $output_folder/$entry
 # done
 
-for entry in `ls $graph500_dir`
- do
-     echo $entry
-     $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 5 1> out 2> $output_folder/${entry}_5
+#for entry in `ls $graph500_dir`
+# do
+    # echo $entry
+    # $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 5 1> out 2> $output_folder/${entry}_5
 #      $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 7 1> /dev/null 2> $output_folder/${entry}_7
 #      $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 10 1> /dev/null 2> $output_folder/${entry}_10
-     $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 5 1> out 2> $output_folder/${entry}_5
+    # $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 5 1> out 2> $output_folder/${entry}_5
 #      $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 7 1> out 2> $output_folder/${entry}_7
 #      $cmd_starter mpirun --allow-run-as-root --mca orte_base_help_aggregate 0 $graph500_dir/$entry 10 1> out 2> $output_folder/${entry}_10
-done
+#done
 
 mv *_out $rapl_folder
 

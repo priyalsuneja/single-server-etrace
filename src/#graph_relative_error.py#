@@ -1,4 +1,4 @@
-# this file is written assuming the input file has order:
+AOAAOA# this file is written assuming the input file has order:
 # name, l1_icache, cycles, ipc, l2, tlb_data, l1_dcache, tlb_ins, error
 
 import matplotlib
@@ -58,7 +58,7 @@ def main():
     l1_icache=[]
     cycles=[]
     ins=[]
-#    l2=[]
+    l2=[]
 #     tlb_data=[]
     l1_dcache=[]
     tlb_ins=[]
@@ -75,20 +75,20 @@ def main():
         with open(sys.argv[i]) as f:
             for line in f:
                 str_list = line.split(",")
-                str_list[8] = str_list[8][:-1]
+                str_list[10] = str_list[10][:-1]
 
                 names.append(str_list[0])
                 l1_icache.append(int(str_list[1]))
-                # cycles.append(int(str_list[2]))
-                ins.append(float(str_list[2]))
-#                l2.append(int(str_list[4]))
+                cycles.append(int(str_list[2]))
+                ins.append(float(str_list[3]))
+                l2.append(int(str_list[4]))
 #                 tlb_data.append(float(str_list[5]))
-                l1_dcache.append(int(str_list[3]))
-                tlb_ins.append(int(str_list[4]))
-                l3.append(int(str_list[5]))
-                error.append(float(str_list[6]))
-                ans.append(float(str_list[7]))
-                outputs.append(float(str_list[8]))
+                l1_dcache.append(int(str_list[5]))
+                tlb_ins.append(int(str_list[6]))
+                l3.append(int(str_list[7]))
+                error.append(float(str_list[8]))
+                ans.append(float(str_list[9]))
+                outputs.append(float(str_list[10]))
 
     with open(sys.argv[len(sys.argv) - 1]) as f:
         for line in f:

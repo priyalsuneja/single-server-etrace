@@ -16,6 +16,11 @@
 # file that holds labels to read
 # output folde
 # location of coeffs file
+
+# temporarily added for easier running
+sudo rm -rf temp_output/
+# sudo rm -rf .sse_temp/
+
 file=".sse_config"
 
 declare -a a
@@ -35,11 +40,11 @@ mkdir ${a[4]}
 
 python3 ${a[0]}/generate_csv.py ${a[1]} ${a[4]} ${a[5]}
 
-# python3 ${a[0]}/linear_solver.py ${a[4]}
-# 
-# ./${a[0]}/fifth -${a[3]} ./${a[5]} ${a[4]}/${a[7]} ./${a[4]}/graph_out_one < ./${a[4]}/temp > ${a[2]}
+python3 ${a[0]}/linear_solver.py ${a[4]}
+ 
+./${a[0]}/fifth -${a[3]} ./${a[5]} ${a[4]}/${a[7]} ./${a[4]}/graph_out_one < ./${a[4]}/temp > ${a[2]}
 
-./${a[0]}/fifth -${a[3]} ./${a[5]} ./${a[7]} ./${a[4]}/graph_out_one < ./${a[4]}/temp > ${a[2]}
+#./${a[0]}/fifth -${a[3]} ./${a[5]} ./${a[7]} ./${a[4]}/graph_out_one < ./${a[4]}/temp > ${a[2]}
 
 mkdir ${a[6]} 
 mv ${a[2]} output_table ${a[6]}

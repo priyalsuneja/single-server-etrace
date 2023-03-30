@@ -16,7 +16,8 @@ int print_graphing_info(char* graph_fname, char name[FILENAME_SIZE], double* inp
     //     inputs[CYCLES], inputs[IPC], inputs[L2], 
     //     inputs[L1_DCACHE], inputs[TLB_INS], inputs[L3], rel_error, inputs[ANS], output);
 
-    fprintf(fptr,"%s,%.0f,%.0f,%.0f,%.0f,%.0f,%.3f,%.3f,%.3f\n",name, inputs[L1_ICACHE], inputs[INS],
+    fprintf(fptr,"%s,%.0f,%.0f,%.2f,%.0f,%.0f,%.0f,%.3f,%.3f,%.3f\n",name, inputs[L1_ICACHE],
+        inputs[CYCLES], inputs[IPC],
         inputs[L1_DCACHE], inputs[TLB_INS], inputs[L3], rel_error, inputs[ANS], output);
 
     fclose(fptr);
@@ -35,15 +36,15 @@ double calc_error (char name[FILENAME_SIZE], double* weights, double* inputs, ch
 
     // input_size includes "answer"
 
-    for(i = 0; i < input_size - 1; i++) {
-        ind_out[i] = weights[i] * inputs[i];
+     for(i = 0; i <input_size-1; i++) {
+         ind_out[i] = weights[i]*inputs[i];
+     }
+
+    for(i = 0; i < input_size -1; i++) {
+        output+= ind_out[i];
     }
 
-    for(i = 0; i < input_size - 1; i++) {
-        output += ind_out[i];
-    }
-
-    double error = output - inputs[input_size - 1];
+    double error = output - inputs[input_size-1];
     
     if(print) {             // TODO: fix this 
         fprintf(fptr,
@@ -89,10 +90,7 @@ int get_input(char name[FILENAME_SIZE], double* inputs, int input_size) {
     char input[FILENAME_SIZE];    
 
     fgets(input, FILENAME_SIZE, stdin);
-    // printf("input HERE: %s\n", input);
-    // for (int i = 0; i < input_size; i++) {
-    //     printf("Initial input1 %d: %f\n", i, inputs[i]);
-    // }
+//     printf("%s\n", input);
     
     if(input[0] == ';') {
         return 0;
@@ -100,17 +98,13 @@ int get_input(char name[FILENAME_SIZE], double* inputs, int input_size) {
 
     strncpy(name, input, FILENAME_SIZE);
 
-    name[strlen(input) - 1] = '\0';
+    name[strlen(input)-1]='\0';
 
     for(int i = 0; i < input_size; i++) {
         fgets(input, 40, stdin);
 //     printf("%s\n", input);
         inputs[i] = atof(input);
     }
-    for (int i = 0; i < input_size; i++) {
-        printf("Initial input2 %d: %f\n", i, inputs[i]);
-    }
-
     return 1;
 }
 
@@ -175,8 +169,7 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
             break;
         }
 
-        // Debugging
-        for (int i = 0; i < input_size; i++) {
+        for (int i = 0; i < input_size+1; i++) {
             printf("Element %d: %f\n", i, inputs[i]);
         }
 
@@ -184,9 +177,10 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
             fprintf(stderr, "back from get input, claling clac error\n");
         }
 
-        double error = calc_error(name, weights, inputs, strstr(flags, "t"), fptr, input_size);
+        double error = calc_error(name, weights, inputs, strstr(flags, "t"),
+        fptr, input_size);
         if(strstr(flags, "d")) {
-            fprintf(stderr, "back from  calc error\n");
+            fprintf(stderr, "back from  clac error\n");
         }
 
         error_sum += (fabs(error)*100/inputs[ANS]) ;
@@ -195,14 +189,10 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
         for(int i = 0; i < input_size - 1; i++) {
             total_inputs += inputs[i];
         }
-        // total_inputs -= inputs[CYCLES];
+        total_inputs -= inputs[CYCLES];
 
         printf("******* File: %s *********\n \tReading: %.3f, Prediction: %.3f\n",
         name, inputs[ANS], inputs[ANS]+error);
-
-        // For debugging
-        // printf("error: %.3f\n", error);
-
         printf("\tError: %.3f, error %% : %.3f%%\n\n", error, ((fabs(error) *
         100)/inputs[ANS]));
 
@@ -226,7 +216,7 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
         if(strstr(flags, "t")) {
             fprintf(fptr, "Mean error: %.3f\n", error_sum/num_data);
         }
-        printf("error sum %f, num data %d\n", error_sum,num_data);
+        printf("error sum %f, num hola data %d\n", error_sum,num_data);
         printf("labelslist_size: %d", input_size);
     }
 

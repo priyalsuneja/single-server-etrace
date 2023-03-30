@@ -4,19 +4,19 @@
 #include <math.h>
 
 #define L1_ICACHE 0
-#define CYCLES 1
-#define IPC 2
-#define INS 2
-#define L2 3
+// #define CYCLES 1
+// #define IPC 2
+#define INS 1
+// #define L2 3
 // #define TLB_DATA 4
 // #define L1_DCACHE 5
 // #define TLB_INS 6
 // #define L3 7
 // #define ANS 8
-#define L1_DCACHE 4
-#define TLB_INS 5
-#define L3 6
-#define ANS 7
+#define L1_DCACHE 2
+#define TLB_INS 3
+#define L3 4
+#define ANS 5
 #define FILENAME_SIZE 50
 
 #define TABLE_OUT_FILE "output_table"

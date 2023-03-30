@@ -1,52 +1,50 @@
 Printing list start ---------- 
 L1-icache-load-misses
-cycle_activity.stalls_total
 instructions
-l2_rqsts.miss
 L1-dcache-load-misses
 iTLB-load-misses
 LLC-load-misses
 Printing list end ---------- 
-7
+5
 Weights for each field: 
 L1-icache-load-misses: -4.035038e-07
-cycle_activity.stalls_total: 2.223983e-08
-instructions: 6.415302e-09
-l2_rqsts.miss: -3.915102e-09
-L1-dcache-load-misses: -2.755881e-08
-iTLB-load-misses: 5.099341e-05
-LLC-load-misses: 5.416866e-07
-
-******* File: pr *********
- 	Reading: 8729.839, Prediction: 5661.091
-	Error: -3068.748, error % : 35.152%
-
-******* File: cc *********
- 	Reading: 36313.464, Prediction: 23518.364
-	Error: -12795.100, error % : 35.235%
-
-******* File: cc_sv *********
- 	Reading: 8728.306, Prediction: 5452.924
-	Error: -3275.382, error % : 37.526%
-
-******* File: bc *********
- 	Reading: 8726.092, Prediction: 5517.170
-	Error: -3208.922, error % : 36.774%
+instructions: 2.223983e-08
+L1-dcache-load-misses: 6.415302e-09
+iTLB-load-misses: -3.915102e-09
+LLC-load-misses: -2.755881e-08
+(null): 5.099341e-05
+(null): 5.416866e-07
 
 ******* File: sssp *********
- 	Reading: 8723.742, Prediction: 5785.963
-	Error: -2937.780, error % : 33.676%
-
-******* File: pr_spmv *********
- 	Reading: 8719.106, Prediction: 6096.811
-	Error: -2622.295, error % : 30.075%
+ 	Reading: 0.000, Prediction: -2603.103
+	Error: -2603.103, error % : inf%
 
 ******* File: bfs *********
- 	Reading: 37572.245, Prediction: 22826.898
-	Error: -14745.347, error % : 39.245%
+ 	Reading: 0.000, Prediction: -14678.345
+	Error: -14678.345, error % : inf%
+
+******* File: cc_sv *********
+ 	Reading: 0.000, Prediction: -2885.869
+	Error: -2885.869, error % : inf%
+
+******* File: pr_spmv *********
+ 	Reading: 0.000, Prediction: -2663.374
+	Error: -2663.374, error % : inf%
 
 ******* File: tc *********
- 	Reading: 70175.618, Prediction: 44411.267
-	Error: -25764.351, error % : 36.714%
+ 	Reading: 0.000, Prediction: 1663.543
+	Error: 1663.543, error % : inf%
 
-Mean error: 35.550
+******* File: cc *********
+ 	Reading: 0.000, Prediction: -13231.909
+	Error: -13231.909, error % : inf%
+
+******* File: pr *********
+ 	Reading: 0.000, Prediction: -2895.721
+	Error: -2895.721, error % : inf%
+
+******* File: bc *********
+ 	Reading: 0.000, Prediction: -2898.178
+	Error: -2898.178, error % : inf%
+
+Mean error: inf

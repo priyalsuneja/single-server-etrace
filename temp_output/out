@@ -1,0 +1,147 @@
+Printing list start ---------- 
+L1-icache-load-misses
+instructions
+L1-dcache-load-misses
+iTLB-load-misses
+LLC-load-misses
+Printing list end ---------- 
+5
+Weights for each field: 
+L1-icache-load-misses: 1.973652e-05
+instructions: 8.988378e-09
+L1-dcache-load-misses: 5.029867e-08
+iTLB-load-misses: 4.151987e-04
+LLC-load-misses: -1.285660e-06
+
+labels_list.size is 5
+Initial input2 0: 2944245.000000
+Initial input2 1: 27317296966.000000
+Initial input2 2: 336354942.000000
+Initial input2 3: 66723.000000
+Initial input2 4: 2537298.000000
+Initial input2 5: 346.341797
+Element 0: 2944245.000000
+Element 1: 27317296966.000000
+Element 2: 336354942.000000
+Element 3: 66723.000000
+Element 4: 2537298.000000
+Element 5: 346.341797
+******* File: cc_sv *********
+ 	Reading: 346.342, Prediction: 345.007
+	Error: -1.335, error % : 0.385%
+
+Initial input2 0: 3286973.000000
+Initial input2 1: 28866937641.000000
+Initial input2 2: 725693037.000000
+Initial input2 3: 70295.000000
+Initial input2 4: 9053218.000000
+Initial input2 5: 377.126892
+Element 0: 3286973.000000
+Element 1: 28866937641.000000
+Element 2: 725693037.000000
+Element 3: 70295.000000
+Element 4: 9053218.000000
+Element 5: 377.126892
+******* File: pr_spmv *********
+ 	Reading: 377.127, Prediction: 378.389
+	Error: 1.262, error % : 0.335%
+
+Initial input2 0: 3027743.000000
+Initial input2 1: 26070340627.000000
+Initial input2 2: 206717444.000000
+Initial input2 3: 60527.000000
+Initial input2 4: 2246429.000000
+Initial input2 5: 327.207642
+Element 0: 3027743.000000
+Element 1: 26070340627.000000
+Element 2: 206717444.000000
+Element 3: 60527.000000
+Element 4: 2246429.000000
+Element 5: 327.207642
+******* File: bfs *********
+ 	Reading: 327.208, Prediction: 326.727
+	Error: -0.480, error % : 0.147%
+
+Initial input2 0: 3547997.000000
+Initial input2 1: 27977390194.000000
+Initial input2 2: 337436992.000000
+Initial input2 3: 80378.000000
+Initial input2 4: 9286323.000000
+Initial input2 5: 362.503662
+Element 0: 3547997.000000
+Element 1: 27977390194.000000
+Element 2: 337436992.000000
+Element 3: 80378.000000
+Element 4: 9286323.000000
+Element 5: 362.503662
+******* File: bc *********
+ 	Reading: 362.504, Prediction: 359.903
+	Error: -2.601, error % : 0.717%
+
+Initial input2 0: 3891029.000000
+Initial input2 1: 29831022772.000000
+Initial input2 2: 312957972.000000
+Initial input2 3: 85764.000000
+Initial input2 4: 6920399.000000
+Initial input2 5: 384.102234
+Element 0: 3891029.000000
+Element 1: 29831022772.000000
+Element 2: 312957972.000000
+Element 3: 85764.000000
+Element 4: 6920399.000000
+Element 5: 384.102234
+******* File: sssp *********
+ 	Reading: 384.102, Prediction: 387.381
+	Error: 3.279, error % : 0.854%
+
+Initial input2 0: 12017204.000000
+Initial input2 1: 159165792539.000000
+Initial input2 2: 1014327181.000000
+Initial input2 3: 323033.000000
+Initial input2 4: 28214852.000000
+Initial input2 5: 1813.703430
+Element 0: 12017204.000000
+Element 1: 159165792539.000000
+Element 2: 1014327181.000000
+Element 3: 323033.000000
+Element 4: 28214852.000000
+Element 5: 1813.703430
+******* File: tc *********
+ 	Reading: 1813.703, Prediction: 1816.687
+	Error: 2.984, error % : 0.165%
+
+Initial input2 0: 3404282.000000
+Initial input2 1: 29961456244.000000
+Initial input2 2: 919276252.000000
+Initial input2 3: 72888.000000
+Initial input2 4: 11656817.000000
+Initial input2 5: 398.534729
+Element 0: 3404282.000000
+Element 1: 29961456244.000000
+Element 2: 919276252.000000
+Element 3: 72888.000000
+Element 4: 11656817.000000
+Element 5: 398.534729
+******* File: pr *********
+ 	Reading: 398.535, Prediction: 398.008
+	Error: -0.527, error % : 0.132%
+
+Initial input2 0: 3267755.000000
+Initial input2 1: 26110923916.000000
+Initial input2 2: 208450908.000000
+Initial input2 3: 59607.000000
+Initial input2 4: 2731373.000000
+Initial input2 5: 330.864868
+Element 0: 3267755.000000
+Element 1: 26110923916.000000
+Element 2: 208450908.000000
+Element 3: 59607.000000
+Element 4: 2731373.000000
+Element 5: 330.864868
+******* File: cc *********
+ 	Reading: 330.865, Prediction: 330.911
+	Error: 0.046, error % : 0.014%
+
+Mean error: 0.344
+error sum 2.748486, num data 8
+labelslist_size: 6

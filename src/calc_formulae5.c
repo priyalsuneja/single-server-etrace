@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
     }
 
     print_list(&labels_list);
-    printf("%d\n", labels_list.size);
+    printf("%ld\n", labels_list.size);
 
 
     double weights[labels_list.size];
@@ -94,6 +94,6 @@ int main(int argc, char** argv) {
         i++;
     }
     printf("\n");
-
+    printf("labels_list.size is %ld\n", labels_list.size);
     return calc_error_main(weights, argv[1], graph_file, labels_list.size + 1);
 }
