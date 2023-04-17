@@ -35,7 +35,8 @@ mm_msr: mm_msr.c msr.c utils.c
 	gcc -O0 -g -Wall -o $(BUILDDIR)/mm_msr mm_msr.c utils.c msr.c -lm
 
 mm_signal: mm_signal.c msr.c utils.c
-	gcc -O0 -g -Wall -o $(BUILDDIR)/mm_signal mm_signal.c utils.c msr.c -lm
+	gcc -O0 -g -Wall -o $(BUILDDIR)/mm_signal_2 mm_signal.c utils.c msr.c -lm
+	# gcc -O0 -g -Wall -S mm_signal.c utils.c msr.c -lm
 
 ins: ins.c  msr.c utils.c
 	gcc -O0 -Wall -o $(BUILDDIR)/ins ins.c msr.c utils.c -lm

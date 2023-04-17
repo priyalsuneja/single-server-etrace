@@ -169,11 +169,11 @@ void sig_handler(int signum) {
     // free(bt_strings);
     
     // TRIAL 5 - uncomment trial 3
-    Dl_info info;
-    int ret = dladdr((void*) rip, &info);
-    if (ret != 0) {
-	fprintf(fptr, "%s\n", info.dli_sname);
-    }
+    // Dl_info info;
+    // int ret = dladdr((void*) rip, &info);
+    // if (ret != 0) {
+// 	fprintf(fptr, "%s\n", info.dli_sname);
+    // }
 }
 
 void measure_msr(char* filename, void (*func_ptr)()) {

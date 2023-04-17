@@ -27,7 +27,7 @@
 #define L2_LL_SIZE 5*5*L2_SIZE
 #define TLB_LL_SIZE TLB_ASSOC*TLB_ENTRIES*8*10
 // #define MM_SIZE L1_SIZE/4
-#define MM_SIZE 1024
+#define MM_SIZE 256
 
 #define MSR_RAPL_POWER_UNIT	0x606
 

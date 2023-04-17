@@ -140,6 +140,8 @@ int main (int argc, char* argv[]) {
 
     printf("%s\n", strcat(argv[0], "_out"));
     
+    printf("main: %p\n", &main);
+
     measure_msr("mm_signal_out", &matrix_multiply_measure);
 
     printf("next one!\n");
