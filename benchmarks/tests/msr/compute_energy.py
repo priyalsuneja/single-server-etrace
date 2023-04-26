@@ -1,36 +1,17 @@
-f = open("mm_signal_out")
-f_output = open(".temp_output/output.txt")
-# f_elf = open(".temp_output/elf.txt")
+energies = open(".temp_output/energies.txt")
+functions = open(".temp_output/functions.txt")
 
-# get main function address
-main_addr = f_output.readlines()[1].split()[1]
-print(main_addr)
+functions_to_energies = {}
 
-# get list of energies from file
-energies = []
-addresses = []
-prev_energy = 0.0
-with open(".temp_output/functions.txt", "w") as a:
-    for i, line in enumerate(f.readlines()):
-        if (i%2 == 0):
-            if (i == 0):
-                energies.append(0.0)
-                prev_energy = float(line)
-            else:
-                energies.append(float(line) - prev_energy)
-        else:
-            addresses.append("0x" + line.split()[0])
-            a.write("0x" + line.split()[0])
+for line in functions.readlines():
+    energy = float(energies.readline().split()[0])
+    function = line.split()[0]
+    if function not in functions_to_energies:
+        functions_to_energies[function] = 0.0
+    functions_to_energies[function] += energy
 
+total_energy = float(energies.readline().split()[0])
+for function in functions_to_energies:
+    functions_to_energies[function] = functions_to_energies[function] / total_energy * 100
 
-'''
-withAddr2lineContext(Path("build/mm_signal")) as c:
-    # get function for each address
-    for i, addr in enumerate(addresses):
-        func = c.get_function(addr)
-        if (functions_to_energy.has_key(func):
-            functions_to_energy[addr] = functions_to_energy[addr] + energies[i]
-        else:
-            functions_to_energy[addr] = energies[i]
-'''
-
+print(functions_to_energies)
