@@ -76,7 +76,7 @@ with open(args.tempfolder + "/" + 'b_data.csv', 'w') as f:
     
     for filename in os.scandir(args.inputfolder + "/data"):
         ipc, data = get_perf_data(filename.path)
-        files.append(filename.name)
+        files.append(filename.name[:-5])
 
         all_data.append(data)
         ipc_list.append(ipc)
@@ -86,7 +86,7 @@ with open(args.tempfolder + "/" + 'b_data.csv', 'w') as f:
 
 
         energy = get_energy_data(args.inputfolder + "/rapl/" +
-        filename.name + "_out")
+        filename.name[:-5] + "_out")
 #         energy = get_energy_data(args.inputfolder + "/rapl/" +
 #         filename.name[:-4])
 #         energy = get_energy_data(args.inputfolder + "/rapl/" +

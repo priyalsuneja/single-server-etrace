@@ -1,18 +1,21 @@
 #!/bin/bash
-file="/home/jonus225/single-server-etrace/.data_labels"
-gapbs_dir="/home/jonus225/single-server-etrace/benchmarks/gapbs/build"
+file="/users/Jonus225/single-server-etrace/.data_labels"
+gapbs_dir="/users/Jonus225/single-server-etrace/benchmarks/gapbs/build"
 signal_dir="/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/tests/signal/build"
 graph500_dir="/homes/sys/suneja/treehouse/single-server-etrace/benchmarks/graph500/build"
 # graph500_dir="/homes/sys/suneja/graph500/build"
 output_folder="./data"
 rapl_folder="./data/rapl"
+data_folder="./data/data"
 
 rm -rf $output_folder
 mkdir $output_folder
 mkdir $rapl_folder
+mkdir $data_folder
 
 cmd_starter="sudo perf stat "
 
+# add data labels in command
 while IFS= read -r var 
 do
     cmd_starter+="-e ${var} "
@@ -22,7 +25,11 @@ cmd_starter+="taskset -c 0 nice -n -20 "
 
 for entry in `ls $gapbs_dir`
 do
-     $cmd_starter $gapbs_dir/$entry -g 20 -n 2 1> /dev/null 2> $output_folder/$entry
+    # echo "hi"
+    $cmd_starter $gapbs_dir/$entry -g 20 -n 2 1> /dev/null 2> $output_folder/${entry}_data
+    #$cmd_starter $gapbs_dir/$entry -g 20 -n 2 2> $output_folder/$entry
+
+    # echo $entry
 done
 
 # for entry in `ls $signal_dir`
@@ -42,6 +49,9 @@ done
 #done
 
 mv *_out $rapl_folder
+mv $output_folder/*_data $data_folder
 
-sed -i "s/J/ /g" $output_folder/*
+# sed -i "s/J/ /g" $output_folder/*
+find "$output_folder" -type f ! -path "$output_folder/rapl/*" -exec sed -i "s/J/ /g" {} \;
+
 # sed -i "3,24d" $output_folder/err_*

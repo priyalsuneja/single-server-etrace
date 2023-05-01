@@ -7,141 +7,141 @@ LLC-load-misses
 Printing list end ---------- 
 5
 Weights for each field: 
-L1-icache-load-misses: 1.973652e-05
-instructions: 8.988378e-09
-L1-dcache-load-misses: 5.029867e-08
-iTLB-load-misses: 4.151987e-04
-LLC-load-misses: -1.285660e-06
+L1-icache-load-misses: 4.417606e-05
+instructions: 9.245224e-09
+L1-dcache-load-misses: 4.010001e-08
+iTLB-load-misses: -2.643984e-05
+LLC-load-misses: 3.540771e-07
 
 labels_list.size is 5
-Initial input2 0: 2944245.000000
-Initial input2 1: 27317296966.000000
-Initial input2 2: 336354942.000000
-Initial input2 3: 66723.000000
-Initial input2 4: 2537298.000000
-Initial input2 5: 346.341797
-Element 0: 2944245.000000
-Element 1: 27317296966.000000
-Element 2: 336354942.000000
-Element 3: 66723.000000
-Element 4: 2537298.000000
-Element 5: 346.341797
-******* File: cc_sv *********
- 	Reading: 346.342, Prediction: 345.007
-	Error: -1.335, error % : 0.385%
-
-Initial input2 0: 3286973.000000
-Initial input2 1: 28866937641.000000
-Initial input2 2: 725693037.000000
-Initial input2 3: 70295.000000
-Initial input2 4: 9053218.000000
-Initial input2 5: 377.126892
-Element 0: 3286973.000000
-Element 1: 28866937641.000000
-Element 2: 725693037.000000
-Element 3: 70295.000000
-Element 4: 9053218.000000
-Element 5: 377.126892
-******* File: pr_spmv *********
- 	Reading: 377.127, Prediction: 378.389
-	Error: 1.262, error % : 0.335%
-
-Initial input2 0: 3027743.000000
-Initial input2 1: 26070340627.000000
-Initial input2 2: 206717444.000000
-Initial input2 3: 60527.000000
-Initial input2 4: 2246429.000000
-Initial input2 5: 327.207642
-Element 0: 3027743.000000
-Element 1: 26070340627.000000
-Element 2: 206717444.000000
-Element 3: 60527.000000
-Element 4: 2246429.000000
-Element 5: 327.207642
-******* File: bfs *********
- 	Reading: 327.208, Prediction: 326.727
-	Error: -0.480, error % : 0.147%
-
-Initial input2 0: 3547997.000000
-Initial input2 1: 27977390194.000000
-Initial input2 2: 337436992.000000
-Initial input2 3: 80378.000000
-Initial input2 4: 9286323.000000
-Initial input2 5: 362.503662
-Element 0: 3547997.000000
-Element 1: 27977390194.000000
-Element 2: 337436992.000000
-Element 3: 80378.000000
-Element 4: 9286323.000000
-Element 5: 362.503662
-******* File: bc *********
- 	Reading: 362.504, Prediction: 359.903
-	Error: -2.601, error % : 0.717%
-
-Initial input2 0: 3891029.000000
-Initial input2 1: 29831022772.000000
-Initial input2 2: 312957972.000000
-Initial input2 3: 85764.000000
-Initial input2 4: 6920399.000000
-Initial input2 5: 384.102234
-Element 0: 3891029.000000
-Element 1: 29831022772.000000
-Element 2: 312957972.000000
-Element 3: 85764.000000
-Element 4: 6920399.000000
-Element 5: 384.102234
-******* File: sssp *********
- 	Reading: 384.102, Prediction: 387.381
-	Error: 3.279, error % : 0.854%
-
-Initial input2 0: 12017204.000000
-Initial input2 1: 159165792539.000000
-Initial input2 2: 1014327181.000000
-Initial input2 3: 323033.000000
-Initial input2 4: 28214852.000000
-Initial input2 5: 1813.703430
-Element 0: 12017204.000000
-Element 1: 159165792539.000000
-Element 2: 1014327181.000000
-Element 3: 323033.000000
-Element 4: 28214852.000000
-Element 5: 1813.703430
-******* File: tc *********
- 	Reading: 1813.703, Prediction: 1816.687
-	Error: 2.984, error % : 0.165%
-
-Initial input2 0: 3404282.000000
-Initial input2 1: 29961456244.000000
-Initial input2 2: 919276252.000000
-Initial input2 3: 72888.000000
-Initial input2 4: 11656817.000000
-Initial input2 5: 398.534729
-Element 0: 3404282.000000
-Element 1: 29961456244.000000
-Element 2: 919276252.000000
-Element 3: 72888.000000
-Element 4: 11656817.000000
-Element 5: 398.534729
+Initial input2 0: 3650291.000000
+Initial input2 1: 30018493614.000000
+Initial input2 2: 919236958.000000
+Initial input2 3: 140737.000000
+Initial input2 4: 12290756.000000
+Initial input2 5: 472.519287
+Element 0: 3650291.000000
+Element 1: 30018493614.000000
+Element 2: 919236958.000000
+Element 3: 140737.000000
+Element 4: 12290756.000000
+Element 5: 472.519287
 ******* File: pr *********
- 	Reading: 398.535, Prediction: 398.008
-	Error: -0.527, error % : 0.132%
+ 	Reading: 472.519, Prediction: 476.275
+	Error: 3.756, error % : 0.795%
 
-Initial input2 0: 3267755.000000
-Initial input2 1: 26110923916.000000
-Initial input2 2: 208450908.000000
-Initial input2 3: 59607.000000
-Initial input2 4: 2731373.000000
-Initial input2 5: 330.864868
-Element 0: 3267755.000000
-Element 1: 26110923916.000000
-Element 2: 208450908.000000
-Element 3: 59607.000000
-Element 4: 2731373.000000
-Element 5: 330.864868
+Initial input2 0: 3682267.000000
+Initial input2 1: 28036475179.000000
+Initial input2 2: 336314446.000000
+Initial input2 3: 130108.000000
+Initial input2 4: 9675789.000000
+Initial input2 5: 438.997070
+Element 0: 3682267.000000
+Element 1: 28036475179.000000
+Element 2: 336314446.000000
+Element 3: 130108.000000
+Element 4: 9675789.000000
+Element 5: 438.997070
+******* File: bc *********
+ 	Reading: 438.997, Prediction: 435.344
+	Error: -3.653, error % : 0.832%
+
+Initial input2 0: 4435242.000000
+Initial input2 1: 29898448636.000000
+Initial input2 2: 315670935.000000
+Initial input2 3: 584534.000000
+Initial input2 4: 7171182.000000
+Initial input2 5: 471.174011
+Element 0: 4435242.000000
+Element 1: 29898448636.000000
+Element 2: 315670935.000000
+Element 3: 584534.000000
+Element 4: 7171182.000000
+Element 5: 471.174011
+******* File: sssp *********
+ 	Reading: 471.174, Prediction: 472.092
+	Error: 0.918, error % : 0.195%
+
+Initial input2 0: 12546976.000000
+Initial input2 1: 159495371795.000000
+Initial input2 2: 1019273638.000000
+Initial input2 3: 253035.000000
+Initial input2 4: 27945214.000000
+Initial input2 5: 2058.369690
+Element 0: 12546976.000000
+Element 1: 159495371795.000000
+Element 2: 1019273638.000000
+Element 3: 253035.000000
+Element 4: 27945214.000000
+Element 5: 2058.369690
+******* File: tc *********
+ 	Reading: 2058.370, Prediction: 2072.924
+	Error: 14.554, error % : 0.707%
+
+Initial input2 0: 3467507.000000
+Initial input2 1: 28927468850.000000
+Initial input2 2: 725806058.000000
+Initial input2 3: 129325.000000
+Initial input2 4: 9546945.000000
+Initial input2 5: 451.677491
+Element 0: 3467507.000000
+Element 1: 28927468850.000000
+Element 2: 725806058.000000
+Element 3: 129325.000000
+Element 4: 9546945.000000
+Element 5: 451.677491
+******* File: pr_spmv *********
+ 	Reading: 451.677, Prediction: 449.688
+	Error: -1.990, error % : 0.441%
+
+Initial input2 0: 3236257.000000
+Initial input2 1: 27322875634.000000
+Initial input2 2: 338083381.000000
+Initial input2 3: 123421.000000
+Initial input2 4: 2639678.000000
+Initial input2 5: 412.343201
+Element 0: 3236257.000000
+Element 1: 27322875634.000000
+Element 2: 338083381.000000
+Element 3: 123421.000000
+Element 4: 2639678.000000
+Element 5: 412.343201
+******* File: cc_sv *********
+ 	Reading: 412.343, Prediction: 406.800
+	Error: -5.543, error % : 1.344%
+
+Initial input2 0: 3237520.000000
+Initial input2 1: 26187387985.000000
+Initial input2 2: 208738989.000000
+Initial input2 3: 122951.000000
+Initial input2 4: 2708563.000000
+Initial input2 5: 398.097229
+Element 0: 3237520.000000
+Element 1: 26187387985.000000
+Element 2: 208738989.000000
+Element 3: 122951.000000
+Element 4: 2708563.000000
+Element 5: 398.097229
 ******* File: cc *********
- 	Reading: 330.865, Prediction: 330.911
-	Error: 0.046, error % : 0.014%
+ 	Reading: 398.097, Prediction: 391.208
+	Error: -6.889, error % : 1.731%
 
-Mean error: 0.344
-error sum 2.748486, num data 8
+Initial input2 0: 3554890.000000
+Initial input2 1: 26097388843.000000
+Initial input2 2: 208138315.000000
+Initial input2 3: 116617.000000
+Initial input2 4: 2315823.000000
+Initial input2 5: 394.441712
+Element 0: 3554890.000000
+Element 1: 26097388843.000000
+Element 2: 208138315.000000
+Element 3: 116617.000000
+Element 4: 2315823.000000
+Element 5: 394.441712
+******* File: bfs *********
+ 	Reading: 394.442, Prediction: 404.400
+	Error: 9.959, error % : 2.525%
+
+Mean error: 1.071
+error sum 8.569246, num data 8
 labelslist_size: 6
