@@ -1,0 +1,26 @@
+
+ Performance counter stats for 'system wide':
+
+         40,091.74 msec cpu-clock                 #   39.704 CPUs utilized          
+             1,114      context-switches          #    0.028 K/sec                  
+                17      cpu-migrations            #    0.000 K/sec                  
+             6,643      page-faults               #    0.166 K/sec                  
+     1,027,367,623      cycles                    #    0.026 GHz                      (31.04%)
+       317,078,460      instructions              #    0.31  insn per cycle           (38.97%)
+        60,424,887      branches                  #    1.507 M/sec                    (39.26%)
+         3,770,528      branch-misses             #    6.24% of all branches          (39.31%)
+        77,372,158      L1-dcache-loads           #    1.930 M/sec                    (39.27%)
+         7,450,604      L1-dcache-load-misses     #    9.63% of all L1-dcache hits    (38.98%)
+         3,373,456      LLC-loads                 #    0.084 M/sec                    (30.71%)
+           374,712      LLC-load-misses           #   11.11% of all LL-cache hits     (30.52%)
+   <not supported>      L1-icache-loads                                             
+        18,213,622      L1-icache-load-misses                                         (30.56%)
+        69,394,330      dTLB-loads                #    1.731 M/sec                    (30.58%)
+           702,669      dTLB-load-misses          #    1.01% of all dTLB cache hits   (30.63%)
+           226,814      iTLB-loads                #    0.006 M/sec                    (30.68%)
+           295,092      iTLB-load-misses          #  130.10% of all iTLB cache hits   (30.74%)
+   <not supported>      L1-dcache-prefetches                                        
+   <not supported>      L1-dcache-prefetch-misses                                   
+
+       1.009766512 seconds time elapsed
+

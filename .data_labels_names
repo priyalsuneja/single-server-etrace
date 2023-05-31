@@ -1,0 +1,6 @@
+L1_I,L1-icache-load-misses,l1_icache_misses
+cycles,cycle
+Ins%,instructions,ipc
+L1_D,L1-dcache-load-misses,l1_dcache_misses
+TLB_I,iTLB-load-misses,tlb_misses
+L3,LLC-load-misses,l3_misses

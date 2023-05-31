@@ -54,6 +54,7 @@ def graph_relative_error(name, errors, field_data, names):
     plt.savefig(name + ".png", bbox_inches='tight')
 
 def main():
+    #TODO: count how many labels available in .data_labels and create corresponding arrays
     names=[]
     l1_icache=[]
     cycles=[]

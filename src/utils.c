@@ -1,6 +1,8 @@
 // currently only supports graphing relative error, have to add support for
 // other stuff
 #include "utils.h"
+#include <stdio.h>
+#define MAX_NAME_LENGTH 50
 
 int print_graphing_info(char* graph_fname, char name[FILENAME_SIZE], double* inputs, double rel_error,
                                          double output) {
@@ -45,14 +47,14 @@ double calc_error (char name[FILENAME_SIZE], double* weights, double* inputs, ch
 
     double error = output - inputs[input_size - 1];
     
-    if(print) {             // TODO: fix this 
+    if(print) {             
         fprintf(fptr,
         "%*s | %*.2f | %*.2f | %*.2f | %*.2f |",
-        -20,name,-12,inputs[input_size-1],-12,
-        output,-12, error,-12,(fabs(error)*100/inputs[input_size-1]));
+        -20, name, -12, inputs[input_size - 1], -12,
+        output, -12, error, -12, (fabs(error) * 100 / inputs[input_size - 1]));
 
         for(i = 0; i < input_size - 1; i++) {
-            fprintf(fptr," %*.2f |",-12,ind_out[i]*100/output);
+            fprintf(fptr," %*.2f |", -12, ind_out[i] * 100 / output);
 
         }
         fprintf(fptr, "\n");
@@ -64,6 +66,7 @@ double calc_error (char name[FILENAME_SIZE], double* weights, double* inputs, ch
     return error;
 }
 
+// Jonus: When will we use this?
 void print_stats(double* inputs) {
 
 //     double total_inputs = 0;
@@ -143,25 +146,65 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
     // TLB_I%
     // L3%
 
-    if(strstr(flags, "t")) {
-        fprintf(fptr,       // make it so that it is 13* num of columns 
-          "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
-          );
 
-        // TODO: change the column names to follow .data_labels instead of hardcoding
+    // Jonus's TODO: change length of tabel to be dependent on num labels
+
+    if(strstr(flags, "t")) {
+        // print first five necessary columns
+        fprintf(fptr, "----------------------------------------------------------------------------------");
+        
+        for (int i = 0; i < input_size; i++) {
+            fprintf(fptr, "---------------");
+        }
+        fprintf(fptr, "\n");
+
 
         // fprintf(fptr, "%*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s |\n", 
         // -20, "File", -12, "Reading", -12, "Prediction", -12, "Error",
         // -12, "Error%", -12, "L1_I%", -12, "Stalls%", -12, "Ins%", -12,
         // "L2%", -12, "L1_D%", -12, "TLB_I%", -12, "L3");
 
-        fprintf(fptr, "%*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s |\n", 
-        -20, "File", -12, "Reading", -12, "Prediction", -12, "Error",
-        -12, "Error%", -12, "L1_I%", -12, "Ins%", -12, "L1_D%", -12, "TLB_I%", -12, "L3");
+        // fprintf(fptr, "%*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s |\n", 
+        // -20, "File", -12, "Reading", -12, "Prediction", -12, "Error",
+        // -12, "Error%", -12, "L1_I%", -12, "Ins%", -12, "L1_D%", -12, "TLB_I%", -12, "L3");
 
-        fprintf(fptr, 
-          "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
-          );
+        fprintf(fptr, "%*s | %*s | %*s | %*s | %*s |", 
+        -20, "File", -12, "Reading", -12, "Prediction", -12, "Error",
+        -12, "Error%");
+
+        FILE *file;
+        char name[MAX_NAME_LENGTH];
+
+        file = fopen(".human_readable_labels", "r");
+        if (file == NULL) {
+            perror("Error opening file");
+            return 1;
+        }
+
+        // Read and print each name from the file
+        while (fgets(name, MAX_NAME_LENGTH, file) != NULL) {
+            // Remove the newline character from the end of the name
+            name[strcspn(name, "\n")] = '\0';
+
+            // skip printing cycles
+            if (strcmp(name, "cycles") == 0) {
+                continue;
+            }
+
+            fprintf(fptr, "%*s |", -13, name);
+        }
+        fprintf(fptr, "\n");
+
+        // Close the file
+        fclose(file);
+
+        // print first five necessary columns
+        fprintf(fptr, "----------------------------------------------------------------------------------");
+        
+        for (int i = 0; i < input_size; i++) {
+            fprintf(fptr, "---------------");
+        }
+        fprintf(fptr, "\n");
     }
     while(1) {
 
@@ -214,11 +257,17 @@ int calc_error_main (double* weights, char* flags, char* graph_fname,
             inputs[ANS] + error);
         }
     }
+
+    // Jonus's TODO: change length of tabel to be dependent on num labels
+
     
     if(strstr(flags, "t")) {
-        fprintf(fptr,       // make it so that it is 13* num of columns 
-          "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
-          );
+        fprintf(fptr, "----------------------------------------------------------------------------------");
+        
+        for (int i = 0; i < input_size; i++) {
+            fprintf(fptr, "---------------");
+        }
+        fprintf(fptr, "\n");
     }
 
     if(strstr(flags, "m")) {

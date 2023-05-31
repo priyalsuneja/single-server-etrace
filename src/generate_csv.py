@@ -97,11 +97,11 @@ with open(args.tempfolder + "/" + 'b_data.csv', 'w') as f:
 
 b_line = ""
 f = open(args.tempfolder + "/" + "bm_input", "w")
-for i in range(len(energy_list) -1):
+for i in range(len(energy_list) - 1):
     b_line += str(energy_list[i])
     b_line += "; "
 
-b_line += str(energy_list[len(energy_list) -1])
+b_line += str(energy_list[len(energy_list) - 1])
 
 f.write(b_line)
 
@@ -131,7 +131,7 @@ for i in range(len(all_data) - 1):
         line2 = str(data[j]) + "\n"
         f2.write(line2)
     line1 += str(data[len(data) - 1]) + "; "
-    line2 = str(data[len(data)-1]) + "\n"
+    line2 = str(data[len(data) - 1]) + "\n"
     f2.write(line2)
     line2 = str(energy_list[i]) + "\n"
     f2.write(line2)

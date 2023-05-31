@@ -19,7 +19,7 @@
 
 # temporarily added for easier running
 sudo rm -rf temp_output/
-# sudo rm -rf .sse_temp/
+sudo rm -rf .sse_temp/
 
 file=".sse_config"
 
