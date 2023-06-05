@@ -84,3 +84,41 @@ Common Errors
     - once make finished, do: "cp perf /usr/bin"
     * note that to make perf, you will need flex and bison. 
 
+Setups & Installations:
+-------------
+1. Basics:
+    - check the machine you want to run EPerf on is intel machine that contains the needed hardware counters
+    - make sure rapl is working
+      wget https://web.eece.maine.edu/~vweaver/projects/rapl/rapl-read.c 
+      gcc -O2 -Wall -o rapl-read rapl-read.c -lm
+      sudo ./rapl-read 
+    - sudo modprobe msr
+    - install perf from source
+      git clone https://github.com/torvalds/linux.git
+      cd linux/tools/perf
+      make
+      sudo cp perf /usr/bin
+    - other basic installations
+      sudo apt-get install linux-tools-common linux-tools-generic
+      (might need to add kernal version 
+       e.g. sudo apt-get install linux-tools-5.4.0-139-generic linux-cloud-tools-5.4.0-139-generic)
+
+2. Python:
+    - sudo apt-get update
+    - sudo apt-get install python3
+    - sudo apt-get install python3-pip
+    - sudo pip install cvxpy
+    - sudo pip install matplotlib
+
+3. Running:
+    - update the labels with correct path for benchmarks and files in /scripts/run_perf.sh
+    - sudo ./scripts/run_perf.sh
+    - (sudo rm -rf data/data/bc_out_data if there is such file being generated)
+    - sudo ./scripts/calc.sh
+    - see results in temp_output folder
+    - if any benchmark is not working, rerun make in its directory.
+    - if changes are made in any source files, rerun make for the "fifth" executable 
+
+
+     
+
