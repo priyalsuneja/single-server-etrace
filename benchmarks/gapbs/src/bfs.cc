@@ -259,7 +259,8 @@ void bfs_measure() {
 
 
 int main(int argc, char* argv[]) {
-
+  printf("bfs_out\n");
+  printf("main: %p\n", &main);
   gargc = argc;
   gargv = argv;
 

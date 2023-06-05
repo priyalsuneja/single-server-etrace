@@ -139,7 +139,7 @@ int get_cpu_info(int cpu_model, int cpu_info[3], double energy_units[2]) {
     return 0;
 }
 
-void sig_handler(int signum) {
+void sig_handler(int signum, siginfo_t* info, void* ucontext) {
     int fd = open_msr(0);
 
     long long result = read_msr(fd, MSR_PKG_ENERGY_STATUS);
@@ -148,6 +148,8 @@ void sig_handler(int signum) {
 
     reading = (double)result*energy_units[0];
     fprintf(fptr, "%f\n", reading);
+
+    fprintf(fptr, "%p\n", info->si_call_addr);
 
 //     sig_triggered = 1;
 }
@@ -161,7 +163,10 @@ void measure_msr(char* filename, void (*func_ptr)()) {
         return;
     }
 
-    signal(SIGALRM, sig_handler);
+    struct sigaction sa;
+    sa.sa_sigaction = &sig_handler;
+    sa.sa_flags = SA_SIGINFO;
+    sigaction(SIGALRM, (const struct sigaction*)&sa, NULL);
 
     ualarm(50*1000, 50*1000); // 1000 us = 1ms,; 0.5s = 500 ms
 //     sig_handler(SIGALRM);
